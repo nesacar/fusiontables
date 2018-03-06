@@ -18,11 +18,11 @@ class CollectionsController extends Controller
     }
 
     public function store(CreateCollectionRequest $request){
-        app()->setLocale('en');
+        app()->setLocale('sr');
         $collection = new Collection();
         $collection->title = request('title');
         request('slug')? $collection->slug = str_slug(request('slug')) : $collection->slug = str_slug(request('title'));
-        $collection->desc = request('desc');
+        $collection->short = request('short');
         $collection->parent = request('parent');
         $collection->order = request('order');
         request('publish')? $collection->publish = true : $collection->publish = false;
@@ -34,7 +34,7 @@ class CollectionsController extends Controller
     }
 
     public function show($id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $collection = Collection::find($id);
         return response()->json([
@@ -54,12 +54,12 @@ class CollectionsController extends Controller
     }
 
     public function updateLang(CreateCollectionRequest $request, $id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $collection = Collection::find($id);
         $collection->title = request('title');
         request('slug')? $collection->slug = str_slug(request('slug')) : $collection->slug = str_slug(request('title'));
-        $collection->desc = request('desc');
+        $collection->short = request('short');
         $collection->update($request->except('image', 'slug'));
         return response()->json([
             'collection' => $collection

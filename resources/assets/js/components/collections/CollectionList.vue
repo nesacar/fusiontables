@@ -5,8 +5,8 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li>Collections</li>
+                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
+                            <li>Kolekcije</li>
                         </ul>
                     </div>
                 </div>
@@ -21,11 +21,11 @@
                             <thead>
                             <tr>
                                 <th scope="col">id</th>
-                                <th scope="col">title</th>
-                                <th scope="col">publish</th>
-                                <th scope="col">lang</th>
-                                <th scope="col">created at</th>
-                                <th>action</th>
+                                <th scope="col">naslov</th>
+                                <th scope="col">publikovano</th>
+                                <th scope="col">jezik</th>
+                                <th scope="col">kreirano</th>
+                                <th>akcija</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -102,23 +102,24 @@
             },
             deleteRow(row){
                 swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Da li ste sigurni?',
+                    text: "Nećete moći da povratite radnju!",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#51d2b7',
                     cancelButtonColor: '#fb9678',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Da, obriši ga!',
+                    cancelButtonText: 'Odustani'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete('api/collections/' + row.id)
+                        axios.delete('api/users/' + row.id)
                             .then(res => {
-                                this.collections = this.collections.filter(function (item) {
+                                this.users = this.users.filter(function (item) {
                                     return row.id != item.id;
                                 });
                                 swal(
-                                    'Deleted!',
-                                    'Your file has been deleted.',
+                                    'Obrisano!',
+                                    'Kolekcija je uspešno obrisana.',
                                     'success'
                                 );
                             })
@@ -126,7 +127,7 @@
                                 console.log(e);
                             });
                     }
-                })
+                });
             },
             clickToLink(index){
                 axios.get('api/collections?page=' + index)

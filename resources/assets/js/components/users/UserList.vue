@@ -113,7 +113,7 @@
                                 console.log(e);
                             });
                     }
-                })
+                });
             },
             clickToLink(index){
                 axios.get('api/users?page=' + index)

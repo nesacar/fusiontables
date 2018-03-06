@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/collections'">Collections</router-link></li>
-                            <li>Collection create</li>
+                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
+                            <li><router-link tag="a" :to="'/collections'">Kolekcije</router-link></li>
+                            <li>Kreiranje kolekcije</li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Collection create</h5>
+                        <h5>Kreiranje kolekcije</h5>
                     </div>
                 </div>
 
@@ -24,14 +24,14 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
-                                <label for="collections">Parent collection</label>
+                                <label for="collections">Nad kolekcija</label>
                                 <select name="collections" id="collections" class="form-control" v-model="collection.parent">
                                     <option :value="index" v-for="(collection, index) in collections">{{ collection }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="collection.title">
+                                <label for="title">Naslov</label>
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="collection.title">
                                 <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                             </div>
                             <div class="form-group">
@@ -40,24 +40,24 @@
                                 <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="title">Order</label>
-                                <input type="text" name="order" class="form-control" id="order" placeholder="Order" v-model="collection.order">
+                                <label for="title">Redosled</label>
+                                <input type="text" name="order" class="form-control" id="order" placeholder="Redosled" v-model="collection.order">
                                 <small class="form-text text-muted" v-if="error != null && error.order">{{ error.order[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label>Collection description</label>
+                                <label>Opis</label>
                                 <ckeditor
-                                        v-model="collection.desc"
+                                        v-model="collection.short"
                                         :config="config">
                                 </ckeditor>
-                                <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                                <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label>Published</label><br>
+                                <label>Publikovano</label><br>
                                 <switches v-model="collection.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Create</button>
+                                <button class="btn btn-primary" type="submit">Kreiraj</button>
                             </div>
                         </form>
                     </div>
@@ -66,12 +66,13 @@
                     <upload-image-helper
                             :image="collection.image"
                             :defaultImage="null"
-                            :titleImage="'Collection'"
+                            :titleImage="'kolekcije'"
                             :error="error"
                             @uploadImage="upload($event)"
                             @removeRow="remove($event)"
                     ></upload-image-helper>
 
+                    <!--
                     <upload-image-helper
                             :image="collection.heroImage"
                             :defaultImage="null"
@@ -89,6 +90,7 @@
                             @uploadImage="uploadHeroImageMobile($event)"
                             @removeRow="remove($event)"
                     ></upload-image-helper>
+                    -->
                 </div>
             </div>
         </div>
@@ -107,7 +109,7 @@
           return {
               collections: {},
               collection: {
-                  desc: null,
+                  short: null,
                   publish: false
               },
               error: null,

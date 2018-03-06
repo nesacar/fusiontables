@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/collections'">Collections</router-link></li>
-                            <li>Collection edit</li>
+                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
+                            <li><router-link tag="a" :to="'/collections'">Kolekcije</router-link></li>
+                            <li>Izmena kolekcije</li>
                         </ul>
                     </div>
                 </div>
@@ -16,39 +16,40 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Collection edit</h5>
+                        <h5>Izmena kolekcije</h5>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>General info</h5>
+                        <h5>Generalne informacije</h5>
                         <hr>
                         <form @submit.prevent="general()">
                             <div class="form-group">
-                                <label for="collections">Parent collection</label>
+                                <label for="collections">Nad kolekcija</label>
                                 <select name="collections" id="collections" class="form-control" v-model="collection.parent">
                                     <option :value="index" v-for="(coll, index) in collections" v-if="index != collection.id">{{ coll }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="title">Order</label>
-                                <input type="text" name="order" class="form-control" id="order" placeholder="Order" v-model="collection.order">
+                                <label for="title">Redosled</label>
+                                <input type="text" name="order" class="form-control" id="order" placeholder="Redosled" v-model="collection.order">
                                 <small class="form-text text-muted" v-if="error != null && error.order">{{ error.order[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label>Published</label><br>
+                                <label>Publikovano</label><br>
                                 <switches v-model="collection.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <upload-image-helper
                                     :image="collection.image"
                                     :defaultImage="null"
-                                    :titleImage="'Collection'"
+                                    :titleImage="'kolekcije'"
                                     :error="error"
                                     @uploadImage="upload($event)"
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
 
+                            <!--
                             <upload-image-helper
                                     :image="collection.heroImage"
                                     :defaultImage="null"
@@ -66,31 +67,32 @@
                                     @uploadImage="uploadHeroImageMobile($event)"
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
+                            -->
 
                                 <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">Edit general</button>
+                                    <button class="btn btn-primary" type="submit">Izmeni generalno</button>
                                 </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="card">
-                        <h5>Language info</h5>
+                        <h5>Jezičke informacije</h5>
                         <hr>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="home" aria-selected="true">English</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#srb" role="tab" aria-controls="home" aria-selected="true">Srpski</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#ita" role="tab" aria-controls="contact" aria-selected="false">Italian</a>
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="contact" aria-selected="false">Engleski</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="eng" role="tabpanel" aria-labelledby="home-tab">
-                                <form @submit.prevent="submit('en')">
+                            <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="home-tab">
+                                <form @submit.prevent="submit('sr')">
                                     <div class="form-group">
-                                        <label for="title">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="collection.title">
+                                        <label for="title">Naslov</label>
+                                        <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="collection.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
@@ -99,44 +101,44 @@
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Collection description</label>
+                                        <label>Opis</label>
                                         <ckeditor
-                                                v-model="collection.desc"
+                                                v-model="collection.short"
                                                 :config="config">
                                         </ckeditor>
-                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                                        <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Edit on English</button>
+                                        <button class="btn btn-primary" type="submit">Izmeni srpski</button>
                                     </div>
                                 </form>
-                            </div><!-- #eng -->
+                            </div><!-- #srb -->
 
-                            <div class="tab-pane fade" id="ita" role="tabpanel" aria-labelledby="contact-tab">
-                                <form @submit.prevent="submit('it')">
+                            <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="contact-tab">
+                                <form @submit.prevent="submit('en')">
                                     <div class="form-group">
-                                        <label for="title2">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Title" v-model="collectionIta.title">
+                                        <label for="title2">Naslov</label>
+                                            <input type="text" name="title" class="form-control" id="title2" placeholder="Naslov" v-model="collectionEng.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="slug2">Slug</label>
-                                        <input type="text" name="slug" class="form-control" id="slug2" placeholder="Slug" v-model="collectionIta.slug">
+                                        <input type="text" name="slug" class="form-control" id="slug2" placeholder="Slug" v-model="collectionEng.slug">
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Collection description</label>
+                                        <label>Opis</label>
                                         <ckeditor
-                                                v-model="collectionIta.desc"
+                                                v-model="collectionEng.short"
                                                 :config="config">
                                         </ckeditor>
-                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                                        <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Edit on Italian</button>
+                                        <button class="btn btn-primary" type="submit">Izmeni engleski</button>
                                     </div>
                                 </form>
-                            </div><!-- #ita -->
+                            </div><!-- #eng -->
                         </div>
                     </div>
                 </div>
@@ -157,7 +159,7 @@
           return {
               collection: {},
               collections: {},
-              collectionIta: {},
+              collectionEng: {},
               error: null,
               config: {
                   toolbar: [
@@ -178,8 +180,8 @@
             'ckeditor': Ckeditor
         },
         created(){
+            this.getCollection('sr');
             this.getCollection('en');
-            this.getCollection('it');
             this.getParentCollections();
         },
         methods: {
@@ -196,10 +198,10 @@
                 axios.get('api/collections/' + this.$route.params.id + '?locale=' + locale)
                     .then(res => {
                         if(res.data.collection != null){
-                            if(locale == 'en'){
+                            if(locale == 'sr'){
                                 this.collection = res.data.collection;
                             }else{
-                                this.collectionIta = res.data.collection;
+                                this.collectionEng = res.data.collection;
                             }
                         }
                     })
@@ -210,22 +212,22 @@
             },
             submit(locale){
                 let data = {};
-                if(locale == 'en'){
+                if(locale == 'sr'){
                     data = this.collection;
                 }else{
-                    data = this.collectionIta;
+                    data = this.collectionEng;
                 }
                 axios.post('api/collections/' + this.collection.id + '/lang?locale=' + locale, data)
                     .then(res => {
-                        if(locale == 'en'){
+                        if(locale == 'sr'){
                             this.collection = res.data.collection;
                         }else{
-                            this.collectionIta = res.data.collection;
+                            this.collectionEng = res.data.collection;
                         }
                         swal({
                             position: 'center',
                             type: 'success',
-                            title: 'Success',
+                            title: 'Uspeh',
                             showConfirmButton: false,
                             timer: 1500
                         });

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostTranslationsTable extends Migration
+class CreateCollectionTranslationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreatePostTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_translations', function (Blueprint $table) {
+        Schema::create('collection_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('post_id')->unsigned();
+            $table->integer('collection_id')->unsigned();
 
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->text('short')->nullable();
-            $table->text('body')->nullable();
             $table->string('locale')->index();
 
-            $table->unique(['post_id','locale']);
-            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->unique(['collection_id','locale']);
+            $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -36,6 +35,6 @@ class CreatePostTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_translations');
+        Schema::dropIfExists('collection_translations');
     }
 }

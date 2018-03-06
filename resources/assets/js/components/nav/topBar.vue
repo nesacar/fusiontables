@@ -5,7 +5,7 @@
                 <div class="logo-holder">
                     <div class="logo">
                         <a :href="domain" target="_blank">
-                            <img :src="domain + 'img/vue-logo.png'" alt="Vue Admin Panel">
+                            <img :src="domain + 'img/logo.png'" alt="Fusion Tables">
                         </a>
                     </div>
                 </div>

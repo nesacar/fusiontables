@@ -54094,8 +54094,8 @@ var render = function() {
             _c("a", { attrs: { href: _vm.domain, target: "_blank" } }, [
               _c("img", {
                 attrs: {
-                  src: _vm.domain + "img/vue-logo.png",
-                  alt: "Vue Admin Panel"
+                  src: _vm.domain + "img/logo.png",
+                  alt: "Fusion Tables"
                 }
               })
             ])
@@ -54985,7 +54985,7 @@ var render = function() {
                 _c("img", {
                   attrs: {
                     src: _vm.domain + "img/logo.png",
-                    alt: "Vue Admin Panel"
+                    alt: "Fusion Tables"
                   }
                 })
               ])

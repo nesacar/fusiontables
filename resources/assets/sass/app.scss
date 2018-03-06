@@ -1,0 +1,18 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+//Media manager
+
+@import "mixin";
+@import "navigation";
+@import "place";
+
+body{
+  overflow-x: hidden;
+}

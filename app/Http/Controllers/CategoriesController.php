@@ -10,6 +10,7 @@ use File;
 class CategoriesController extends Controller
 {
     public function index(){
+        app()->setLocale('sr');
         $categories = Category::select('categories.id as id', 'category_translations.title as title', 'categories.publish as publish', 'categories.created_at as created_at')
             ->join('category_translations', 'categories.id', '=', 'category_translations.category_id')
             ->orderBy('categories.created_at', 'DESC')->groupBy('categories.id')->paginate(50);
@@ -19,7 +20,7 @@ class CategoriesController extends Controller
     }
 
     public function store(CreateCategoryRequest $request){
-        app()->setLocale('en');
+        app()->setLocale('sr');
         $category = new Category();
         $category->title = request('title');
         request('slug')? $category->slug = str_slug(request('slug')) : $category->slug = str_slug(request('title'));
@@ -34,7 +35,7 @@ class CategoriesController extends Controller
     }
 
     public function show($id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $category = Category::find($id);
         return response()->json([
@@ -52,7 +53,7 @@ class CategoriesController extends Controller
     }
 
     public function updateLang(CreateCategoryRequest $request, $id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $category = Category::find($id);
         $category->title = request('title');
@@ -81,7 +82,7 @@ class CategoriesController extends Controller
     }
 
     public function lists(){
-        $locale = 'en';
+        $locale = 'sr';
         app()->setLocale($locale);
         $categories = Category::join('category_translations', 'categories.id', '=', 'category_translations.category_id')
             ->where('categories.publish', 1)->orderBy('category_translations.title', 'ASC')->where('category_translations.locale', $locale)

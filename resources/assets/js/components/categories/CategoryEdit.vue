@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/categories'">Categories</router-link></li>
-                            <li>Category edit</li>
+                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
+                            <li><router-link tag="a" :to="'/categories'">Kategorije</router-link></li>
+                            <li>Izmena kategorije</li>
                         </ul>
                     </div>
                 </div>
@@ -16,38 +16,38 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Category edit</h5>
+                        <h5>Izmena kategorije</h5>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>General info</h5>
+                        <h5>Generalne informacije</h5>
                         <hr>
                         <form @submit.prevent="general()">
                             <div class="form-group">
-                                <label>Published</label><br>
+                                <label>Publikovano</label><br>
                                 <switches v-model="category.publish" theme="bootstrap" color="primary"></switches>
                             </div>
 
                             <upload-image-helper
                                     :image="category.image"
                                     :defaultImage="null"
-                                    :titleImage="'Category'"
+                                    :titleImage="'kategorije'"
                                     :error="error"
                                     @uploadImage="upload($event)"
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
 
                                 <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">Edit general</button>
+                                    <button class="btn btn-primary" type="submit">Izmeni generalna</button>
                                 </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="card">
-                        <h5>Language info</h5>
+                        <h5>Jezičke informacije</h5>
                         <hr>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -61,8 +61,8 @@
                             <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="home-tab">
                                 <form @submit.prevent="submit('sr')">
                                     <div class="form-group">
-                                        <label for="title">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="category.title">
+                                        <label for="title">Naslov</label>
+                                        <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="category.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
@@ -71,7 +71,7 @@
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Category description</label>
+                                        <label>Opis</label>
                                         <ckeditor
                                                 v-model="category.short"
                                                 :config="config">
@@ -79,7 +79,7 @@
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Izmeni na srpski</button>
+                                        <button class="btn btn-primary" type="submit">Izmeni srpski</button>
                                     </div>
                                 </form>
                             </div><!-- #srb -->
@@ -87,8 +87,8 @@
                             <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="contact-tab">
                                 <form @submit.prevent="submit('en')">
                                     <div class="form-group">
-                                        <label for="title2">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Title" v-model="categoryEng.title">
+                                        <label for="title2">Naslov</label>
+                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Naslov" v-model="categoryEng.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
@@ -97,7 +97,7 @@
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Category description</label>
+                                        <label>Opis</label>
                                         <ckeditor
                                                 v-model="categoryEng.short"
                                                 :config="config">
@@ -105,7 +105,7 @@
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Edit on english</button>
+                                        <button class="btn btn-primary" type="submit">Izmeni engleski</button>
                                     </div>
                                 </form>
                             </div><!-- #eng -->

@@ -55198,7 +55198,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("Posts")]
+                  [_vm._v("Članci")]
                 ),
                 _vm._v(" "),
                 _c("font-awesome-icon", { attrs: { icon: "paste" } }),
@@ -55208,7 +55208,7 @@ var render = function() {
                     "li",
                     [
                       _c("router-link", { attrs: { tag: "a", to: "/posts" } }, [
-                        _vm._v("Post review")
+                        _vm._v("Pregled članaka")
                       ])
                     ],
                     1
@@ -55220,7 +55220,7 @@ var render = function() {
                       _c(
                         "router-link",
                         { attrs: { tag: "a", to: "/categories" } },
-                        [_vm._v("Category review")]
+                        [_vm._v("Pregled kategorija")]
                       )
                     ],
                     1
@@ -62540,20 +62540,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Da li ste sigurni?',
+                text: "Nećete moći da povratite radnju!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#51d2b7',
                 cancelButtonColor: '#fb9678',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Da, obriši ga!',
+                cancelButtonText: 'Odustani'
             }).then(function (result) {
                 if (result.value) {
-                    axios.delete('api/categories/' + row.id).then(function (res) {
+                    axios.delete('api/users/' + row.id).then(function (res) {
                         _this2.categories = _this2.categories.filter(function (item) {
                             return row.id != item.id;
                         });
-                        __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()('Deleted!', 'Your file has been deleted.', 'success');
+                        __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()('Obrisano!', 'Kategorija je uspešno obrisana.', 'success');
                     }).catch(function (e) {
                         console.log(e);
                     });
@@ -62592,13 +62593,13 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/home" } }, [
-                    _vm._v("Home")
+                    _vm._v("Početna")
                   ])
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Categories")])
+              _c("li", [_vm._v("Kategorije")])
             ])
           ])
         ])
@@ -62693,15 +62694,15 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("id")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("title")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("naslov")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("publish")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("publikovano")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("lang")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("jezik")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("created at")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("kreirano")]),
         _vm._v(" "),
-        _c("th", [_vm._v("action")])
+        _c("th", [_vm._v("akcija")])
       ])
     ])
   }
@@ -62856,7 +62857,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             category: {
-                desc: null,
+                short: null,
                 publish: false
             },
             error: null,
@@ -62882,7 +62883,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
                     position: 'center',
                     type: 'success',
-                    title: 'Success',
+                    title: 'Uspeh',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -63101,7 +63102,7 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/home" } }, [
-                    _vm._v("Home")
+                    _vm._v("Početna")
                   ])
                 ],
                 1
@@ -63113,13 +63114,13 @@ var render = function() {
                   _c(
                     "router-link",
                     { attrs: { tag: "a", to: "/categories" } },
-                    [_vm._v("Categories")]
+                    [_vm._v("Kategorije")]
                   )
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Category create")])
+              _c("li", [_vm._v("Kreiraj kategoriju")])
             ])
           ])
         ])
@@ -63142,7 +63143,7 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+                  _c("label", { attrs: { for: "title" } }, [_vm._v("Naslov")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -63158,7 +63159,7 @@ var render = function() {
                       type: "text",
                       name: "title",
                       id: "title",
-                      placeholder: "Title"
+                      placeholder: "Naslov"
                     },
                     domProps: { value: _vm.category.title },
                     on: {
@@ -63219,7 +63220,7 @@ var render = function() {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("label", [_vm._v("Category description")]),
+                    _c("label", [_vm._v("Opis")]),
                     _vm._v(" "),
                     _c("ckeditor", {
                       attrs: { config: _vm.config },
@@ -63245,7 +63246,7 @@ var render = function() {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("label", [_vm._v("Published")]),
+                    _c("label", [_vm._v("Publikovano")]),
                     _c("br"),
                     _vm._v(" "),
                     _c("switches", {
@@ -63276,7 +63277,7 @@ var render = function() {
               attrs: {
                 image: _vm.category.image,
                 defaultImage: null,
-                titleImage: "Category",
+                titleImage: "kategorije",
                 error: _vm.error
               },
               on: {
@@ -63302,7 +63303,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
       _c("div", { staticClass: "card" }, [
-        _c("h5", [_vm._v("Category create")])
+        _c("h5", [_vm._v("Kreiraj kategoriju")])
       ])
     ])
   },
@@ -63314,7 +63315,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Create")]
+        [_vm._v("Kreiraj")]
       )
     ])
   }
@@ -63643,7 +63644,7 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/home" } }, [
-                    _vm._v("Home")
+                    _vm._v("Početna")
                   ])
                 ],
                 1
@@ -63655,13 +63656,13 @@ var render = function() {
                   _c(
                     "router-link",
                     { attrs: { tag: "a", to: "/categories" } },
-                    [_vm._v("Categories")]
+                    [_vm._v("Kategorije")]
                   )
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Category edit")])
+              _c("li", [_vm._v("Izmena kategorije")])
             ])
           ])
         ])
@@ -63672,7 +63673,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("General info")]),
+            _c("h5", [_vm._v("Generalne informacije")]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
@@ -63691,7 +63692,7 @@ var render = function() {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("label", [_vm._v("Published")]),
+                    _c("label", [_vm._v("Publikovano")]),
                     _c("br"),
                     _vm._v(" "),
                     _c("switches", {
@@ -63712,7 +63713,7 @@ var render = function() {
                   attrs: {
                     image: _vm.category.image,
                     defaultImage: null,
-                    titleImage: "Category",
+                    titleImage: "kategorije",
                     error: _vm.error
                   },
                   on: {
@@ -63734,7 +63735,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("Language info")]),
+            _c("h5", [_vm._v("Jezičke informacije")]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
@@ -63768,7 +63769,7 @@ var render = function() {
                       [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "title" } }, [
-                            _vm._v("Title")
+                            _vm._v("Naslov")
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -63785,7 +63786,7 @@ var render = function() {
                               type: "text",
                               name: "title",
                               id: "title",
-                              placeholder: "Title"
+                              placeholder: "Naslov"
                             },
                             domProps: { value: _vm.category.title },
                             on: {
@@ -63860,7 +63861,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c("label", [_vm._v("Category description")]),
+                            _c("label", [_vm._v("Opis")]),
                             _vm._v(" "),
                             _c("ckeditor", {
                               attrs: { config: _vm.config },
@@ -63914,7 +63915,7 @@ var render = function() {
                       [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "title2" } }, [
-                            _vm._v("Title")
+                            _vm._v("Naslov")
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -63931,7 +63932,7 @@ var render = function() {
                               type: "text",
                               name: "title",
                               id: "title2",
-                              placeholder: "Title"
+                              placeholder: "Naslov"
                             },
                             domProps: { value: _vm.categoryEng.title },
                             on: {
@@ -64006,7 +64007,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c("label", [_vm._v("Category description")]),
+                            _c("label", [_vm._v("Opis")]),
                             _vm._v(" "),
                             _c("ckeditor", {
                               attrs: { config: _vm.config },
@@ -64049,7 +64050,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Category edit")])])
+      _c("div", { staticClass: "card" }, [
+        _c("h5", [_vm._v("Izmena kategorije")])
+      ])
     ])
   },
   function() {
@@ -64060,7 +64063,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Edit general")]
+        [_vm._v("Izmeni generalna")]
       )
     ])
   },
@@ -64118,7 +64121,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Izmeni na srpski")]
+        [_vm._v("Izmeni srpski")]
       )
     ])
   },
@@ -64130,7 +64133,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Edit on english")]
+        [_vm._v("Izmeni engleski")]
       )
     ])
   }
@@ -64306,20 +64309,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Da li ste sigurni?',
+                text: "Nećete moći da povratite radnju!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#51d2b7',
                 cancelButtonColor: '#fb9678',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Da, obriši ga!',
+                cancelButtonText: 'Odustani'
             }).then(function (result) {
                 if (result.value) {
-                    axios.delete('api/posts/' + row.id).then(function (res) {
+                    axios.delete('api/users/' + row.id).then(function (res) {
                         _this2.posts = _this2.posts.filter(function (item) {
                             return row.id != item.id;
                         });
-                        __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()('Deleted!', 'Your file has been deleted.', 'success');
+                        __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()('Obrisano!', 'Čkanak je uspešno obrisan.', 'success');
                     }).catch(function (e) {
                         console.log(e);
                     });
@@ -64380,13 +64384,13 @@ var render = function() {
                   "li",
                   [
                     _c("router-link", { attrs: { tag: "a", to: "/home" } }, [
-                      _vm._v("Home")
+                      _vm._v("Početna")
                     ])
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _c("li", [_vm._v("Posts")])
+                _c("li", [_vm._v("Članci")])
               ])
             ])
           ])
@@ -64494,17 +64498,17 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("id")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("title")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("naslov")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("category")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("kategorija")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("publish")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("publikovano")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("lang")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("jezik")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("created at")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("kreirano")]),
         _vm._v(" "),
-        _c("th", [_vm._v("action")])
+        _c("th", [_vm._v("akcija")])
       ])
     ])
   }
@@ -64755,7 +64759,7 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/home" } }, [
-                    _vm._v("Home")
+                    _vm._v("Početna")
                   ])
                 ],
                 1
@@ -64765,13 +64769,13 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/posts" } }, [
-                    _vm._v("Posts")
+                    _vm._v("Članci")
                   ])
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Post create")])
+              _c("li", [_vm._v("Kreiranje članka")])
             ])
           ])
         ])
@@ -64795,7 +64799,7 @@ var render = function() {
               [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "category" } }, [
-                    _vm._v("Category")
+                    _vm._v("Kategorija")
                   ]),
                   _vm._v(" "),
                   _c(
@@ -64846,7 +64850,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+                  _c("label", { attrs: { for: "title" } }, [_vm._v("Naslov")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -64862,7 +64866,7 @@ var render = function() {
                       type: "text",
                       name: "title",
                       id: "title",
-                      placeholder: "Title"
+                      placeholder: "Naslov"
                     },
                     domProps: { value: _vm.post.title },
                     on: {
@@ -64920,7 +64924,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "short" } }, [_vm._v("Short")]),
+                  _c("label", { attrs: { for: "short" } }, [
+                    _vm._v("Kratak opis")
+                  ]),
                   _vm._v(" "),
                   _c("textarea", {
                     directives: [
@@ -64937,7 +64943,7 @@ var render = function() {
                       id: "short",
                       cols: "3",
                       rows: "4",
-                      placeholder: "Short text"
+                      placeholder: "Kratak opis"
                     },
                     domProps: { value: _vm.post.short },
                     on: {
@@ -64961,7 +64967,7 @@ var render = function() {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("label", [_vm._v("Body")]),
+                    _c("label", [_vm._v("Opis")]),
                     _vm._v(" "),
                     _c("ckeditor", {
                       attrs: { config: _vm.config },
@@ -64987,7 +64993,7 @@ var render = function() {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("label", [_vm._v("Published")]),
+                    _c("label", [_vm._v("Publikovano")]),
                     _c("br"),
                     _vm._v(" "),
                     _c("switches", {
@@ -65018,7 +65024,7 @@ var render = function() {
               attrs: {
                 image: _vm.post.image,
                 defaultImage: null,
-                titleImage: "Post",
+                titleImage: "članka",
                 error: _vm.error
               },
               on: {
@@ -65043,7 +65049,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Post create")])])
+      _c("div", { staticClass: "card" }, [
+        _c("h5", [_vm._v("Kreiranje članka")])
+      ])
     ])
   },
   function() {
@@ -65054,7 +65062,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Create")]
+        [_vm._v("Kreiraj")]
       )
     ])
   }
@@ -65301,7 +65309,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             post: {},
-            postIta: {},
+            postEng: {},
             error: null,
             lists: {},
             photos: {},
@@ -65335,8 +65343,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'vue-dropzone': __WEBPACK_IMPORTED_MODULE_5_vue2_dropzone___default.a
     },
     created: function created() {
+        this.getPost('sr');
         this.getPost('en');
-        this.getPost('it');
         this.getList();
         //this.getPhotos();
     },
@@ -65362,18 +65370,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             var data = {};
-            if (locale == 'en') {
+            if (locale == 'sr') {
                 data = this.post;
                 this.post.user_id = this.user.id;
             } else {
-                data = this.postIta;
-                this.postIta.user_id = this.user.id;
+                data = this.postEng;
+                this.postEng.user_id = this.user.id;
             }
             axios.post('api/posts/' + this.post.id + '/lang?locale=' + locale, data).then(function (res) {
-                if (locale == 'en') {
+                if (locale == 'sr') {
                     _this2.post = res.data.post;
                 } else {
-                    _this2.postIta = res.data.post;
+                    _this2.postEng = res.data.post;
                 }
                 __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
                     position: 'center',
@@ -69464,7 +69472,7 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/home" } }, [
-                    _vm._v("Home")
+                    _vm._v("Početna")
                   ])
                 ],
                 1
@@ -69474,13 +69482,13 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/posts" } }, [
-                    _vm._v("Posts")
+                    _vm._v("Članci")
                   ])
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Product edit")])
+              _c("li", [_vm._v("Izmena članka")])
             ])
           ])
         ])
@@ -69491,7 +69499,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("General info")]),
+            _c("h5", [_vm._v("Generalne informacije")]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
@@ -69508,7 +69516,7 @@ var render = function() {
               [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "category" } }, [
-                    _vm._v("Category")
+                    _vm._v("Kategorija")
                   ]),
                   _vm._v(" "),
                   _c(
@@ -69562,7 +69570,7 @@ var render = function() {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("label", [_vm._v("Published")]),
+                    _c("label", [_vm._v("Publikovano")]),
                     _c("br"),
                     _vm._v(" "),
                     _c("switches", {
@@ -69583,7 +69591,7 @@ var render = function() {
                   attrs: {
                     image: _vm.post.image,
                     defaultImage: null,
-                    titleImage: "Post",
+                    titleImage: "članka",
                     error: _vm.error
                   },
                   on: {
@@ -69605,7 +69613,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("Language info")]),
+            _c("h5", [_vm._v("Jezičke informacije")]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
@@ -69620,7 +69628,7 @@ var render = function() {
                   {
                     staticClass: "tab-pane fade show active",
                     attrs: {
-                      id: "eng",
+                      id: "srb",
                       role: "tabpanel",
                       "aria-labelledby": "home-tab"
                     }
@@ -69632,14 +69640,14 @@ var render = function() {
                         on: {
                           submit: function($event) {
                             $event.preventDefault()
-                            _vm.submit("en")
+                            _vm.submit("sr")
                           }
                         }
                       },
                       [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "title" } }, [
-                            _vm._v("Title")
+                            _vm._v("Naslov")
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -69656,7 +69664,7 @@ var render = function() {
                               type: "text",
                               name: "title",
                               id: "title",
-                              placeholder: "Title"
+                              placeholder: "Naslov"
                             },
                             domProps: { value: _vm.post.title },
                             on: {
@@ -69721,7 +69729,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "short" } }, [
-                            _vm._v("Short")
+                            _vm._v("Kratak opis")
                           ]),
                           _vm._v(" "),
                           _c("textarea", {
@@ -69739,7 +69747,7 @@ var render = function() {
                               id: "short",
                               cols: "3",
                               rows: "4",
-                              placeholder: "Short text"
+                              placeholder: "Kratak opis"
                             },
                             domProps: { value: _vm.post.short },
                             on: {
@@ -69765,7 +69773,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c("label", [_vm._v("Body")]),
+                            _c("label", [_vm._v("Opis")]),
                             _vm._v(" "),
                             _c("ckeditor", {
                               attrs: { config: _vm.config },
@@ -69800,7 +69808,7 @@ var render = function() {
                   {
                     staticClass: "tab-pane fade",
                     attrs: {
-                      id: "ita",
+                      id: "eng",
                       role: "tabpanel",
                       "aria-labelledby": "contact-tab"
                     }
@@ -69812,14 +69820,14 @@ var render = function() {
                         on: {
                           submit: function($event) {
                             $event.preventDefault()
-                            _vm.submit("it")
+                            _vm.submit("en")
                           }
                         }
                       },
                       [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "title2" } }, [
-                            _vm._v("Title")
+                            _vm._v("Naslov")
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -69827,8 +69835,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.postIta.title,
-                                expression: "postIta.title"
+                                value: _vm.postEng.title,
+                                expression: "postEng.title"
                               }
                             ],
                             staticClass: "form-control",
@@ -69836,16 +69844,16 @@ var render = function() {
                               type: "text",
                               name: "title",
                               id: "title2",
-                              placeholder: "Title"
+                              placeholder: "Naslov"
                             },
-                            domProps: { value: _vm.postIta.title },
+                            domProps: { value: _vm.postEng.title },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(
-                                  _vm.postIta,
+                                  _vm.postEng,
                                   "title",
                                   $event.target.value
                                 )
@@ -69872,8 +69880,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.postIta.slug,
-                                expression: "postIta.slug"
+                                value: _vm.postEng.slug,
+                                expression: "postEng.slug"
                               }
                             ],
                             staticClass: "form-control",
@@ -69883,14 +69891,14 @@ var render = function() {
                               id: "slug2",
                               placeholder: "Slug"
                             },
-                            domProps: { value: _vm.postIta.slug },
+                            domProps: { value: _vm.postEng.slug },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(
-                                  _vm.postIta,
+                                  _vm.postEng,
                                   "slug",
                                   $event.target.value
                                 )
@@ -69909,7 +69917,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "shortIta" } }, [
-                            _vm._v("Short")
+                            _vm._v("Kratak opis")
                           ]),
                           _vm._v(" "),
                           _c("textarea", {
@@ -69917,8 +69925,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.postIta.short,
-                                expression: "postIta.short"
+                                value: _vm.postEng.short,
+                                expression: "postEng.short"
                               }
                             ],
                             staticClass: "form-control",
@@ -69927,16 +69935,16 @@ var render = function() {
                               id: "shortIta",
                               cols: "3",
                               rows: "4",
-                              placeholder: "Short text"
+                              placeholder: "Kratak opis"
                             },
-                            domProps: { value: _vm.postIta.short },
+                            domProps: { value: _vm.postEng.short },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(
-                                  _vm.postIta,
+                                  _vm.postEng,
                                   "short",
                                   $event.target.value
                                 )
@@ -69957,16 +69965,16 @@ var render = function() {
                           "div",
                           { staticClass: "form-group" },
                           [
-                            _c("label", [_vm._v("Body")]),
+                            _c("label", [_vm._v("Opis")]),
                             _vm._v(" "),
                             _c("ckeditor", {
                               attrs: { config: _vm.config },
                               model: {
-                                value: _vm.postIta.body,
+                                value: _vm.postEng.body,
                                 callback: function($$v) {
-                                  _vm.$set(_vm.postIta, "body", $$v)
+                                  _vm.$set(_vm.postEng, "body", $$v)
                                 },
-                                expression: "postIta.body"
+                                expression: "postEng.body"
                               }
                             }),
                             _vm._v(" "),
@@ -70000,7 +70008,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Product edit")])])
+      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Izmena članka")])])
     ])
   },
   function() {
@@ -70011,7 +70019,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Edit general")]
+        [_vm._v("Izmeni generalno")]
       )
     ])
   },
@@ -70031,13 +70039,13 @@ var staticRenderFns = [
               attrs: {
                 id: "home-tab",
                 "data-toggle": "tab",
-                href: "#eng",
+                href: "#srb",
                 role: "tab",
                 "aria-controls": "home",
                 "aria-selected": "true"
               }
             },
-            [_vm._v("English")]
+            [_vm._v("Srpski")]
           )
         ]),
         _vm._v(" "),
@@ -70049,13 +70057,13 @@ var staticRenderFns = [
               attrs: {
                 id: "contact-tab",
                 "data-toggle": "tab",
-                href: "#ita",
+                href: "#eng",
                 role: "tab",
                 "aria-controls": "contact",
                 "aria-selected": "false"
               }
             },
-            [_vm._v("Italian")]
+            [_vm._v("Engleski")]
           )
         ])
       ]
@@ -70069,7 +70077,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Edit on English")]
+        [_vm._v("Izmeni engleski")]
       )
     ])
   },
@@ -70081,7 +70089,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Edit on Italian")]
+        [_vm._v("Izmeni engleski")]
       )
     ])
   }
@@ -70275,7 +70283,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (result) {
                 if (result.value) {
                     axios.delete('api/users/' + row.id).then(function (res) {
-                        _this3.users = _this3.users.filter(function (item) {
+                        _this3.collections = _this3.collections.filter(function (item) {
                             return row.id != item.id;
                         });
                         __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()('Obrisano!', 'Kolekcija je uspešno obrisana.', 'success');
@@ -72185,7 +72193,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (result) {
                 if (result.value) {
                     axios.delete('api/users/' + row.id).then(function (res) {
-                        _this2.users = _this2.users.filter(function (item) {
+                        _this2.products = _this2.products.filter(function (item) {
                             return row.id != item.id;
                         });
                         __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()('Obrisano!', 'Proizvod je uspešno obrisan.', 'success');

@@ -48,11 +48,11 @@
             </li>
             <li :class="{ 'active': showPostsItemActive }" :style="{ 'display': showPostsItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
-                <a href="#" @click="changeShowPostsItemActive()">Posts</a>
+                <a href="#" @click="changeShowPostsItemActive()">Članci</a>
                 <font-awesome-icon icon="paste" />
                 <ul>
-                    <li><router-link tag="a" :to="'/posts'">Post review</router-link></li>
-                    <li><router-link tag="a" :to="'/categories'">Category review</router-link></li>
+                    <li><router-link tag="a" :to="'/posts'">Pregled članaka</router-link></li>
+                    <li><router-link tag="a" :to="'/categories'">Pregled kategorija</router-link></li>
                 </ul>
             </li>
             <!--

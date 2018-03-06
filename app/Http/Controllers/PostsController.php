@@ -12,6 +12,7 @@ use File;
 class PostsController extends Controller
 {
     public function index(){
+        app()->setLocale('sr');
         $posts = Post::select('posts.id as id', 'post_translations.title as title', 'posts.publish as publish', 'posts.created_at as created_at', 'category_translations.title as category')
             ->join('post_translations', 'posts.id', '=', 'post_translations.post_id')
             ->join('categories', 'posts.category_id', '=', 'categories.id')
@@ -23,7 +24,7 @@ class PostsController extends Controller
     }
 
     public function store(CreatePostRequest $request){
-        app()->setLocale('en');
+        app()->setLocale('sr');
         $post = new Post();
         $post->user_id = request('user_id');
         $post->category_id = request('category_id');
@@ -41,7 +42,7 @@ class PostsController extends Controller
     }
 
     public function show($id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $post = Post::find($id);
         return response()->json([
@@ -61,7 +62,7 @@ class PostsController extends Controller
     }
 
     public function updateLang(UpdatePostLangRequest $request, $id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $post = Post::find($id);
         $post->user_id = request('user_id');

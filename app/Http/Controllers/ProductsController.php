@@ -14,6 +14,7 @@ use File;
 class ProductsController extends Controller
 {
     public function index(){
+        app()->setLocale('sr');
         $products = Product::select('products.id as id', 'product_translations.title as title', 'products.publish as publish', 'products.created_at as created_at', 'collection_translations.title as collection')
             ->join('product_translations', 'products.id', '=', 'product_translations.product_id')
             ->join('collections', 'products.collection_id', '=', 'collections.id')

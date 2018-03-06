@@ -107,7 +107,7 @@
                     if (result.value) {
                         axios.delete('api/users/' + row.id)
                             .then(res => {
-                                this.users = this.users.filter(function (item) {
+                                this.products = this.products.filter(function (item) {
                                     return row.id != item.id;
                                 });
                                 swal(

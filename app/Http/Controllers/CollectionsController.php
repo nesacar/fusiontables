@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class CollectionsController extends Controller
 {
     public function index(){
+        app()->setLocale('sr');
         $collections = Collection::select('collections.id as id', 'collection_translations.title as title', 'collections.publish as publish', 'collections.created_at as created_at')
             ->join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
             ->orderBy('collections.order', 'ASC')->groupBy('collections.id')->paginate(50);

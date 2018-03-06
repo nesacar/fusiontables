@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/posts'">Posts</router-link></li>
-                            <li>Post create</li>
+                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
+                            <li><router-link tag="a" :to="'/posts'">Članci</router-link></li>
+                            <li>Kreiranje članka</li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Post create</h5>
+                        <h5>Kreiranje članka</h5>
                     </div>
                 </div>
 
@@ -24,15 +24,15 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
-                                <label for="category">Category</label>
+                                <label for="category">Kategorija</label>
                                 <select name="category" id="category" class="form-control" v-model="post.category_id">
                                     <option :value="index" v-for="(category, index) in lists">{{ category }}</option>
                                 </select>
                                 <small class="form-text text-muted" v-if="error != null && error.category_id">{{ error.category_id[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="post.title">
+                                <label for="title">Naslov</label>
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="post.title">
                                 <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                             </div>
                             <div class="form-group">
@@ -41,12 +41,12 @@
                                 <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="short">Short</label>
-                                <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="post.short"></textarea>
+                                <label for="short">Kratak opis</label>
+                                <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Kratak opis" v-model="post.short"></textarea>
                                 <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                             </div>
                             <div class="form-group">
-                                    <label>Body</label>
+                                    <label>Opis</label>
                                 <ckeditor
                                         v-model="post.body"
                                         :config="config">
@@ -54,11 +54,11 @@
                                 <small class="form-text text-muted" v-if="error != null && error.body">{{ error.body[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label>Published</label><br>
+                                <label>Publikovano</label><br>
                                 <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Create</button>
+                                <button class="btn btn-primary" type="submit">Kreiraj</button>
                             </div>
                         </form>
                     </div>
@@ -67,7 +67,7 @@
                     <upload-image-helper
                             :image="post.image"
                             :defaultImage="null"
-                            :titleImage="'Post'"
+                            :titleImage="'članka'"
                             :error="error"
                             @uploadImage="upload($event)"
                             @removeRow="remove($event)"

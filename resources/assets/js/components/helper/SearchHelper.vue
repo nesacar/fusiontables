@@ -5,7 +5,7 @@
                 <form>
                     <div class="form-row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Search" :value="text" @keyup="changeText($event)">
+                            <input type="text" class="form-control" placeholder="Pretraga" :value="text" @keyup="changeText($event)">
                         </div>
                         <div class="col">
                             <select name="lists" id="lists" class="form-control" @change="changeList($event)">
@@ -13,7 +13,7 @@
                             </select>
                         </div>
                         <div class="col">
-                            <button class="btn btn-success pull-right" @click.prevent="submit()">Search</button>
+                            <button class="btn btn-success pull-right" @click.prevent="submit()">Pretraga</button>
                         </div>
                     </div>
                 </form>

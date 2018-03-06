@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/users'">Users</router-link></li>
-                            <li>Edit user</li>
+                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
+                            <li><router-link tag="a" :to="'/users'">Korisnici</router-link></li>
+                            <li>Izmena korisnika</li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Edit user</h5>
+                        <h5>Izmena korisnika</h5>
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name">Ime</label>
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Name" v-model="user.name">
                                 <small class="form-text text-muted" v-if="error != null && error.name">{{ error.name[0] }}</small>
                             </div>
@@ -34,23 +34,23 @@
                                 <small class="form-text text-muted" v-if="error != null && error.email">{{ error.email[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password">Lozinka</label>
                                 <input type="password" name="password" class="form-control" id="password" placeholder="Lozinka" v-model="user.password">
                                 <small class="form-text text-muted" v-if="error != null && error.password">{{ error.password[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="password_confirmation">Password confirmation</label>
-                                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Potvrda lozinka" v-model="user.password_confirmation">
+                                <label for="password_confirmation">Potvrda lozinke</label>
+                                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Potvrda lozinke" v-model="user.password_confirmation">
                             </div>
                             <div class="form-group">
                                 <label for="role">Pravo pristupa</label>
                                 <select name="role" class="form-control" id="role" v-model="user.role_id">
-                                    <option value="0" :selected="user.role_id == 0">Editor</option>
+                                    <option value="0" :selected="user.role_id == 0">Urednik</option>
                                     <option value="1" :selected="user.role_id == 1">Admin</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary">Izmeni</button>
                             </div>
                         </form>
                     </div>
@@ -89,7 +89,7 @@
                         swal({
                             position: 'center',
                             type: 'success',
-                            title: 'Success',
+                            title: 'Izmenjeno',
                             showConfirmButton: false,
                             timer: 1500
                         });

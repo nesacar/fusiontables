@@ -101,7 +101,7 @@ class CollectionsController extends Controller
         app()->setLocale($locale);
         $collections = Collection::join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
             ->where('collections.publish', 1)->orderBy('collection_translations.title', 'ASC')->where('collection_translations.locale', $locale)
-            ->pluck('collection_translations.title', 'collections.id')->prepend('Without collection', 0);
+            ->pluck('collection_translations.title', 'collections.id')->prepend('Bez kolekcije', 0);
         return response()->json([
             'collections' => $collections
         ]);
@@ -112,7 +112,7 @@ class CollectionsController extends Controller
         app()->setLocale($locale);
         $collections = Collection::join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
             ->where('collections.publish', 1)->where('collections.parent', 0)->orderBy('collection_translations.title', 'ASC')->where('collection_translations.locale', $locale)
-            ->pluck('collection_translations.title', 'collections.id')->prepend('Without collection', 0);
+            ->pluck('collection_translations.title', 'collections.id')->prepend('Bez kolekcije', 0);
         return response()->json([
             'collections' => $collections
         ]);

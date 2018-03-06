@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class SettingsController extends Controller
 {
     public function edit($id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $setting = Setting::find(1);
 
@@ -18,7 +18,7 @@ class SettingsController extends Controller
     }
 
     public function update($id){
-        app()->setLocale('en');
+        app()->setLocale('sr');
         $setting = Setting::find(1);
         $setting->phone1 = request('phone1');
         $setting->phone2 = request('phone2');
@@ -30,7 +30,7 @@ class SettingsController extends Controller
         $setting->pinterest = request('pinterest');
         $setting->analytics = request('analytics');
         $setting->map = request('map');
-        $setting->newsletter = request('newsletter');
+        request('newsletter')? $setting->newsletter = request('newsletter') : $setting->newsletter = 0;
         $setting->update();
 
         return response()->json([
@@ -39,7 +39,7 @@ class SettingsController extends Controller
     }
 
     public function updateLang($id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $setting = Setting::find(1);
         $setting->address = request('address');

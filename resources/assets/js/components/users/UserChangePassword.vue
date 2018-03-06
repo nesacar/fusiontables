@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/users'">Users</router-link></li>
-                            <li>User create</li>
+                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
+                            <li><router-link tag="a" :to="'/users'">Korisnici</router-link></li>
+                            <li>Izmena lozinke</li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Izmena korisnika</h5>
+                        <h5>Izmena lozinke</h5>
                     </div>
                 </div>
 
@@ -24,21 +24,21 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
-                                <label for="old-password">Old password</label>
-                                <input type="password" name="oldpassword" class="form-control" id="old-password" placeholder="Old password" v-model="user.oldpassword">
+                                <label for="old-password">Stara lozinka</label>
+                                <input type="password" name="oldpassword" class="form-control" id="old-password" placeholder="Stara lozinka" v-model="user.oldpassword">
                                 <small class="form-text text-muted" v-if="error != null && error.oldpassword">{{ error.oldpassword[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="password">New password</label>
-                                <input type="password" name="password" class="form-control" id="password" placeholder="Lozinka" v-model="user.password">
+                                <label for="password">Nova lozinka</label>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Nova lozinka" v-model="user.password">
                                 <small class="form-text text-muted" v-if="error != null && error.password">{{ error.password[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="password_confirmation">Password confirmation</label>
-                                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Potvrda lozinka" v-model="user.password_confirmation">
+                                <label for="password_confirmation">Potvrda nove lozinke</label>
+                                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Potvrda nove lozinke" v-model="user.password_confirmation">
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary">Izmeni</button>
                             </div>
                         </form>
                     </div>

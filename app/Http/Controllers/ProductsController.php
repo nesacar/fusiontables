@@ -25,7 +25,7 @@ class ProductsController extends Controller
     }
 
     public function store(CreateProductRequest $request){
-        app()->setLocale('en');
+        app()->setLocale('sr');
         $product = new Product();
         $product->user_id = request('user_id');
         $product->collection_id = request('collection_id');
@@ -41,9 +41,9 @@ class ProductsController extends Controller
         $product->save();
         if(request('image')){ Product::base64UploadImage($product->id, request('image')); }
 
-        app()->setLocale('it');
-        $product->title = request('title');
-        $product->update();
+//        app()->setLocale('en');
+//        $product->title = request('title');
+//        $product->update();
 
         return response()->json([
             'product' => $product
@@ -51,7 +51,7 @@ class ProductsController extends Controller
     }
 
     public function show($id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $product = Product::find($id);
         $product['link'] = Product::getProductLink($product);
@@ -74,7 +74,7 @@ class ProductsController extends Controller
     }
 
     public function updateLang(UpdateProductLangRequest $request, $id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $product = Product::find($id);
         $product->user_id = request('user_id');

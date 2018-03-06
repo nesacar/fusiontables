@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/products'">Products</router-link></li>
-                            <li>Product edit</li>
+                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
+                            <li><router-link tag="a" :to="'/products'">Proizvodi</router-link></li>
+                            <li>Izmena proizvoda</li>
                         </ul>
                     </div>
                 </div>
@@ -16,14 +16,14 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Product edit</h5>
+                        <h5>Izmena proizvoda</h5>
                     </div>
                 </div>
 
 
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Gallery images</h5>
+                        <h5>Slike galerije</h5>
                         <hr>
                         <div id="gallery" v-if="photos">
                             <div v-for="photo in photos" class="photo">
@@ -37,40 +37,40 @@
 
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>General info <a :href="link" class="btn btn-success btn-sm" target="_blank" style="width: 80px; float: right;">Preview</a></h5>
+                        <h5>Generalne <a :href="link" class="btn btn-success btn-sm" target="_blank" style="width: 80px; float: right;">informacije</a></h5>
                         <hr>
                         <form @submit.prevent="general()">
                             <div class="form-group">
-                                <label for="collection">Collection</label>
+                                <label for="collection">Kolekcija</label>
                                 <select name="collection" id="collection" class="form-control" v-model="product.collection_id">
                                     <option :value="index" v-for="(collection, index) in lists">{{ collection }}</option>
                                 </select>
                                 <small class="form-text text-muted" v-if="error != null && error.collection_id">{{ error.collection_id[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="price_small">Price</label>
-                                <input type="text" name="title" class="form-control" id="price_small" placeholder="Price" v-model="product.price_small">
+                                <label for="price_small">Cena</label>
+                                <input type="text" name="title" class="form-control" id="price_small" placeholder="Cena" v-model="product.price_small">
                                 <small class="form-text text-muted" v-if="error != null && error.price_small">{{ error.price_small[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="price_outlet">Price outlet</label>
-                                <input type="text" name="price_outlet" class="form-control" id="price_outlet" placeholder="Price outlet" v-model="product.price_outlet">
+                                <label for="price_outlet">Outlet cena</label>
+                                <input type="text" name="price_outlet" class="form-control" id="price_outlet" placeholder="Outlet cena" v-model="product.price_outlet">
                                 <small class="form-text text-muted" v-if="error != null && error.price_outlet">{{ error.price_outlet[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label>Published</label><br>
+                                <label>Publikovano</label><br>
                                 <switches v-model="product.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <upload-image-helper
                                     :image="product.image"
                                     :defaultImage="null"
-                                    :titleImage="'Product'"
+                                    :titleImage="'proizvoda'"
                                     :error="error"
                                     @uploadImage="upload($event)"
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Edit general</button>
+                                <button class="btn btn-primary" type="submit">Izmeni generalna</button>
                             </div>
                         </form>
                     </div><!-- .card -->
@@ -82,22 +82,22 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card">
-                        <h5>Language info</h5>
+                        <h5>Jezičke informacije</h5>
                         <hr>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="home" aria-selected="true">English</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#srb" role="tab" aria-controls="home" aria-selected="true">Srpski</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#ita" role="tab" aria-controls="contact" aria-selected="false">Italian</a>
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="contact" aria-selected="false">Engleski</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="eng" role="tabpanel" aria-labelledby="home-tab">
-                                <form @submit.prevent="submit('en')">
+                            <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="home-tab">
+                                <form @submit.prevent="submit('sr')">
                                     <div class="form-group">
-                                        <label for="title">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="product.title">
+                                        <label for="title">Naslov</label>
+                                        <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="product.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
@@ -106,12 +106,12 @@
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="short">Short</label>
-                                        <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="product.short"></textarea>
+                                        <label for="short">Kratak opis</label>
+                                        <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Kratak opis" v-model="product.short"></textarea>
                                         <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Body</label>
+                                        <label>Opis</label>
                                         <ckeditor
                                                 v-model="product.body"
                                                 :config="config">
@@ -119,7 +119,7 @@
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Extra description</label>
+                                        <label>Karakteristike</label>
                                         <ckeditor
                                                 v-model="product.body2"
                                                 :config="config">
@@ -127,49 +127,49 @@
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body2[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Edit on English</button>
+                                        <button class="btn btn-primary" type="submit">Izmeni srpski</button>
                                     </div>
                                 </form>
-                            </div><!-- #eng -->
+                            </div><!-- #srb -->
 
-                            <div class="tab-pane fade" id="ita" role="tabpanel" aria-labelledby="contact-tab">
-                                <form @submit.prevent="submit('it')">
+                            <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="contact-tab">
+                                <form @submit.prevent="submit('en')">
                                     <div class="form-group">
-                                        <label for="title2">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Title" v-model="productIta.title">
+                                        <label for="title2">Naslov</label>
+                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Naslov" v-model="productEng.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="slug2">Slug</label>
-                                        <input type="text" name="slug" class="form-control" id="slug2" placeholder="Slug" v-model="productIta.slug">
+                                        <input type="text" name="slug" class="form-control" id="slug2" placeholder="Slug" v-model="productEng.slug">
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="shortIta">Short</label>
-                                        <textarea name="short" id="shortIta" cols="3" rows="4" class="form-control" placeholder="Short text" v-model="productIta.short"></textarea>
+                                        <label for="shortIta">Kratak opis</label>
+                                        <textarea name="short" id="shortIta" cols="3" rows="4" class="form-control" placeholder="Kratak opis" v-model="productEng.short"></textarea>
                                         <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Body</label>
+                                        <label>Opis</label>
                                         <ckeditor
-                                                v-model="productIta.body"
+                                                v-model="productEng.body"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Extra description</label>
+                                        <label>Karakteristike</label>
                                         <ckeditor
-                                                v-model="productIta.body2"
+                                                v-model="productEng.body2"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body2[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Edit on Italian</button>
+                                        <button class="btn btn-primary" type="submit">Izmeni engleski</button>
                                     </div>
                                 </form>
-                            </div><!-- #ita -->
+                            </div><!-- #eng -->
                         </div>
                     </div>
                 </div>
@@ -191,7 +191,7 @@
         data(){
           return {
               product: {},
-              productIta: {},
+              productEng: {},
               error: null,
               lists: {},
               photos: {},
@@ -232,8 +232,8 @@
             'vue-dropzone': vue2Dropzone
         },
         created(){
+            this.getProduct('se');
             this.getProduct('en');
-            this.getProduct('it');
             this.getList();
             this.getPhotos();
         },
@@ -242,10 +242,10 @@
                 axios.get('api/products/' + this.$route.params.id + '?locale=' + locale)
                     .then(res => {
                         if(res.data.product != null){
-                            if(locale == 'en'){
+                            if(locale == 'sr'){
                                 this.product = res.data.product;
                             }else{
-                                this.productIta = res.data.product;
+                                this.productEng = res.data.product;
                             }
                         }
                     })
@@ -256,19 +256,19 @@
             },
             submit(locale){
                 let data = {};
-                if(locale == 'en'){
+                if(locale == 'sr'){
                     data = this.product;
                     this.product.user_id = this.user.id;
                 }else{
-                    data = this.productIta;
-                    this.productIta.user_id = this.user.id;
+                    data = this.productEng;
+                    this.productEng.user_id = this.user.id;
                 }
                 axios.post('api/products/' + this.product.id + '/lang?locale=' + locale, data)
                     .then(res => {
-                        if(locale == 'en'){
+                        if(locale == 'sr'){
                             this.product = res.data.product;
                         }else{
-                            this.productIta = res.data.product;
+                            this.productEng = res.data.product;
                         }
                         swal({
                             position: 'center',
@@ -290,7 +290,7 @@
                         swal({
                             position: 'center',
                             type: 'success',
-                            title: 'Success',
+                            title: 'Izmenjeno',
                             showConfirmButton: false,
                             timer: 1500
                         });

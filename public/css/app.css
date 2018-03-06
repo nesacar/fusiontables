@@ -10385,8 +10385,8 @@ a.text-dark:focus {
 
 #leftMenu .logo a img {
   display: block;
-  width: 150px;
-  height: 60px;
+  width: 200px;
+  height: auto;
   margin: auto;
 }
 

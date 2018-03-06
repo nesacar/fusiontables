@@ -26,6 +26,7 @@ class CreateSettingsTable extends Migration
             $table->text('pinterest')->nullable();
             $table->text('analytics')->nullable();
             $table->text('map')->nullable();
+            $table->text('newsletter')->nullable();
             $table->timestamps();
         });
     }

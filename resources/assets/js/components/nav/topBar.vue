@@ -20,16 +20,16 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                                <a class="dropdown-item" href="#" @click.prevent="newProduct()">Product</a>
-                                <a class="dropdown-item" href="#" @click.prevent="newCollection()">Collection</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newProduct()">Proizvod</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newCollection()">Kolekcija</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" @click.prevent="newPost()">Post</a>
-                                <a class="dropdown-item" href="#" @click.prevent="newCategory()">Category</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newPost()">Članak</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newCategory()">Kategorija</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" @click.prevent="newUser()">User</a>
+                                <a class="dropdown-item" href="#" @click.prevent="newUser()">Korisnik</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"  @click.prevent="newTheme()">Theme</a>
-                                <a class="dropdown-item" href="#"  @click.prevent="newMenu()">Menu</a>
+                                <a class="dropdown-item" href="#"  @click.prevent="newTheme()">Tema</a>
+                                <a class="dropdown-item" href="#"  @click.prevent="newMenu()">Meni</a>
                             </div>
                         </div>
                     </li>

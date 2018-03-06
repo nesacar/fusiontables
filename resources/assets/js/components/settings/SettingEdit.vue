@@ -5,8 +5,8 @@
                 <div class="col-md-12">
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
-                            <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li>Settings edit</li>
+                            <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
+                            <li>Podešavanja izmena</li>
                         </ul>
                     </div>
                 </div>
@@ -15,23 +15,23 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Settings edit</h5>
+                        <h5>Podešavanja izmena</h5>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>General info</h5>
+                        <h5>Osnovne informacije</h5>
                         <hr>
                         <form @submit.prevent="general()">
                             <div class="form-group">
-                                <label for="Phone1">Phone 1</label>
-                                <input type="text" name="Phone1" class="form-control" id="Phone1" placeholder="Enter phone 1" v-model="setting.phone1">
+                                <label for="Phone1">Telefon 1</label>
+                                <input type="text" name="Phone1" class="form-control" id="Phone1" placeholder="Telefon 1" v-model="setting.phone1">
                                 <small class="form-text text-muted" v-if="error != null && error.phone1">{{ error.phone1[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="Phone1">Phone 2</label>
-                                <input type="text" name="Phone2" class="form-control" id="Phone2" placeholder="Enter phone 2" v-model="setting.phone2">
+                                <label for="Phone1">Telefon 2</label>
+                                <input type="text" name="Phone2" class="form-control" id="Phone2" placeholder="Telefon 2" v-model="setting.phone2">
                                 <small class="form-text text-muted" v-if="error != null && error.phone2">{{ error.phone2[0] }}</small>
                             </div>
                             <div class="form-group">
@@ -74,43 +74,43 @@
                                 <switches v-model="setting.newsletter" theme="bootstrap" color="primary"></switches>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Edit general</button>
+                                <button class="btn btn-primary" type="submit">Izmeni generalno</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="card">
-                        <h5>Language info</h5>
+                        <h5>Jezičke informacije</h5>
                         <hr>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="home" aria-selected="true">English</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#srb" role="tab" aria-controls="home" aria-selected="true">Srpski</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#ita" role="tab" aria-controls="contact" aria-selected="false">Italian</a>
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="contact" aria-selected="false">Engleski</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="eng" role="tabpanel" aria-labelledby="home-tab">
-                                <form @submit.prevent="submit('en')">
+                            <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="home-tab">
+                                <form @submit.prevent="submit('sr')">
                                     <div class="form-group">
-                                        <label for="address">Address</label>
-                                        <input type="text" name="address" class="form-control" id="address" placeholder="address" v-model="setting.address">
+                                        <label for="address">Adresa</label>
+                                        <input type="text" name="address" class="form-control" id="address" placeholder="Adresa" v-model="setting.address">
                                         <small class="form-text text-muted" v-if="error != null && error.address">{{ error.address[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="title">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="setting.title">
+                                        <label for="title">Naslov</label>
+                                        <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="setting.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="keywords">Keywords</label>
-                                        <input type="text" name="keywords" class="form-control" id="keywords" placeholder="Keywords" v-model="setting.keywords">
+                                        <label for="keywords">Ključne reči</label>
+                                        <input type="text" name="keywords" class="form-control" id="keywords" placeholder="Ključne reči" v-model="setting.keywords">
                                         <small class="form-text text-muted" v-if="error != null && error.keywords">{{ error.keywords[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Description</label>
+                                        <label>Opis</label>
                                         <ckeditor
                                                 v-model="setting.desc"
                                                 :config="config">
@@ -118,7 +118,7 @@
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Footer text</label>
+                                        <label>Footer tekst</label>
                                         <ckeditor
                                                 v-model="setting.footer"
                                                 :config="config">
@@ -126,49 +126,49 @@
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.footer[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Edit on English</button>
+                                        <button class="btn btn-primary" type="submit">Izmeni srpski</button>
                                     </div>
                                 </form>
-                            </div><!-- #eng -->
+                            </div><!-- #srb -->
 
-                            <div class="tab-pane fade" id="ita" role="tabpanel" aria-labelledby="contact-tab">
-                                <form @submit.prevent="submit('it')">
+                            <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="contact-tab">
+                                <form @submit.prevent="submit('en')">
                                     <div class="form-group">
-                                        <label for="address2">Address</label>
-                                        <input type="text" name="address" class="form-control" id="address2" placeholder="address" v-model="settingIta.address">
+                                        <label for="address2">Adresa</label>
+                                        <input type="text" name="address" class="form-control" id="address2" placeholder="Adresa" v-model="settingEng.address">
                                         <small class="form-text text-muted" v-if="error != null && error.address">{{ error.address[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="title2">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Title" v-model="settingIta.title">
+                                        <label for="title2">Naslov</label>
+                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Naslov" v-model="settingEng.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="keywords2">Keywords</label>
-                                        <input type="text" name="keywords" class="form-control" id="keywords2" placeholder="Keywords" v-model="settingIta.keywords">
+                                        <label for="keywords2">Ključne reči</label>
+                                        <input type="text" name="keywords" class="form-control" id="keywords2" placeholder="Ključne reči" v-model="settingEng.keywords">
                                         <small class="form-text text-muted" v-if="error != null && error.keywords">{{ error.keywords[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Description</label>
+                                        <label>Opis</label>
                                         <ckeditor
-                                                v-model="settingIta.desc"
+                                                v-model="settingEng.desc"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label>Footer text</label>
+                                        <label>Footer tekst</label>
                                         <ckeditor
-                                                v-model="settingIta.footer"
+                                                v-model="settingEng.footer"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.footer[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Edit on Italian</button>
+                                        <button class="btn btn-primary" type="submit">Izmeni engleski</button>
                                     </div>
                                 </form>
-                            </div><!-- #ita -->
+                            </div><!-- #eng -->
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
         data(){
           return {
               setting: {},
-              settingIta: {},
+              settingEng: {},
               error: null,
               config: {
                   toolbar: [
@@ -204,18 +204,18 @@
             'ckeditor': Ckeditor
         },
         created(){
+            this.getSetting('sr');
             this.getSetting('en');
-            this.getSetting('it');
         },
         methods: {
             getSetting(locale){
                 axios.get('api/settings/1/edit?locale=' + locale)
                     .then(res => {
                         if(res.data.setting != null){
-                            if(locale == 'en'){
+                            if(locale == 'sr'){
                                 this.setting = res.data.setting;
                             }else{
-                                this.settingIta = res.data.setting;
+                                this.settingEng = res.data.setting;
                             }
                         }
                     })
@@ -226,10 +226,10 @@
             },
             submit(locale){
                 let data = {};
-                if(locale == 'en'){
+                if(locale == 'sr'){
                     data = this.setting;
                 }else{
-                    data = this.settingIta;
+                    data = this.settingEng;
                 }
                 axios.post('api/settings/' + this.setting.id + '/updateLang?locale=' + locale, data)
                     .then(res => {

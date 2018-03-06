@@ -51,15 +51,15 @@
                         <hr>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="home" aria-selected="true">English</a>
+                                <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#srb" role="tab" aria-controls="contact" aria-selected="false">Srpski</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#ita" role="tab" aria-controls="contact" aria-selected="false">Italian</a>
+                                <a class="nav-link" id="home-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="home" aria-selected="true">English</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="eng" role="tabpanel" aria-labelledby="home-tab">
-                                <form @submit.prevent="submit('en')">
+                            <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="home-tab">
+                                <form @submit.prevent="submit('sr')">
                                     <div class="form-group">
                                         <label for="title">Title</label>
                                         <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="category.title">
@@ -73,42 +73,42 @@
                                     <div class="form-group">
                                         <label>Category description</label>
                                         <ckeditor
-                                                v-model="category.desc"
+                                                v-model="category.short"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Edit on English</button>
+                                        <button class="btn btn-primary" type="submit">Izmeni na srpski</button>
                                     </div>
                                 </form>
-                            </div><!-- #eng -->
+                            </div><!-- #srb -->
 
-                            <div class="tab-pane fade" id="ita" role="tabpanel" aria-labelledby="contact-tab">
-                                <form @submit.prevent="submit('it')">
+                            <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="contact-tab">
+                                <form @submit.prevent="submit('en')">
                                     <div class="form-group">
                                         <label for="title2">Title</label>
-                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Title" v-model="categoryIta.title">
+                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Title" v-model="categoryEng.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="slug2">Slug</label>
-                                        <input type="text" name="slug" class="form-control" id="slug2" placeholder="Slug" v-model="categoryIta.slug">
+                                        <input type="text" name="slug" class="form-control" id="slug2" placeholder="Slug" v-model="categoryEng.slug">
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label>Category description</label>
                                         <ckeditor
-                                                v-model="categoryIta.desc"
+                                                v-model="categoryEng.short"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Edit on Italian</button>
+                                        <button class="btn btn-primary" type="submit">Edit on english</button>
                                     </div>
                                 </form>
-                            </div><!-- #ita -->
+                            </div><!-- #eng -->
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
         data(){
           return {
               category: {},
-              categoryIta: {},
+              categoryEng: {},
               error: null,
               config: {
                   toolbar: [
@@ -157,10 +157,10 @@
                 axios.get('api/categories/' + this.$route.params.id + '?locale=' + locale)
                     .then(res => {
                         if(res.data.category != null){
-                            if(locale == 'en'){
+                            if(locale == 'sr'){
                                 this.category = res.data.category;
                             }else{
-                                this.categoryIta = res.data.category;
+                                this.categoryEng = res.data.category;
                             }
                         }
                     })
@@ -171,17 +171,17 @@
             },
             submit(locale){
                 let data = {};
-                if(locale == 'en'){
+                if(locale == 'sr'){
                     data = this.category;
                 }else{
-                    data = this.categoryIta;
+                    data = this.categoryEng;
                 }
                 axios.post('api/categories/' + this.category.id + '/lang?locale=' + locale, data)
                     .then(res => {
-                        if(locale == 'en'){
+                        if(locale == 'sr'){
                             this.category = res.data.category;
                         }else{
-                            this.categoryIta = res.data.category;
+                            this.categoryEng = res.data.category;
                         }
                         swal({
                             position: 'center',

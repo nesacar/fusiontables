@@ -10,24 +10,24 @@
         <ul>
             <li>
                 <font-awesome-icon icon="home" />
-                <router-link tag="a" :to="'/home'">Home</router-link>
+                <router-link tag="a" :to="'/home'">Početna</router-link>
             </li>
             <li :class="{ 'active': showSettingsItemActive }" :style="{ 'display': showSettingsItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
-                <a href="#" @click="changeShowSettingsItemActive()">Settings</a>
+                <a href="#" @click="changeShowSettingsItemActive()">Podešavanja</a>
                 <font-awesome-icon icon="cogs"/>
                 <ul>
                     <li><router-link tag="a" :to="'/settings/1/edit'">SEO</router-link></li>
-                    <li><router-link tag="a" :to="'/themes'">Theme</router-link></li>
-                    <li><router-link tag="a" :to="'/menus'">Menu</router-link></li>
+                    <li><router-link tag="a" :to="'/themes'">Teme</router-link></li>
+                    <li><router-link tag="a" :to="'/menus'">Meni</router-link></li>
                 </ul>
             </li>
             <li :class="{ 'active': showUsersItemActive }" :style="{ 'display': showUsersItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
-                <a href="#" @click="changeShowUsersItemActive()">Users</a>
+                <a href="#" @click="changeShowUsersItemActive()">Korisnici</a>
                 <font-awesome-icon icon="users" />
                 <ul>
-                    <li><router-link tag="a" :to="'/users'">User review</router-link></li>
+                    <li><router-link tag="a" :to="'/users'">Pregled korisnika</router-link></li>
                     <!--
                     <li><a href="#">Roles</a></li>
                     -->
@@ -39,11 +39,11 @@
             </li>
             <li :class="{ 'active': showProductsItemActive }" :style="{ 'display': showProductsItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
-                <a href="#" @click="changeShowProductsItemActive()">Products</a>
+                <a href="#" @click="changeShowProductsItemActive()">Proizvodi</a>
                 <font-awesome-icon icon="shopping-cart" />
                 <ul>
-                    <li><router-link tag="a" :to="'/products'">Products review</router-link></li>
-                    <li><router-link tag="a" :to="'/collections'">Collection review</router-link></li>
+                    <li><router-link tag="a" :to="'/products'">Pregled proizvoda</router-link></li>
+                    <li><router-link tag="a" :to="'/collections'">Pregled kolekcija</router-link></li>
                 </ul>
             </li>
             <li :class="{ 'active': showPostsItemActive }" :style="{ 'display': showPostsItem ? 'block' : 'none' }">

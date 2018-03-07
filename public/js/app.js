@@ -81861,11 +81861,11 @@ if (false) {
 /* harmony default export */ __webpack_exports__["a"] = (function (Vue) {
     Vue.auth = {
         setToken: function setToken(token, expiration) {
-            localStorage.setItem('token', token);
+            localStorage.setItem('ft_token', token);
             localStorage.setItem('expiration', expiration);
         },
         getToken: function getToken() {
-            var token = localStorage.getItem('token');
+            var token = localStorage.getItem('ft_token');
             var expiration = localStorage.getItem('expiration');
 
             if (!token || !expiration) {
@@ -81880,7 +81880,7 @@ if (false) {
             }
         },
         destroyToken: function destroyToken() {
-            localStorage.removeItem('token');
+            localStorage.removeItem('ft_token');
             localStorage.removeItem('expiration');
         },
         isAuth: function isAuth() {

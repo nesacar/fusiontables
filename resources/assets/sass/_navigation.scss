@@ -280,7 +280,7 @@
     transition: all 1s;
 
     + #place{
-      width: calc(100vw - 30px);
+      width: calc(100% - 30px);
 
       -ms-transform: translate(-220px, 0); /* IE 9 */
       -webkit-transform: translate(-220px, 0); /* Safari */

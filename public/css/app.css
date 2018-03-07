@@ -10305,7 +10305,7 @@ a.text-dark:focus {
 }
 
 #leftMenu.hide + #place {
-  width: calc(100vw - 30px);
+  width: calc(100% - 30px);
   /* IE 9 */
   -webkit-transform: translate(-220px, 0);
   /* Safari */

@@ -24,7 +24,7 @@ class CategoriesController extends Controller
         $category = new Category();
         $category->title = request('title');
         request('slug')? $category->slug = str_slug(request('slug')) : $category->slug = str_slug(request('title'));
-        $category->desc = request('desc');
+        $category->short = request('short');
         $category->order = 1;
         request('publish')? $category->publish = true : $category->publish = false;
         $category->save();
@@ -58,7 +58,7 @@ class CategoriesController extends Controller
         $category = Category::find($id);
         $category->title = request('title');
         request('slug')? $category->slug = str_slug(request('slug')) : $category->slug = str_slug(request('title'));
-        $category->desc = request('desc');
+        $category->short = request('short');
         $category->update($request->except('image', 'slug'));
         return response()->json([
             'category' => $category

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryTranslationsTable extends Migration
+class CreateGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class CreateCategoryTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_translations', function (Blueprint $table) {
+        Schema::create('galleries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id')->unsigned();
-
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
-            $table->text('short')->nullable();
-            $table->string('locale')->index();
-
-            $table->unique(['category_id','locale']);
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->integer('order')->default(1);
+            $table->boolean('publish')->default(0);
             $table->timestamps();
         });
     }
@@ -35,6 +30,6 @@ class CreateCategoryTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_translations');
+        Schema::dropIfExists('galleries');
     }
 }

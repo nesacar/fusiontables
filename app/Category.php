@@ -12,7 +12,7 @@ class Category extends Model
 
     public static $list_limit = 50;
 
-    public $translatedAttributes = ['title', 'slug', 'desc'];
+    public $translatedAttributes = ['title', 'slug', 'short'];
 
     protected $table = 'categories';
 

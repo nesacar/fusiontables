@@ -105,7 +105,7 @@
                     cancelButtonText: 'Odustani'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete('api/users/' + row.id)
+                        axios.delete('api/posts/' + row.id)
                             .then(res => {
                                 this.posts = this.posts.filter(function (item) {
                                     return row.id != item.id;

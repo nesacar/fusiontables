@@ -6,8 +6,8 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
-                            <li><router-link tag="a" :to="'/posts'">Članci</router-link></li>
-                            <li>Izmena članka</li>
+                            <li><router-link tag="a" :to="'/products'">Proizvodi</router-link></li>
+                            <li>Izmena proizvoda</li>
                         </ul>
                     </div>
                 </div>
@@ -16,59 +16,69 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Izmena članka</h5>
+                        <h5>Izmena proizvoda</h5>
                     </div>
                 </div>
 
-                <!--
+
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Gallery images</h5>
+                        <h5>Slike galerije</h5>
                         <hr>
                         <div id="gallery" v-if="photos">
                             <div v-for="photo in photos" class="photo">
                                 <font-awesome-icon icon="times" @click="deletePhoto(photo)" />
-                                <img :src="photo.file_path_small" class="img-thumbnail" alt="post.title">
+                                <img :src="photo.file_path_small" class="img-thumbnail" alt="product.title">
                             </div>
                         </div>
                     </div>
                 </div>
-                -->
+
 
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>Generalne informacije</h5>
+                        <h5>Generalne <a :href="link" class="btn btn-primary btn-sm" target="_blank" style="width: 80px; float: right;">pregled</a></h5>
                         <hr>
                         <form @submit.prevent="general()">
                             <div class="form-group">
-                                <label for="category">Kategorija</label>
-                                <select name="category" id="category" class="form-control" v-model="post.category_id">
-                                    <option :value="index" v-for="(category, index) in lists">{{ category }}</option>
+                                <label for="collection">Kolekcija</label>
+                                <select name="collection" id="collection" class="form-control" v-model="product.collection_id">
+                                    <option :value="index" v-for="(collection, index) in lists">{{ collection }}</option>
                                 </select>
-                                <small class="form-text text-muted" v-if="error != null && error.category_id">{{ error.category_id[0] }}</small>
+                                <small class="form-text text-muted" v-if="error != null && error.collection_id">{{ error.collection_id[0] }}</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="price_small">Cena</label>
+                                <input type="text" name="title" class="form-control" id="price_small" placeholder="Cena" v-model="product.price_small">
+                                <small class="form-text text-muted" v-if="error != null && error.price_small">{{ error.price_small[0] }}</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="price_outlet">Outlet cena</label>
+                                <input type="text" name="price_outlet" class="form-control" id="price_outlet" placeholder="Outlet cena" v-model="product.price_outlet">
+                                <small class="form-text text-muted" v-if="error != null && error.price_outlet">{{ error.price_outlet[0] }}</small>
                             </div>
                             <div class="form-group">
                                 <label>Publikovano</label><br>
-                                <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
+                                <switches v-model="product.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <upload-image-helper
-                                    :image="post.image"
+                                    :image="product.image"
                                     :defaultImage="null"
-                                    :titleImage="'članka'"
+                                    :titleImage="'proizvoda'"
                                     :error="error"
                                     @uploadImage="upload($event)"
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Izmeni generalno</button>
+                                <button class="btn btn-primary" type="submit">Izmeni generalna</button>
                             </div>
                         </form>
                     </div><!-- .card -->
-                    <!--
+
                     <div class="card">
                         <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" @vdropzone-success="showSuccess()"></vue-dropzone>
                     </div>
-                    -->
+
                 </div>
                 <div class="col-md-8">
                     <div class="card">
@@ -87,26 +97,34 @@
                                 <form @submit.prevent="submit('sr')">
                                     <div class="form-group">
                                         <label for="title">Naslov</label>
-                                        <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="post.title">
+                                        <input type="text" name="title" class="form-control" id="title" placeholder="Naslov" v-model="product.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="slug">Slug</label>
-                                        <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="post.slug">
+                                        <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" v-model="product.slug">
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="short">Kratak opis</label>
-                                        <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Kratak opis" v-model="post.short"></textarea>
+                                        <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Kratak opis" v-model="product.short"></textarea>
                                         <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label>Opis</label>
                                         <ckeditor
-                                                v-model="post.body"
+                                                v-model="product.body"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Karakteristike</label>
+                                        <ckeditor
+                                                v-model="product.body2"
+                                                :config="config">
+                                        </ckeditor>
+                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body2[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Izmeni srpski</button>
@@ -118,26 +136,34 @@
                                 <form @submit.prevent="submit('en')">
                                     <div class="form-group">
                                         <label for="title2">Naslov</label>
-                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Naslov" v-model="postEng.title">
+                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Naslov" v-model="productEng.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="slug2">Slug</label>
-                                        <input type="text" name="slug" class="form-control" id="slug2" placeholder="Slug" v-model="postEng.slug">
+                                        <input type="text" name="slug" class="form-control" id="slug2" placeholder="Slug" v-model="productEng.slug">
                                         <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="shortIta">Kratak opis</label>
-                                        <textarea name="short" id="shortIta" cols="3" rows="4" class="form-control" placeholder="Kratak opis" v-model="postEng.short"></textarea>
+                                        <textarea name="short" id="shortIta" cols="3" rows="4" class="form-control" placeholder="Kratak opis" v-model="productEng.short"></textarea>
                                         <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label>Opis</label>
                                         <ckeditor
-                                                v-model="postEng.body"
+                                                v-model="productEng.body"
                                                 :config="config">
                                         </ckeditor>
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Karakteristike</label>
+                                        <ckeditor
+                                                v-model="productEng.body2"
+                                                :config="config">
+                                        </ckeditor>
+                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.body2[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Izmeni engleski</button>
@@ -164,8 +190,8 @@
     export default {
         data(){
           return {
-              post: {},
-              postEng: {},
+              product: {},
+              productEng: {},
               error: null,
               lists: {},
               photos: {},
@@ -180,7 +206,7 @@
                   filebrowserBrowseUrl: 'filemanager/show'
               },
               dropzoneOptions: {
-                  url: 'api/posts/' + this.$route.params.id + '/gallery',
+                  url: 'api/products/' + this.$route.params.id + '/gallery',
                   thumbnailWidth: 150,
                   maxFilesize: 0.5,
                   headers: { "Authorization": "Bearer " + this.$auth.getToken() }
@@ -188,8 +214,11 @@
           }
         },
         computed: {
-            post_id(){
-                return this.post.id;
+            link(){
+                return this.product.link;
+            },
+            product_id(){
+                return this.product.id;
             },
             user(){
                 return this.$store.getters.getUser;
@@ -203,20 +232,20 @@
             'vue-dropzone': vue2Dropzone
         },
         created(){
-            this.getPost('sr');
-            this.getPost('en');
+            this.getProduct('sr');
+            this.getProduct('en');
             this.getList();
-            //this.getPhotos();
+            this.getPhotos();
         },
         methods: {
-            getPost(locale){
-                axios.get('api/posts/' + this.$route.params.id + '?locale=' + locale)
+            getProduct(locale){
+                axios.get('api/products/' + this.$route.params.id + '?locale=' + locale)
                     .then(res => {
-                        if(res.data.post != null){
+                        if(res.data.product != null){
                             if(locale == 'sr'){
-                                this.post = res.data.post;
+                                this.product = res.data.product;
                             }else{
-                                this.postIta = res.data.post;
+                                this.productEng = res.data.product;
                             }
                         }
                     })
@@ -228,23 +257,23 @@
             submit(locale){
                 let data = {};
                 if(locale == 'sr'){
-                    data = this.post;
-                    this.post.user_id = this.user.id;
+                    data = this.product;
+                    this.product.user_id = this.user.id;
                 }else{
-                    data = this.postEng;
-                    this.postEng.user_id = this.user.id;
+                    data = this.productEng;
+                    this.productEng.user_id = this.user.id;
                 }
-                axios.post('api/posts/' + this.post.id + '/lang?locale=' + locale, data)
+                axios.post('api/products/' + this.product.id + '/lang?locale=' + locale, data)
                     .then(res => {
                         if(locale == 'sr'){
-                            this.post = res.data.post;
+                            this.product = res.data.product;
                         }else{
-                            this.postEng = res.data.post;
+                            this.productEng = res.data.product;
                         }
                         swal({
                             position: 'center',
                             type: 'success',
-                            title: 'Uspeh',
+                            title: 'Success',
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -255,27 +284,26 @@
                     });
             },
             general(){
-                this.post.user_id = this.user.id;
-                axios.patch('api/posts/' + this.post.id, this.post)
+                this.product.user_id = this.user.id;
+                axios.patch('api/products/' + this.product.id, this.product)
                     .then(res => {
                         swal({
                             position: 'center',
                             type: 'success',
-                            title: 'Success',
+                            title: 'Izmenjeno',
                             showConfirmButton: false,
                             timer: 1500
                         });
                         this.error = null;
                     }).catch(e => {
-                    console.log(e.response);
-                    this.error = e.response.data.errors;
-                });
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
             },
             upload(image){
-                axios.post('api/posts/' + this.post.id + '/image', { file: image[0] })
+                axios.post('api/products/' + this.product.id + '/image', { file: image[0] })
                     .then(res => {
-                        console.log(res);
-                        this.post.image = res.data.image;
+                        this.product.image = res.data.image;
                         this.error = null;
                         swal({
                             position: 'center',
@@ -285,33 +313,31 @@
                             timer: 1500
                         });
                     }).catch(e => {
-                    console.log(e);
-                    this.error = e.response.data.errors;
-                });
+                        console.log(e);
+                        this.error = e.response.data.errors;
+                    });
             },
             getList(){
-                axios.get('api/categories/lists')
+                axios.get('api/collections/lists')
                     .then(res => {
-                        this.lists = res.data.categories;
+                        this.lists = res.data.collections;
                     }).catch(e => {
-                    console.log(e.response);
-                    this.error = e.response.data.errors;
-                });
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
             },
             getPhotos(){
-                axios.get('api/posts/' + this.$route.params.id + '/gallery')
+                axios.get('api/products/' + this.$route.params.id + '/gallery')
                     .then(res => {
-                        console.log(res);
                         this.photos = res.data.photos;
                     }).catch(e => {
-                    console.log(e.response);
-                    this.error = e.response.data.errors;
-                });
+                        console.log(e.response);
+                        this.error = e.response.data.errors;
+                    });
             },
             deletePhoto(photo){
                 axios.post('api/photos/' + photo.id + '/destroy')
                     .then(res => {
-                        console.log(res);
                         this.photos = this.photos.filter(function (item) {
                             return photo.id != item.id;
                         });

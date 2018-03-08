@@ -69,3 +69,7 @@ Route::middleware('auth:api')->resource('menu-links', 'MenuLinksController');
 Route::middleware('auth:api')->get('menu-links/{id}/sort', 'MenuLinksController@sort');
 Route::middleware('auth:api')->post('menu-links/{id}/order', 'MenuLinksController@saveOrder');
 Route::middleware('auth:api')->post('menu-links/{id}/general', 'MenuLinksController@generalUpdate');
+
+Route::middleware('auth:api')->resource('galleries', 'GalleriesController');
+
+Route::middleware('auth:api')->resource('images', 'ImagesController');

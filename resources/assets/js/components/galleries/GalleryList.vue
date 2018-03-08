@@ -6,13 +6,11 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Početna</router-link></li>
-                            <li>Proizvodi</li>
+                            <li>Galerije</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-            <search-helper :lists="collections" :text="''" @updateSearch="search($event)"></search-helper>
 
             <div class="row">
                 <div class="col-md-12">
@@ -21,24 +19,18 @@
                             <thead>
                             <tr>
                                 <th scope="col">id</th>
-                                <th scope="col">naslov</th>
-                                <th scope="col">kolekcija</th>
-                                <th scope="col">publikovano</th>
-                                <th scope="col">jezik</th>
+                                <th scope="col">naziv</th>
                                 <th scope="col">kreirano</th>
                                 <th>akcija</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="row in products">
+                            <tr v-for="row in galleries">
                                 <td>{{ row.id }}</td>
                                 <td>{{ row.title }}</td>
-                                <td>{{ row.collection }}</td>
-                                <td>{{ row.publish }}</td>
-                                <td>{{ row.translations.length }}</td>
                                 <td>{{ row.created_at }}</td>
                                 <td>
-                                    <router-link tag="a" :to="'products/' + row['id'] + '/edit'" class="edit-link" target="_blank"><font-awesome-icon icon="pencil-alt"/></router-link>
+                                    <router-link tag="a" :to="'galleries/' + row['id'] + '/edit'" class="edit-link" target="_blank"><font-awesome-icon icon="pencil-alt"/></router-link>
                                     <font-awesome-icon icon="times" @click="deleteRow(row)" />
                                 </td>
                             </tr>
@@ -65,9 +57,8 @@
     export default {
         data(){
             return {
-                products: {},
+                galleries: {},
                 paginate: {},
-                collections: {}
             }
         },
         components: {
@@ -76,22 +67,21 @@
             'font-awesome-icon': FontAwesomeIcon
         },
         created(){
-            this.getProducts();
-            this.getCollections();
+            this.getGalleries();
         },
         methods: {
-            getProducts(){
-                axios.get('api/products')
+            getGalleries(){
+                axios.get('api/galleries')
                     .then(res => {
-                        this.products = res.data.products.data;
-                        this.paginate = res.data.products;
+                        this.galleries = res.data.galleries.data;
+                        this.paginate = res.data.galleries;
                     })
                     .catch(e => {
                         console.log(e);
                     });
             },
             editRow(id){
-                this.$router.push('products/' + id + '/edit');
+                this.$router.push('galleries/' + id + '/edit');
             },
             deleteRow(row){
                 swal({
@@ -101,18 +91,18 @@
                     showCancelButton: true,
                     confirmButtonColor: '#51d2b7',
                     cancelButtonColor: '#fb9678',
-                    confirmButtonText: 'Da, obriši ga!',
+                    confirmButtonText: 'Da, obriši je!',
                     cancelButtonText: 'Odustani'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete('api/products/' + row.id)
+                        axios.delete('api/galleries/' + row.id)
                             .then(res => {
-                                this.products = this.products.filter(function (item) {
+                                this.galleries = this.galleries.filter(function (item) {
                                     return row.id != item.id;
                                 });
                                 swal(
                                     'Obrisano!',
-                                    'Proizvod je uspešno obrisan.',
+                                    'Galerija je uspešno obrisana.',
                                     'success'
                                 );
                             })
@@ -123,29 +113,10 @@
                 });
             },
             clickToLink(index){
-                axios.get('api/products?page=' + index)
+                axios.get('api/galleries?page=' + index)
                     .then(res => {
-                        this.products = res.data.products.data;
-                        this.paginate = res.data.products;
-                    })
-                    .catch(e => {
-                        console.log(e);
-                    });
-            },
-            getCollections(){
-                axios.get('api/collections/lists')
-                    .then(res => {
-                        this.collections = res.data.collections;
-                    }).catch(e => {
-                        console.log(e.response);
-                        this.error = e.response.data.errors;
-                    });
-            },
-            search(value){
-                axios.post('api/products/search', value)
-                    .then(res => {
-                        this.products = res.data.products.data;
-                        this.paginate = res.data.products;
+                        this.galleries = res.data.galleries.data;
+                        this.paginate = res.data.galleries;
                     })
                     .catch(e => {
                         console.log(e);

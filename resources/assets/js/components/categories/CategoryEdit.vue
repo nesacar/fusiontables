@@ -149,8 +149,8 @@
             'ckeditor': Ckeditor
         },
         created(){
+            this.getCategory('sr');
             this.getCategory('en');
-            this.getCategory('it');
         },
         methods: {
             getCategory(locale){

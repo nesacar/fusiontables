@@ -66,7 +66,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="analytics">Google Analytics</label>
-                                <input type="text" name="Analytics" class="form-control" id="analytics" placeholder="Enter google analytics" v-model="setting.analytics">
+                                <textarea name="Analytics" id="analytics" cols="5" rows="5" v-model="setting.analytics" class="form-control">{{ setting.analytics}}</textarea>
                                 <small class="form-text text-muted" v-if="error != null && error.analytics">{{ error.analytics[0] }}</small>
                             </div>
                             <div class="form-group">

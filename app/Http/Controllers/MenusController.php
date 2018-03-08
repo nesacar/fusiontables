@@ -15,7 +15,7 @@ class MenusController extends Controller
     }
 
     public function store(Request $request){
-        app()->setLocale('en');
+        app()->setLocale('sr');
         $menu = Menu::create(request()->all());
         request('slug')? $menu->slug = str_slug(request('slug')) : $menu->slug = str_slug(request('title'));
         request('publish')? $menu->publish = true : $menu->publish = false;

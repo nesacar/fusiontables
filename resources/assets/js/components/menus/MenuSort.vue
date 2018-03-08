@@ -6,8 +6,8 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/menus'">Menus</router-link></li>
-                            <li>Menus sort</li>
+                            <li><router-link tag="a" :to="'/menus'">Meni</router-link></li>
+                            <li>Sortiranje menija</li>
                         </ul>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                             </li>
                         </draggable>
                     </ul>
-                    <button class="btn btn-success" @click="save()">Save</button>
+                    <button class="btn btn-success" @click="save()">Sačuvaj</button>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
                         swal({
                             position: 'center',
                             type: 'success',
-                            title: 'Success',
+                            title: 'Uspeh',
                             showConfirmButton: false,
                             timer: 1500
                         });

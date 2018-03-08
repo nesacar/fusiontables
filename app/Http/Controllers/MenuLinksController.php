@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateMenuLinkRequest;
+use App\Http\Requests\UpdateGeneralLinkRequest;
 use App\Menu;
 use App\MenuLink;
 use Illuminate\Http\Request;
@@ -10,7 +11,7 @@ use Illuminate\Http\Request;
 class MenuLinksController extends Controller
 {
     public function index(){
-        app()->setLocale('en');
+        app()->setLocale('sr');
         $menu = Menu::find(request('id'));
         $menuLinks = $menu->menuLinks()->orderBy('order', 'ASC')->get();
         return response()->json([
@@ -20,7 +21,7 @@ class MenuLinksController extends Controller
     }
 
     public function store(CreateMenuLinkRequest $request){
-        app()->setLocale('en');
+        app()->setLocale('sr');
         $link = new MenuLink();
         $link->menu_id = request('menu_id');
         $link->title = request('title');
@@ -35,7 +36,7 @@ class MenuLinksController extends Controller
     }
 
     public function show($id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $link = MenuLink::find($id);
 
@@ -45,7 +46,7 @@ class MenuLinksController extends Controller
     }
 
     public function update(CreateMenuLinkRequest $request, $id){
-        request('locale')? $locale = request('locale') : $locale = 'en';
+        request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $link = MenuLink::find($id);
         $link->title = request('title');
@@ -115,6 +116,30 @@ class MenuLinksController extends Controller
             'menu' => $menu,
             'links' => $links,
             'lastId' => $id
+        ]);
+    }
+
+    public function generalUpdate(UpdateGeneralLinkRequest $request, $id){
+        $menuLink = MenuLink::find($id);
+        $menuLink->parent = request('parent');
+        $menuLink->order = request('order');
+        $menuLink->parent == 0? $menuLink->level = 1 : $menuLink->level = 2;
+        $menuLink->update();
+
+        return response()->json([
+            'menuLink' => $menuLink
+        ]);
+    }
+
+    public function lists(){
+        $locale = 'sr';
+        app()->setLocale($locale);
+        $links = MenuLink::join('menu_link_translations', 'menu_links.id', '=', 'menu_link_translations.menu_link_id')
+            ->where('menu_links.publish', 1)->orderBy('menu_links.order', 'ASC')->where('menu_link_translations.locale', $locale)
+            ->pluck('menu_link_translations.title', 'menu_links.id')->prepend('Bez nad kategorije', 0);
+
+        return response()->json([
+            'links' => $links
         ]);
     }
 }

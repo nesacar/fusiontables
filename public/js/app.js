@@ -75070,32 +75070,40 @@ var render = function() {
                     _vm._v("Google Analytics")
                   ]),
                   _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.setting.analytics,
-                        expression: "setting.analytics"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      name: "Analytics",
-                      id: "analytics",
-                      placeholder: "Enter google analytics"
-                    },
-                    domProps: { value: _vm.setting.analytics },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                  _c(
+                    "textarea",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.setting.analytics,
+                          expression: "setting.analytics"
                         }
-                        _vm.$set(_vm.setting, "analytics", $event.target.value)
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        name: "Analytics",
+                        id: "analytics",
+                        cols: "5",
+                        rows: "5"
+                      },
+                      domProps: { value: _vm.setting.analytics },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.setting,
+                            "analytics",
+                            $event.target.value
+                          )
+                        }
                       }
-                    }
-                  }),
+                    },
+                    [_vm._v(_vm._s(_vm.setting.analytics))]
+                  ),
                   _vm._v(" "),
                   _vm.error != null && _vm.error.analytics
                     ? _c("small", { staticClass: "form-text text-muted" }, [
@@ -77305,6 +77313,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -77344,20 +77354,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Da li ste sigurni?',
+                text: "Nećete moći da povratite radnju!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#51d2b7',
                 cancelButtonColor: '#fb9678',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Da, obriši ga!',
+                cancelButtonText: 'Odustani'
             }).then(function (result) {
                 if (result.value) {
-                    axios.delete('api/menus/' + row.id).then(function (res) {
+                    axios.delete('api/users/' + row.id).then(function (res) {
                         _this2.menus = _this2.menus.filter(function (item) {
                             return row.id != item.id;
                         });
-                        __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()('Deleted!', 'Your file has been deleted.', 'success');
+                        __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()('Obrisano!', 'Meni je uspešno obrisan.', 'success');
                     }).catch(function (e) {
                         console.log(e);
                     });
@@ -77407,7 +77418,7 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Menus")])
+              _c("li", [_vm._v("Meni")])
             ])
           ])
         ])
@@ -77433,15 +77444,6 @@ var render = function() {
                   _c(
                     "td",
                     [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: "sort-amount-up" },
-                        on: {
-                          click: function($event) {
-                            _vm.sortRow(row["id"])
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
                       _c("font-awesome-icon", {
                         attrs: { icon: "link" },
                         on: {
@@ -77507,11 +77509,11 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("id")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("title")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("naziv")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("publish")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("publikovano")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("created at")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("kreirano")]),
         _vm._v(" "),
         _c("th", [_vm._v("action")])
       ])
@@ -77683,7 +77685,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()({
                     position: 'center',
                     type: 'success',
-                    title: 'Success',
+                    title: 'Uspeh',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -77724,13 +77726,13 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/menus" } }, [
-                    _vm._v("Menus")
+                    _vm._v("Meni")
                   ])
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Menu create")])
+              _c("li", [_vm._v("Kreiranje menija")])
             ])
           ])
         ])
@@ -77753,7 +77755,7 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+                  _c("label", { attrs: { for: "title" } }, [_vm._v("Naziv")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -77769,7 +77771,7 @@ var render = function() {
                       type: "text",
                       name: "title",
                       id: "title",
-                      placeholder: "Title"
+                      placeholder: "Naziv"
                     },
                     domProps: { value: _vm.menu.title },
                     on: {
@@ -77904,7 +77906,7 @@ var render = function() {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("label", [_vm._v("Published")]),
+                    _c("label", [_vm._v("Publikovano")]),
                     _c("br"),
                     _vm._v(" "),
                     _c("switches", {
@@ -77938,7 +77940,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Menu create")])])
+      _c("div", { staticClass: "card" }, [
+        _c("h5", [_vm._v("Kreiranje menija")])
+      ])
     ])
   },
   function() {
@@ -77949,7 +77953,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Create")]
+        [_vm._v("Kreiraj")]
       )
     ])
   }
@@ -78135,7 +78139,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()({
                     position: 'center',
                     type: 'success',
-                    title: 'Success',
+                    title: 'Uspeh',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -78175,13 +78179,13 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/menus" } }, [
-                    _vm._v("Menus")
+                    _vm._v("Meni")
                   ])
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Menu edit")])
+              _c("li", [_vm._v("Izmena menija")])
             ])
           ])
         ])
@@ -78204,7 +78208,7 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+                  _c("label", { attrs: { for: "title" } }, [_vm._v("Naziv")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -78220,7 +78224,7 @@ var render = function() {
                       type: "text",
                       name: "title",
                       id: "title",
-                      placeholder: "Title"
+                      placeholder: "Naziv"
                     },
                     domProps: { value: _vm.menu.title },
                     on: {
@@ -78355,7 +78359,7 @@ var render = function() {
                   "div",
                   { staticClass: "form-group" },
                   [
-                    _c("label", [_vm._v("Published")]),
+                    _c("label", [_vm._v("Publikovano")]),
                     _c("br"),
                     _vm._v(" "),
                     _c("switches", {
@@ -78389,7 +78393,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Menu edit")])])
+      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Izmena menija")])])
     ])
   },
   function() {
@@ -78400,7 +78404,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Edit")]
+        [_vm._v("Izmeni")]
       )
     ])
   }
@@ -78545,7 +78549,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default()({
                     position: 'center',
                     type: 'success',
-                    title: 'Success',
+                    title: 'Uspeh',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -80134,13 +80138,13 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/menus" } }, [
-                    _vm._v("Menus")
+                    _vm._v("Meni")
                   ])
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Menus sort")])
+              _c("li", [_vm._v("Sortiranje menija")])
             ])
           ])
         ])
@@ -80208,7 +80212,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Save")]
+            [_vm._v("Sačuvaj")]
           )
         ])
       ])
@@ -80382,7 +80386,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
                     position: 'center',
                     type: 'success',
-                    title: 'Success',
+                    title: 'Uspeh',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -80422,13 +80426,13 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/menus" } }, [
-                    _vm._v("Menu")
+                    _vm._v("Meni")
                   ])
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Menu link edit")])
+              _c("li", [_vm._v("Izmena linka")])
             ])
           ])
         ])
@@ -80439,7 +80443,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("General info")]),
+            _c("h5", [_vm._v("Generalne informacije")]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
@@ -80456,7 +80460,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("Language info")]),
+            _c("h5", [_vm._v("Jezičke informacije")]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
@@ -80472,7 +80476,7 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+                  _c("label", { attrs: { for: "title" } }, [_vm._v("Naziv")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -80488,7 +80492,7 @@ var render = function() {
                       type: "text",
                       name: "title",
                       id: "title",
-                      placeholder: "Title"
+                      placeholder: "Naziv"
                     },
                     domProps: { value: _vm.link.title },
                     on: {
@@ -80546,9 +80550,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "desc" } }, [
-                    _vm._v("Description")
-                  ]),
+                  _c("label", { attrs: { for: "desc" } }, [_vm._v("Opis")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -80564,7 +80566,7 @@ var render = function() {
                       type: "text",
                       name: "Description",
                       id: "desc",
-                      placeholder: "Description"
+                      placeholder: "Opis"
                     },
                     domProps: { value: _vm.link.desc },
                     on: {
@@ -80636,7 +80638,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Menu link edit")])])
+      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Izmena linka")])])
     ])
   },
   function() {
@@ -80647,7 +80649,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Create on English")]
+        [_vm._v("Kreiraj")]
       )
     ])
   }
@@ -80820,7 +80822,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()({
                     position: 'center',
                     type: 'success',
-                    title: 'Success',
+                    title: 'Uspeh',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -80854,20 +80856,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this3 = this;
 
             __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Da li ste sigurni?',
+                text: "Nećete moći da povratite radnju!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#51d2b7',
                 cancelButtonColor: '#fb9678',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Da, obriši ga!',
+                cancelButtonText: 'Odustani'
             }).then(function (result) {
                 if (result.value) {
-                    axios.delete('api/menu-links/' + row.id).then(function (res) {
+                    axios.delete('api/users/' + row.id).then(function (res) {
                         _this3.menuLinks = _this3.menuLinks.filter(function (item) {
                             return row.id != item.id;
                         });
-                        __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()('Deleted!', 'Your file has been deleted.', 'success');
+                        __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default()('Obrisano!', 'Link je uspešno obrisan.', 'success');
                     }).catch(function (e) {
                         console.log(e);
                     });
@@ -80910,7 +80913,7 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/menus" } }, [
-                    _vm._v("Menus")
+                    _vm._v("Meni")
                   ])
                 ],
                 1
@@ -80933,7 +80936,7 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Menu links")])
+              _c("li", [_vm._v("Link")])
             ])
           ])
         ])
@@ -80945,7 +80948,7 @@ var render = function() {
             "div",
             { staticClass: "card" },
             [
-              _c("h5", [_vm._v("Menu links")]),
+              _c("h5", [_vm._v("Link")]),
               _vm._v(" "),
               _c("font-awesome-icon", {
                 staticClass: "new-link-add",
@@ -81022,13 +81025,13 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("id")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("title")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("naziv")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("publish")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("publikovano")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("lang")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("jezik")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("created at")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("kreirano")]),
         _vm._v(" "),
         _c("th", [_vm._v("action")])
       ])
@@ -81212,6 +81215,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -81222,8 +81239,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             link: {},
-            linkIta: {},
-            error: null
+            linkEng: {},
+            error: null,
+            links: []
         };
     },
 
@@ -81233,8 +81251,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'switches': __WEBPACK_IMPORTED_MODULE_3_vue_switches___default.a
     },
     created: function created() {
+        this.getLink('sr');
         this.getLink('en');
-        this.getLink('it');
+        this.getParentLinks();
     },
 
     methods: {
@@ -81243,10 +81262,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.get('api/menu-links/' + this.$route.params.id + '?locale=' + locale).then(function (res) {
                 if (res.data.link != null) {
-                    if (locale == 'en') {
+                    if (locale == 'sr') {
                         _this.link = res.data.link;
                     } else {
-                        _this.linkIta = res.data.link;
+                        _this.linkEng = res.data.link;
                     }
                 }
             }).catch(function (e) {
@@ -81254,32 +81273,61 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.error = e.response.data.errors;
             });
         },
-        submit: function submit(locale) {
+        getParentLinks: function getParentLinks() {
             var _this2 = this;
 
+            axios.get('api/menu-links/lists').then(function (res) {
+                if (res.data.links != null) {
+                    _this2.links = res.data.links;
+                }
+            }).catch(function (e) {
+                console.log(e);
+                _this2.error = e.response.data.errors;
+            });
+        },
+        submit: function submit(locale) {
+            var _this3 = this;
+
             var data = {};
-            if (locale == 'en') {
+            if (locale == 'sr') {
                 data = this.link;
             } else {
-                data = this.linkIta;
+                data = this.linkEng;
             }
             axios.patch('api/menu-links/' + this.link.id + '?locale=' + locale, data).then(function (res) {
-                if (locale == 'en') {
-                    _this2.link = res.data.link;
+                if (locale == 'sr') {
+                    _this3.link = res.data.link;
                 } else {
-                    _this2.linkIta = res.data.link;
+                    _this3.linkEng = res.data.link;
                 }
                 __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
                     position: 'center',
                     type: 'success',
-                    title: 'Success',
+                    title: 'Uspeh',
                     showConfirmButton: false,
                     timer: 1500
                 });
-                _this2.error = null;
+                _this3.error = null;
             }).catch(function (e) {
                 console.log(e.response);
-                _this2.error = e.response.data.errors;
+                _this3.error = e.response.data.errors;
+            });
+        },
+        general: function general() {
+            var _this4 = this;
+
+            axios.post('api/menu-links/' + this.link.id + '/general', this.link).then(function (res) {
+                __WEBPACK_IMPORTED_MODULE_2_sweetalert2___default()({
+                    position: 'center',
+                    type: 'success',
+                    title: 'Izmenjeno',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                _this4.error = null;
+            }).catch(function (e) {
+                console.log(e.response);
+                _this4.error = e.response.data.errors;
             });
         }
     }
@@ -81313,13 +81361,13 @@ var render = function() {
                 "li",
                 [
                   _c("router-link", { attrs: { tag: "a", to: "/menus" } }, [
-                    _vm._v("Menu")
+                    _vm._v("Meni")
                   ])
                 ],
                 1
               ),
               _vm._v(" "),
-              _c("li", [_vm._v("Menu link edit")])
+              _c("li", [_vm._v("Izmena linka")])
             ])
           ])
         ])
@@ -81330,28 +81378,125 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("General info")]),
+            _c("h5", [_vm._v("Generalne informacije")]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
-            _c("form", {
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  _vm.general()
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    _vm.general()
+                  }
                 }
-              }
-            })
+              },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "parent" } }, [
+                    _vm._v("Nad link")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.link.parent,
+                          expression: "link.parent"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "parent", id: "parent" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.link,
+                            "parent",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.links, function(link, index) {
+                      return _c("option", { domProps: { value: index } }, [
+                        _vm._v(_vm._s(link))
+                      ])
+                    })
+                  ),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.parent
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.parent[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "order" } }, [
+                    _vm._v("Redosled")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.link.order,
+                        expression: "link.order"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "order",
+                      id: "order",
+                      placeholder: "Redosled"
+                    },
+                    domProps: { value: _vm.link.order },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.link, "order", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.error != null && _vm.error.order
+                    ? _c("small", { staticClass: "form-text text-muted" }, [
+                        _vm._v(_vm._s(_vm.error.order[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ]
+            )
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
-            _c("h5", [_vm._v("Language info")]),
+            _c("h5", [_vm._v("Jezičke informacije")]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
-            _vm._m(1),
+            _vm._m(2),
             _vm._v(" "),
             _c(
               "div",
@@ -81362,7 +81507,7 @@ var render = function() {
                   {
                     staticClass: "tab-pane fade show active",
                     attrs: {
-                      id: "eng",
+                      id: "srb",
                       role: "tabpanel",
                       "aria-labelledby": "home-tab"
                     }
@@ -81374,14 +81519,14 @@ var render = function() {
                         on: {
                           submit: function($event) {
                             $event.preventDefault()
-                            _vm.submit("en")
+                            _vm.submit("sr")
                           }
                         }
                       },
                       [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "title" } }, [
-                            _vm._v("Title")
+                            _vm._v("Naziv")
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -81398,7 +81543,7 @@ var render = function() {
                               type: "text",
                               name: "title",
                               id: "title",
-                              placeholder: "Title"
+                              placeholder: "Naziv"
                             },
                             domProps: { value: _vm.link.title },
                             on: {
@@ -81463,7 +81608,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "desc" } }, [
-                            _vm._v("Description")
+                            _vm._v("Opis")
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -81480,7 +81625,7 @@ var render = function() {
                               type: "text",
                               name: "Description",
                               id: "desc",
-                              placeholder: "Description"
+                              placeholder: "Opis"
                             },
                             domProps: { value: _vm.link.desc },
                             on: {
@@ -81543,7 +81688,7 @@ var render = function() {
                             : _vm._e()
                         ]),
                         _vm._v(" "),
-                        _vm._m(2)
+                        _vm._m(3)
                       ]
                     )
                   ]
@@ -81554,7 +81699,7 @@ var render = function() {
                   {
                     staticClass: "tab-pane fade",
                     attrs: {
-                      id: "ita",
+                      id: "eng",
                       role: "tabpanel",
                       "aria-labelledby": "contact-tab"
                     }
@@ -81566,14 +81711,14 @@ var render = function() {
                         on: {
                           submit: function($event) {
                             $event.preventDefault()
-                            _vm.submit("it")
+                            _vm.submit("en")
                           }
                         }
                       },
                       [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "titleIta" } }, [
-                            _vm._v("Title")
+                            _vm._v("Naziv")
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -81581,8 +81726,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.linkIta.title,
-                                expression: "linkIta.title"
+                                value: _vm.linkEng.title,
+                                expression: "linkEng.title"
                               }
                             ],
                             staticClass: "form-control",
@@ -81590,16 +81735,16 @@ var render = function() {
                               type: "text",
                               name: "title",
                               id: "titleIta",
-                              placeholder: "Title"
+                              placeholder: "Naziv"
                             },
-                            domProps: { value: _vm.linkIta.title },
+                            domProps: { value: _vm.linkEng.title },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(
-                                  _vm.linkIta,
+                                  _vm.linkEng,
                                   "title",
                                   $event.target.value
                                 )
@@ -81626,8 +81771,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.linkIta.link,
-                                expression: "linkIta.link"
+                                value: _vm.linkEng.link,
+                                expression: "linkEng.link"
                               }
                             ],
                             staticClass: "form-control",
@@ -81637,14 +81782,14 @@ var render = function() {
                               id: "linkIta",
                               placeholder: "Link"
                             },
-                            domProps: { value: _vm.linkIta.link },
+                            domProps: { value: _vm.linkEng.link },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(
-                                  _vm.linkIta,
+                                  _vm.linkEng,
                                   "link",
                                   $event.target.value
                                 )
@@ -81663,7 +81808,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "descIta" } }, [
-                            _vm._v("Description")
+                            _vm._v("Opis")
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -81671,8 +81816,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.linkIta.desc,
-                                expression: "linkIta.desc"
+                                value: _vm.linkEng.desc,
+                                expression: "linkEng.desc"
                               }
                             ],
                             staticClass: "form-control",
@@ -81680,16 +81825,16 @@ var render = function() {
                               type: "text",
                               name: "Description",
                               id: "descIta",
-                              placeholder: "Description"
+                              placeholder: "Opis"
                             },
-                            domProps: { value: _vm.linkIta.desc },
+                            domProps: { value: _vm.linkEng.desc },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(
-                                  _vm.linkIta,
+                                  _vm.linkEng,
                                   "desc",
                                   $event.target.value
                                 )
@@ -81716,8 +81861,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.linkIta.sufix,
-                                expression: "linkIta.sufix"
+                                value: _vm.linkEng.sufix,
+                                expression: "linkEng.sufix"
                               }
                             ],
                             staticClass: "form-control",
@@ -81727,14 +81872,14 @@ var render = function() {
                               id: "sufixIta",
                               placeholder: "Sufix"
                             },
-                            domProps: { value: _vm.linkIta.sufix },
+                            domProps: { value: _vm.linkEng.sufix },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.$set(
-                                  _vm.linkIta,
+                                  _vm.linkEng,
                                   "sufix",
                                   $event.target.value
                                 )
@@ -81751,7 +81896,7 @@ var render = function() {
                             : _vm._e()
                         ]),
                         _vm._v(" "),
-                        _vm._m(3)
+                        _vm._m(4)
                       ]
                     )
                   ]
@@ -81770,7 +81915,19 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Menu link edit")])])
+      _c("div", { staticClass: "card" }, [_c("h5", [_vm._v("Izmena linka")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Izmeni generalna")]
+      )
     ])
   },
   function() {
@@ -81789,13 +81946,13 @@ var staticRenderFns = [
               attrs: {
                 id: "home-tab",
                 "data-toggle": "tab",
-                href: "#eng",
+                href: "#srb",
                 role: "tab",
                 "aria-controls": "home",
                 "aria-selected": "true"
               }
             },
-            [_vm._v("English")]
+            [_vm._v("Srpski")]
           )
         ]),
         _vm._v(" "),
@@ -81807,13 +81964,13 @@ var staticRenderFns = [
               attrs: {
                 id: "contact-tab",
                 "data-toggle": "tab",
-                href: "#ita",
+                href: "#eng",
                 role: "tab",
                 "aria-controls": "contact",
                 "aria-selected": "false"
               }
             },
-            [_vm._v("Italian")]
+            [_vm._v("Engleski")]
           )
         ])
       ]
@@ -81827,7 +81984,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Edit on English")]
+        [_vm._v("Izmeni srpski")]
       )
     ])
   },
@@ -81839,7 +81996,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Edit on Italian")]
+        [_vm._v("Izmeni engleski")]
       )
     ])
   }

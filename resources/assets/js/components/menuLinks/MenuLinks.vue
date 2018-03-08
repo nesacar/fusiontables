@@ -6,9 +6,9 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/menus'">Menus</router-link></li>
+                            <li><router-link tag="a" :to="'/menus'">Meni</router-link></li>
                             <li><router-link tag="a" :to="'/menus/' + this.$route.params.id + '/edit'">{{ menuName }}</router-link></li>
-                            <li>Menu links</li>
+                            <li>Link</li>
                         </ul>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Menu links</h5>
+                        <h5>Link</h5>
                         <font-awesome-icon icon="plus" @click="addRow()" class="new-link-add" />
                     </div>
                 </div>
@@ -28,10 +28,10 @@
                             <thead>
                             <tr>
                                 <th scope="col">id</th>
-                                <th scope="col">title</th>
-                                <th scope="col">publish</th>
-                                <th scope="col">lang</th>
-                                <th scope="col">created at</th>
+                                <th scope="col">naziv</th>
+                                <th scope="col">publikovano</th>
+                                <th scope="col">jezik</th>
+                                <th scope="col">kreirano</th>
                                 <th>action</th>
                             </tr>
                             </thead>
@@ -93,7 +93,7 @@
                         swal({
                             position: 'center',
                             type: 'success',
-                            title: 'Success',
+                            title: 'Uspeh',
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -124,23 +124,24 @@
             },
             deleteRow(row){
                 swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Da li ste sigurni?',
+                    text: "Nećete moći da povratite radnju!",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#51d2b7',
                     cancelButtonColor: '#fb9678',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Da, obriši ga!',
+                    cancelButtonText: 'Odustani'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete('api/menu-links/' + row.id)
+                        axios.delete('api/users/' + row.id)
                             .then(res => {
                                 this.menuLinks = this.menuLinks.filter(function (item) {
                                     return row.id != item.id;
                                 });
                                 swal(
-                                    'Deleted!',
-                                    'Your file has been deleted.',
+                                    'Obrisano!',
+                                    'Link je uspešno obrisan.',
                                     'success'
                                 );
                             })

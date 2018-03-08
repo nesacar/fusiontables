@@ -6,8 +6,8 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/menus'">Menu</router-link></li>
-                            <li>Menu link edit</li>
+                            <li><router-link tag="a" :to="'/menus'">Meni</router-link></li>
+                            <li>Izmena linka</li>
                         </ul>
                     </div>
                 </div>
@@ -16,13 +16,13 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Menu link edit</h5>
+                        <h5>Izmena linka</h5>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>General info</h5>
+                        <h5>Generalne informacije</h5>
                         <hr>
                         <form @submit.prevent="general()">
 
@@ -31,12 +31,12 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card">
-                        <h5>Language info</h5>
+                        <h5>Jezičke informacije</h5>
                         <hr>
                         <form @submit.prevent="submit()">
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="link.title">
+                                <label for="title">Naziv</label>
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Naziv" v-model="link.title">
                                 <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                             </div>
                             <div class="form-group">
@@ -45,8 +45,8 @@
                                 <small class="form-text text-muted" v-if="error != null && error.link">{{ error.link[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label for="desc">Description</label>
-                                <input type="text" name="Description" class="form-control" id="desc" placeholder="Description" v-model="link.desc">
+                                <label for="desc">Opis</label>
+                                <input type="text" name="Description" class="form-control" id="desc" placeholder="Opis" v-model="link.desc">
                                 <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                             </div>
                             <div class="form-group">
@@ -55,7 +55,7 @@
                                 <small class="form-text text-muted" v-if="error != null && error.sufix">{{ error.sufix[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Create on English</button>
+                                <button class="btn btn-primary" type="submit">Kreiraj</button>
                             </div>
                         </form>
 
@@ -92,7 +92,7 @@
                         swal({
                             position: 'center',
                             type: 'success',
-                            title: 'Success',
+                            title: 'Uspeh',
                             showConfirmButton: false,
                             timer: 1500
                         });

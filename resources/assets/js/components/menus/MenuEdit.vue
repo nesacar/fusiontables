@@ -6,8 +6,8 @@
                     <div id="breadcrumbs">
                         <ul class="list-group list-group-flush">
                             <li><router-link tag="a" :to="'/home'">Home</router-link></li>
-                            <li><router-link tag="a" :to="'/menus'">Menus</router-link></li>
-                            <li>Menu edit</li>
+                            <li><router-link tag="a" :to="'/menus'">Meni</router-link></li>
+                            <li>Izmena menija</li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="row bela">
                 <div class="col-md-12">
                     <div class="card">
-                        <h5>Menu edit</h5>
+                        <h5>Izmena menija</h5>
                     </div>
                 </div>
 
@@ -24,8 +24,8 @@
                     <div class="card">
                         <form @submit.prevent="submit()">
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control" id="title" placeholder="Title" v-model="menu.title">
+                                <label for="title">Naziv</label>
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Naziv" v-model="menu.title">
                                 <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                             </div>
                             <div class="form-group">
@@ -44,11 +44,11 @@
                                 <small class="form-text text-muted" v-if="error != null && error.class">{{ error.class[0] }}</small>
                             </div>
                             <div class="form-group">
-                                <label>Published</label><br>
+                                <label>Publikovano</label><br>
                                 <switches v-model="menu.publish" theme="bootstrap" color="primary"></switches>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Edit</button>
+                                <button class="btn btn-primary" type="submit">Izmeni</button>
                             </div>
                         </form>
                     </div>
@@ -108,7 +108,7 @@
                         swal({
                             position: 'center',
                             type: 'success',
-                            title: 'Success',
+                            title: 'Uspeh',
                             showConfirmButton: false,
                             timer: 1500
                         });

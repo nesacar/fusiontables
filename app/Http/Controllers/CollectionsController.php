@@ -98,7 +98,7 @@ class CollectionsController extends Controller
     }
 
     public function lists(){
-        $locale = 'en';
+        $locale = 'sr';
         app()->setLocale($locale);
         $collections = Collection::join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
             ->where('collections.publish', 1)->orderBy('collection_translations.title', 'ASC')->where('collection_translations.locale', $locale)
@@ -109,7 +109,7 @@ class CollectionsController extends Controller
     }
 
     public function parentLists(){
-        $locale = 'en';
+        $locale = 'sr';
         app()->setLocale($locale);
         $collections = Collection::join('collection_translations', 'collections.id', '=', 'collection_translations.collection_id')
             ->where('collections.publish', 1)->where('collections.parent', 0)->orderBy('collection_translations.title', 'ASC')->where('collection_translations.locale', $locale)

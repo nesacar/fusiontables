@@ -73591,11 +73591,11 @@ var render = function() {
               _c(
                 "a",
                 {
-                  staticClass: "btn btn-success btn-sm",
+                  staticClass: "btn btn-primary btn-sm",
                   staticStyle: { width: "80px", float: "right" },
                   attrs: { href: _vm.link, target: "_blank" }
                 },
-                [_vm._v("informacije")]
+                [_vm._v("pregled")]
               )
             ]),
             _vm._v(" "),

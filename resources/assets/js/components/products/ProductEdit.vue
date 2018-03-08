@@ -37,7 +37,7 @@
 
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>Generalne <a :href="link" class="btn btn-success btn-sm" target="_blank" style="width: 80px; float: right;">informacije</a></h5>
+                        <h5>Generalne <a :href="link" class="btn btn-primary btn-sm" target="_blank" style="width: 80px; float: right;">pregled</a></h5>
                         <hr>
                         <form @submit.prevent="general()">
                             <div class="form-group">

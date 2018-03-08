@@ -73374,7 +73374,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'vue-dropzone': __WEBPACK_IMPORTED_MODULE_5_vue2_dropzone___default.a
     },
     created: function created() {
-        this.getProduct('se');
+        this.getProduct('sr');
         this.getProduct('en');
         this.getList();
         this.getPhotos();

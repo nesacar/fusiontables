@@ -232,7 +232,7 @@
             'vue-dropzone': vue2Dropzone
         },
         created(){
-            this.getProduct('se');
+            this.getProduct('sr');
             this.getProduct('en');
             this.getList();
             this.getPhotos();

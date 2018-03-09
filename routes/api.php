@@ -52,8 +52,8 @@ Route::middleware('auth:api')->post('products/search', 'ProductsController@searc
 Route::middleware('auth:api')->resource('products', 'ProductsController');
 Route::middleware('auth:api')->post('products/{id}/image', 'ProductsController@uploadImage');
 Route::middleware('auth:api')->post('products/{id}/lang', 'ProductsController@updateLang');
-Route::middleware('auth:api')->post('products/{id}/gallery', 'ProductsController@galleryUpdate');
 Route::middleware('auth:api')->get('products/{id}/gallery', 'ProductsController@gallery');
+Route::middleware('auth:api')->post('products/{id}/gallery', 'ProductsController@galleryUpdate');
 
 Route::middleware('auth:api')->get('settings/{id}/edit', 'SettingsController@edit');
 Route::middleware('auth:api')->patch('settings/{id}/update', 'SettingsController@update');
@@ -71,5 +71,7 @@ Route::middleware('auth:api')->post('menu-links/{id}/order', 'MenuLinksControlle
 Route::middleware('auth:api')->post('menu-links/{id}/general', 'MenuLinksController@generalUpdate');
 
 Route::middleware('auth:api')->resource('galleries', 'GalleriesController');
+Route::middleware('auth:api')->get('galleries/{id}/images', 'GalleriesController@image');
+Route::middleware('auth:api')->post('galleries/{id}/images', 'GalleriesController@imageUpdate');
 
-Route::middleware('auth:api')->resource('images', 'ImagesController');
+Route::middleware('auth:api')->post('images/{id}/destroy', 'ImagesController@destroy');

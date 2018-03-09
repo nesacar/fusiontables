@@ -30,6 +30,8 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"  @click.prevent="newTheme()">Tema</a>
                                 <a class="dropdown-item" href="#"  @click.prevent="newMenu()">Meni</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"  @click.prevent="newGallery()">Galerija</a>
                             </div>
                         </div>
                     </li>
@@ -152,6 +154,9 @@
             },
             newProduct(){
                 this.$router.push('/products/create');
+            },
+            newGallery(){
+                this.$router.push('/galleries/create');
             },
         }
     }

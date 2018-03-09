@@ -49,7 +49,7 @@ export const router = new VueRouter({
         { path: "/menu-links/:id/edit", component: require('./components/menuLinks/MenuLinkEdit.vue'), meta: { forAuth: true } },
 
         { path: "/galleries", component: require('./components/galleries/GalleryList.vue'), meta: { forAuth: true } },
-        { path: "/galleries/:id/create", component: require('./components/galleries/GalleryCreate.vue'), meta: { forAuth: true } },
+        { path: "/galleries/create", component: require('./components/galleries/GalleryCreate.vue'), meta: { forAuth: true } },
         { path: "/galleries/:id/edit", component: require('./components/galleries/GalleryEdit.vue'), meta: { forAuth: true } },
     ],
 

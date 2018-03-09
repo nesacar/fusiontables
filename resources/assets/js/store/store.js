@@ -31,6 +31,10 @@ export const store = new Vuex.Store({
         /** nav newsletters **/
         showNewslettersItem: true,
         newslettersItemActive: false,
+
+        /** nav galleries **/
+        showGalleriesItem: true,
+        galleriesItemActive: false,
     },
     getters: {
         /** auth **/
@@ -85,6 +89,14 @@ export const store = new Vuex.Store({
         getNewslettersItemActive: state => {
             return state.newslettersItemActive;
         },
+
+        /** nav galleries **/
+        getShowGalleriesItem: state => {
+            return state.showGalleriesItem;
+        },
+        getGalleriesItemActive: state => {
+            return state.galleriesItemActive;
+        },
     },
     mutations: {
         /** auth **/
@@ -124,6 +136,11 @@ export const store = new Vuex.Store({
         changeNewslettersItemActive: state => {
             state.newslettersItemActive = !state.newslettersItemActive;
         },
+
+        /** nav galleries **/
+        changeGalleriesItemActive: state => {
+            state.galleriesItemActive = !state.galleriesItemActive;
+        },
     },
     actions: {
         /** auth **/
@@ -162,6 +179,11 @@ export const store = new Vuex.Store({
         /** nav newsletters **/
         changeNewslettersItemActive: context => {
             context.commit('changeNewslettersItemActive');
+        },
+
+        /** nav galleries **/
+        changeGalleriesItemActive: context => {
+            context.commit('changeGalleriesItemActive');
         },
     }
 });

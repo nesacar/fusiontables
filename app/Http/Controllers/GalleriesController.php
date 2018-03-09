@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Gallery;
 use App\Http\Requests\CreateGalleryRequest;
+use App\Image;
 use Illuminate\Http\Request;
 
 class GalleriesController extends Controller
@@ -31,6 +32,7 @@ class GalleriesController extends Controller
     public function store(CreateGalleryRequest $request)
     {
         $gallery = Gallery::create(request()->all());
+        $gallery->slug = str_slug(request('title'));
         request()->publish? $gallery->publish = 1 : $gallery->publish = 0;
         $gallery->update();
 
@@ -47,7 +49,11 @@ class GalleriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $gallery = Gallery::find($id);
+
+        return response()->json([
+            'gallery' => $gallery
+        ]);
     }
 
     /**
@@ -57,9 +63,18 @@ class GalleriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateGalleryRequest $request, $id)
     {
-        //
+        $gallery = Gallery::find($id);
+        $gallery->title = request('title');
+        $gallery->slug = str_slug(request('title'));
+        $gallery->order = request('order');
+        request()->publish? $gallery->publish = 1 : $gallery->publish = 0;
+        $gallery->update();
+
+        return response()->json([
+            'gallery' => $gallery
+        ]);
     }
 
     /**
@@ -70,6 +85,24 @@ class GalleriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gallery = Gallery::find($id);
+        $gallery->delete();
+
+        return response()->json([
+            'gallery' => $gallery
+        ]);
+    }
+
+    public function image($id){
+        $images = Gallery::find($id)->image;
+
+        return response()->json([
+            'images' => $images
+        ]);
+    }
+
+    public function imageUpdate($id){
+        Image::saveImage($id, request('file'));
+        return 'done';
     }
 }

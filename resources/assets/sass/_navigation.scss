@@ -154,8 +154,8 @@
   -webkit-transform: translate(250px,0); /* Safari */
   transform: translate(250px,0); /* Standard syntax */
 
-  -webkit-transition: all 1s; /* Safari */
-  transition: all 1s;
+  -webkit-transition: all 0.5s; /* Safari */
+  transition: all 0.5s;
 
   &.active{
     -ms-transform: translate(0,0); /* IE 9 */
@@ -276,8 +276,8 @@
     -webkit-transform: translate(-220px, 0); /* Safari */
     transform: translate(-220px, 0); /* Standard syntax */
 
-    -webkit-transition: all 1s; /* Safari */
-    transition: all 1s;
+    -webkit-transition: all 0.5s; /* Safari */
+    transition: all 0.5s;
 
     + #place{
       width: calc(100% - 30px);
@@ -331,8 +331,8 @@
             left: 223px;
             cursor: pointer;
 
-            -webkit-transition: all 1s; /* Safari */
-            transition: all 1s;
+            -webkit-transition: all 0.5s; /* Safari */
+            transition: all 0.5s;
           }
         }
 
@@ -372,8 +372,8 @@
       text-transform: capitalize;
       padding-left: 35px;
 
-      -webkit-transition: all 1s; /* Safari */
-      transition: all 1s;
+      -webkit-transition: all 0.5s; /* Safari */
+      transition: all 0.5s;
 
       &.active{
         background-color: $svetla;

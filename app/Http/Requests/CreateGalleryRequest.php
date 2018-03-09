@@ -13,7 +13,7 @@ class CreateGalleryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class CreateGalleryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Naziv je obavezan'
         ];
     }
 }

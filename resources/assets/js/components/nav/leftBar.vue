@@ -35,7 +35,7 @@
             </li>
             <li>
                 <font-awesome-icon icon="images" />
-                <a :href="domain + 'filemanager/show'" target="_blank">Media</a>
+                <a :href="domain + 'filemanager/show'" target="_blank">File manager</a>
             </li>
             <li :class="{ 'active': showProductsItemActive }" :style="{ 'display': showProductsItem ? 'block' : 'none' }">
                 <font-awesome-icon icon="angle-right" />
@@ -53,6 +53,14 @@
                 <ul>
                     <li><router-link tag="a" :to="'/posts'">Pregled članaka</router-link></li>
                     <li><router-link tag="a" :to="'/categories'">Pregled kategorija</router-link></li>
+                </ul>
+            </li>
+            <li :class="{ 'active': showGalleriesItemActive }" :style="{ 'display': showPostsItem ? 'block' : 'none' }">
+                <font-awesome-icon icon="angle-right" />
+                <a href="#" @click="changeShowGalleriesItemActive()">Galerije</a>
+                <font-awesome-icon icon="paste" />
+                <ul>
+                    <li><router-link tag="a" :to="'/galleries'">Pregled galerije</router-link></li>
                 </ul>
             </li>
             <!--
@@ -134,6 +142,11 @@
             showNewslettersItemActive(){
                 return this.$store.getters.getNewslettersItemActive;
             },
+
+            /** galleries **/
+            showGalleriesItemActive(){
+                return this.$store.getters.getGalleriesItemActive;
+            },
         },
         methods: {
             /** settings **/
@@ -159,6 +172,11 @@
             /** products **/
             changeShowNewslettersItemActive(){
                 this.$store.dispatch('changeNewslettersItemActive');
+            },
+
+            /** galleries **/
+            changeShowGalleriesItemActive(){
+                this.$store.dispatch('changeGalleriesItemActive');
             },
         }
     }

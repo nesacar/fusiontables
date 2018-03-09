@@ -10167,9 +10167,9 @@ a.text-dark:focus {
   /* Safari */
   transform: translate(250px, 0);
   /* Standard syntax */
-  -webkit-transition: all 1s;
+  -webkit-transition: all 0.5s;
   /* Safari */
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 #rightMenu.active {
@@ -10299,9 +10299,9 @@ a.text-dark:focus {
   /* Safari */
   transform: translate(-220px, 0);
   /* Standard syntax */
-  -webkit-transition: all 1s;
+  -webkit-transition: all 0.5s;
   /* Safari */
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 #leftMenu.hide + #place {
@@ -10356,9 +10356,9 @@ a.text-dark:focus {
   #leftMenu.hide ul li svg {
     left: 223px;
     cursor: pointer;
-    -webkit-transition: all 1s;
+    -webkit-transition: all 0.5s;
     /* Safari */
-    transition: all 1s;
+    transition: all 0.5s;
   }
 
   #leftMenu.hide ul li svg[data-icon="angle-right"] {
@@ -10400,9 +10400,9 @@ a.text-dark:focus {
   font-size: 16px;
   text-transform: capitalize;
   padding-left: 35px;
-  -webkit-transition: all 1s;
+  -webkit-transition: all 0.5s;
   /* Safari */
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 #leftMenu ul li.active {
@@ -10529,9 +10529,9 @@ a.text-dark:focus {
   /* Safari/Chrome, other WebKit */
   /* Firefox, other Gecko */
   box-sizing: border-box;
-  -webkit-transition: all 1s;
+  -webkit-transition: all 0.5s;
   /* Safari */
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 @media (max-width: 576px) {

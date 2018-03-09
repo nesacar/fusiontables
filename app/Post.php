@@ -42,6 +42,12 @@ class Post extends Model
         }
     }
 
+    public static function h3Toh5($str){
+        $str = str_replace("<h3>","<h5>",$str);
+        $str = str_replace("</h3>","</h5>",$str);
+        return $str;
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

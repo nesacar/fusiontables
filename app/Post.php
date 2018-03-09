@@ -35,16 +35,16 @@ class Post extends Model
 
     public static function getPostLink($post){
         $category = Category::find($post->category_id);
-        if(app()->getLocale() == 'en'){
-            return url('it/' .$category->{"slug:it"} . '/' . $post->{"slug:it"} . '/' . $post->id);
+        if(app()->getLocale() == 'sr'){
+            return url('sr/' .$category->{"slug:sr"} . '/' . $post->{"slug:sr"} . '/' . $post->id);
         }else{
             return url('en/' .$category->{"slug:en"} . '/' . $post->{"slug:en"} . '/' . $post->id);
         }
     }
 
     public static function h3Toh5($str){
-        $str = str_replace("<h3>","<h5>",$str);
-        $str = str_replace("</h3>","</h5>",$str);
+        $str = str_replace("<h3>","<h3>",$str);
+        $str = str_replace("</h5>","</h5>",$str);
         return $str;
     }
 

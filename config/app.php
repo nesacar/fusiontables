@@ -56,6 +56,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application THEME
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the default theme for your application
+    |
+    */
+
+    'theme' => env('APP_THEME', false),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |
@@ -157,6 +168,7 @@ return [
         Ixudra\Curl\CurlServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
+        App\Providers\ViewComposerServiseProvider::class,
         /*
          * Application Service Providers...
          */

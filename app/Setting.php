@@ -26,4 +26,12 @@ class Setting extends Model
      */
     protected $fillable = ['phone1', 'phone2', 'email1', 'email2', 'facebook', 'twitter', 'instagram', 'pinterest', 'analytics', 'map', 'newsletter'];
 
+    public static function trim($str){
+        $str = str_replace('(', '', $str);
+        $str = str_replace(')', '', $str);
+        $str = str_replace('+', '', $str);
+        $str = str_replace(' ', '', $str);
+        return $str;
+    }
+
 }

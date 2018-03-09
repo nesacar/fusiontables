@@ -50,4 +50,12 @@ class Theme extends Model
         $theme->update();
         return $theme->image;
     }
+
+    public static function getTheme(){
+        if(config('app.theme')){
+            return config('app.theme');
+        }else{
+            return $theme = self::where('active', 1)->first()->slug;
+        }
+    }
 }

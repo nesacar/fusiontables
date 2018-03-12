@@ -24,6 +24,33 @@ class PagesController extends Controller
         return view('themes.'.$theme.'.pages.home', compact('settings', 'theme', 'images'));
     }
 
+    public function about(){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        $post = Post::find(1);
+        return view('themes.'.$theme.'.pages.about-us', compact('settings', 'theme', 'post'));
+    }
+
+    public function design(){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        $post = Post::find(2);
+        return view('themes.'.$theme.'.pages.design', compact('settings', 'theme', 'post'));
+    }
+
+    public function testimonials(){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        return view('themes.'.$theme.'.pages.testimonials', compact('settings', 'theme'));
+    }
+
+    public function quality(){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        $post = Post::find(3);
+        return view('themes.'.$theme.'.pages.quality', compact('settings', 'theme', 'post'));
+    }
+
     public function proba(){
         /*$old = Post::first();
 

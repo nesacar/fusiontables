@@ -44,8 +44,8 @@ export const router = new VueRouter({
         { path: "/menus/:id/edit", component: require('./components/menus/MenuEdit.vue'), meta: { forAuth: true } },
         { path: "/menus/:id/sort", component: require('./components/menus/MenuSort.vue'), meta: { forAuth: true } },
 
+        { path: "/menu-links/:id", component: require('./components/menuLinks/MenuLinks.vue'), meta: { forAuth: true } },
         { path: "/menu-links/:id/create", component: require('./components/menuLinks/MenuLinkCreate.vue'), meta: { forAuth: true } },
-        { path: "/menu-links/:id/sort", component: require('./components/menuLinks/MenuLinks.vue'), meta: { forAuth: true } },
         { path: "/menu-links/:id/edit", component: require('./components/menuLinks/MenuLinkEdit.vue'), meta: { forAuth: true } },
 
         { path: "/galleries", component: require('./components/galleries/GalleryList.vue'), meta: { forAuth: true } },

@@ -31412,6 +31412,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__fortawesome_fontawesome_free_solid_faSortAmountUp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__fortawesome_fontawesome_free_solid_faSortAmountUp__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__fortawesome_fontawesome_free_solid_faImages__ = __webpack_require__(220);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__fortawesome_fontawesome_free_solid_faImages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__fortawesome_fontawesome_free_solid_faImages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__fortawesome_fontawesome_free_solid_faRandom__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__fortawesome_fontawesome_free_solid_faRandom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__fortawesome_fontawesome_free_solid_faRandom__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -31464,7 +31466,8 @@ Vue.component('font-awesome-icon', __webpack_require__(1));
 
 
 
-__WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome__["default"].library.add(__WEBPACK_IMPORTED_MODULE_4__fortawesome_fontawesome_free_solid_faPlus___default.a, __WEBPACK_IMPORTED_MODULE_5__fortawesome_fontawesome_free_solid_faEnvelope___default.a, __WEBPACK_IMPORTED_MODULE_6__fortawesome_fontawesome_free_solid_faBell___default.a, __WEBPACK_IMPORTED_MODULE_7__fortawesome_fontawesome_free_solid_faCommentAlt___default.a, __WEBPACK_IMPORTED_MODULE_8__fortawesome_fontawesome_free_solid_faChevronCircleDown___default.a, __WEBPACK_IMPORTED_MODULE_9__fortawesome_fontawesome_free_solid_faCogs___default.a, __WEBPACK_IMPORTED_MODULE_10__fortawesome_fontawesome_free_solid_faAngleRight___default.a, __WEBPACK_IMPORTED_MODULE_11__fortawesome_fontawesome_free_solid_faHome___default.a, __WEBPACK_IMPORTED_MODULE_12__fortawesome_fontawesome_free_solid_faUsers___default.a, __WEBPACK_IMPORTED_MODULE_13__fortawesome_fontawesome_free_solid_faPaste___default.a, __WEBPACK_IMPORTED_MODULE_14__fortawesome_fontawesome_free_solid_faShoppingCart___default.a, __WEBPACK_IMPORTED_MODULE_15__fortawesome_fontawesome_free_solid_faAlignJustify___default.a, __WEBPACK_IMPORTED_MODULE_16__fortawesome_fontawesome_free_solid_faPencilAlt___default.a, __WEBPACK_IMPORTED_MODULE_17__fortawesome_fontawesome_free_solid_faTimes___default.a, __WEBPACK_IMPORTED_MODULE_18__fortawesome_fontawesome_free_solid_faLink___default.a, __WEBPACK_IMPORTED_MODULE_19__fortawesome_fontawesome_free_solid_faBars___default.a, __WEBPACK_IMPORTED_MODULE_20__fortawesome_fontawesome_free_solid_faSortAmountUp___default.a, __WEBPACK_IMPORTED_MODULE_21__fortawesome_fontawesome_free_solid_faImages___default.a);
+
+__WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome__["default"].library.add(__WEBPACK_IMPORTED_MODULE_4__fortawesome_fontawesome_free_solid_faPlus___default.a, __WEBPACK_IMPORTED_MODULE_5__fortawesome_fontawesome_free_solid_faEnvelope___default.a, __WEBPACK_IMPORTED_MODULE_6__fortawesome_fontawesome_free_solid_faBell___default.a, __WEBPACK_IMPORTED_MODULE_7__fortawesome_fontawesome_free_solid_faCommentAlt___default.a, __WEBPACK_IMPORTED_MODULE_8__fortawesome_fontawesome_free_solid_faChevronCircleDown___default.a, __WEBPACK_IMPORTED_MODULE_9__fortawesome_fontawesome_free_solid_faCogs___default.a, __WEBPACK_IMPORTED_MODULE_10__fortawesome_fontawesome_free_solid_faAngleRight___default.a, __WEBPACK_IMPORTED_MODULE_11__fortawesome_fontawesome_free_solid_faHome___default.a, __WEBPACK_IMPORTED_MODULE_12__fortawesome_fontawesome_free_solid_faUsers___default.a, __WEBPACK_IMPORTED_MODULE_13__fortawesome_fontawesome_free_solid_faPaste___default.a, __WEBPACK_IMPORTED_MODULE_14__fortawesome_fontawesome_free_solid_faShoppingCart___default.a, __WEBPACK_IMPORTED_MODULE_15__fortawesome_fontawesome_free_solid_faAlignJustify___default.a, __WEBPACK_IMPORTED_MODULE_16__fortawesome_fontawesome_free_solid_faPencilAlt___default.a, __WEBPACK_IMPORTED_MODULE_17__fortawesome_fontawesome_free_solid_faTimes___default.a, __WEBPACK_IMPORTED_MODULE_18__fortawesome_fontawesome_free_solid_faLink___default.a, __WEBPACK_IMPORTED_MODULE_19__fortawesome_fontawesome_free_solid_faBars___default.a, __WEBPACK_IMPORTED_MODULE_20__fortawesome_fontawesome_free_solid_faSortAmountUp___default.a, __WEBPACK_IMPORTED_MODULE_21__fortawesome_fontawesome_free_solid_faImages___default.a, __WEBPACK_IMPORTED_MODULE_22__fortawesome_fontawesome_free_solid_faRandom___default.a);
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_2__packages_auth_Auth__["a" /* default */]);
 
@@ -57105,7 +57108,7 @@ var index_esm = {
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-        routes: [{ path: "/", component: __webpack_require__(27), meta: { forAuth: true } }, { path: "/home", component: __webpack_require__(27), meta: { forAuth: true } }, { path: "/login", component: __webpack_require__(86), meta: { forVisitors: true } }, { path: "/register", component: __webpack_require__(89), meta: { forVisitors: true } }, { path: "/logout", component: __webpack_require__(92), meta: { forAuth: true } }, { path: "/users", component: __webpack_require__(95), meta: { forAuth: true } }, { path: "/users/create", component: __webpack_require__(98), meta: { forAuth: true } }, { path: "/users/:id/edit", component: __webpack_require__(105), meta: { forAuth: true } }, { path: "/users/change-password", component: __webpack_require__(110), meta: { forAuth: true } }, { path: "/categories", component: __webpack_require__(115), meta: { forAuth: true } }, { path: "/categories/create", component: __webpack_require__(118), meta: { forAuth: true } }, { path: "/categories/:id/edit", component: __webpack_require__(125), meta: { forAuth: true } }, { path: "/posts", component: __webpack_require__(128), meta: { forAuth: true } }, { path: "/posts/create", component: __webpack_require__(131), meta: { forAuth: true } }, { path: "/posts/:id/edit", component: __webpack_require__(134), meta: { forAuth: true } }, { path: "/collections", component: __webpack_require__(141), meta: { forAuth: true } }, { path: "/collections/create", component: __webpack_require__(144), meta: { forAuth: true } }, { path: "/collections/:id/edit", component: __webpack_require__(147), meta: { forAuth: true } }, { path: "/products", component: __webpack_require__(150), meta: { forAuth: true } }, { path: "/products/create", component: __webpack_require__(153), meta: { forAuth: true } }, { path: "/products/:id/edit", component: __webpack_require__(156), meta: { forAuth: true } }, { path: "/settings/:id/edit", component: __webpack_require__(159), meta: { forAuth: true } }, { path: "/themes", component: __webpack_require__(162), meta: { forAuth: true } }, { path: "/themes/create", component: __webpack_require__(165), meta: { forAuth: true } }, { path: "/themes/:id/edit", component: __webpack_require__(168), meta: { forAuth: true } }, { path: "/menus", component: __webpack_require__(171), meta: { forAuth: true } }, { path: "/menus/create", component: __webpack_require__(174), meta: { forAuth: true } }, { path: "/menus/:id/edit", component: __webpack_require__(177), meta: { forAuth: true } }, { path: "/menus/:id/sort", component: __webpack_require__(180), meta: { forAuth: true } }, { path: "/menu-links/:id/create", component: __webpack_require__(184), meta: { forAuth: true } }, { path: "/menu-links/:id/sort", component: __webpack_require__(187), meta: { forAuth: true } }, { path: "/menu-links/:id/edit", component: __webpack_require__(190), meta: { forAuth: true } }, { path: "/galleries", component: __webpack_require__(193), meta: { forAuth: true } }, { path: "/galleries/create", component: __webpack_require__(196), meta: { forAuth: true } }, { path: "/galleries/:id/edit", component: __webpack_require__(199), meta: { forAuth: true } }],
+        routes: [{ path: "/", component: __webpack_require__(27), meta: { forAuth: true } }, { path: "/home", component: __webpack_require__(27), meta: { forAuth: true } }, { path: "/login", component: __webpack_require__(86), meta: { forVisitors: true } }, { path: "/register", component: __webpack_require__(89), meta: { forVisitors: true } }, { path: "/logout", component: __webpack_require__(92), meta: { forAuth: true } }, { path: "/users", component: __webpack_require__(95), meta: { forAuth: true } }, { path: "/users/create", component: __webpack_require__(98), meta: { forAuth: true } }, { path: "/users/:id/edit", component: __webpack_require__(105), meta: { forAuth: true } }, { path: "/users/change-password", component: __webpack_require__(110), meta: { forAuth: true } }, { path: "/categories", component: __webpack_require__(115), meta: { forAuth: true } }, { path: "/categories/create", component: __webpack_require__(118), meta: { forAuth: true } }, { path: "/categories/:id/edit", component: __webpack_require__(125), meta: { forAuth: true } }, { path: "/posts", component: __webpack_require__(128), meta: { forAuth: true } }, { path: "/posts/create", component: __webpack_require__(131), meta: { forAuth: true } }, { path: "/posts/:id/edit", component: __webpack_require__(134), meta: { forAuth: true } }, { path: "/collections", component: __webpack_require__(141), meta: { forAuth: true } }, { path: "/collections/create", component: __webpack_require__(144), meta: { forAuth: true } }, { path: "/collections/:id/edit", component: __webpack_require__(147), meta: { forAuth: true } }, { path: "/products", component: __webpack_require__(150), meta: { forAuth: true } }, { path: "/products/create", component: __webpack_require__(153), meta: { forAuth: true } }, { path: "/products/:id/edit", component: __webpack_require__(156), meta: { forAuth: true } }, { path: "/settings/:id/edit", component: __webpack_require__(159), meta: { forAuth: true } }, { path: "/themes", component: __webpack_require__(162), meta: { forAuth: true } }, { path: "/themes/create", component: __webpack_require__(165), meta: { forAuth: true } }, { path: "/themes/:id/edit", component: __webpack_require__(168), meta: { forAuth: true } }, { path: "/menus", component: __webpack_require__(171), meta: { forAuth: true } }, { path: "/menus/create", component: __webpack_require__(174), meta: { forAuth: true } }, { path: "/menus/:id/edit", component: __webpack_require__(177), meta: { forAuth: true } }, { path: "/menus/:id/sort", component: __webpack_require__(180), meta: { forAuth: true } }, { path: "/menu-links/:id", component: __webpack_require__(187), meta: { forAuth: true } }, { path: "/menu-links/:id/create", component: __webpack_require__(184), meta: { forAuth: true } }, { path: "/menu-links/:id/edit", component: __webpack_require__(190), meta: { forAuth: true } }, { path: "/galleries", component: __webpack_require__(193), meta: { forAuth: true } }, { path: "/galleries/create", component: __webpack_require__(196), meta: { forAuth: true } }, { path: "/galleries/:id/edit", component: __webpack_require__(199), meta: { forAuth: true } }],
 
         linkActiveClass: 'active'
 });
@@ -77490,7 +77493,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         links: function links(id) {
-            this.$router.push('/menu-links/' + id + '/sort');
+            this.$router.push('/menu-links/' + id);
         },
         sortRow: function sortRow(id) {
             this.$router.push('/menus/' + id + '/sort');
@@ -78637,8 +78640,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getMenuLinks: function getMenuLinks() {
             var _this = this;
 
-            axios.get('api/menu-links?id=' + this.$route.params.id).then(function (res) {
-                _this.links = res.data.menuLinks;
+            axios.get('api/menu-links/' + this.$route.params.id + '/sort').then(function (res) {
+                _this.links = res.data.links;
             }).catch(function (e) {
                 console.log(e);
             });
@@ -80886,6 +80889,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -80952,6 +80956,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         addRow: function addRow() {
             this.$router.push('/menu-links/' + this.$route.params.id + '/create');
+        },
+        sortRows: function sortRows() {
+            this.$router.push('/menus/' + this.$route.params.id + '/sort');
         },
         editRow: function editRow(id) {
             this.$router.push('/menu-links/' + id + '/edit');
@@ -81053,6 +81060,16 @@ var render = function() {
             { staticClass: "card" },
             [
               _c("h5", [_vm._v("Link")]),
+              _vm._v(" "),
+              _c("font-awesome-icon", {
+                staticClass: "new-link-add left-one-place",
+                attrs: { icon: "random" },
+                on: {
+                  click: function($event) {
+                    _vm.sortRows()
+                  }
+                }
+              }),
               _vm._v(" "),
               _c("font-awesome-icon", {
                 staticClass: "new-link-add",
@@ -83448,6 +83465,13 @@ module.exports = { prefix: 'fas', iconName: 'images', icon: [576, 512, [], "f302
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 222 */,
+/* 223 */
+/***/ (function(module, exports) {
+
+module.exports = { prefix: 'fas', iconName: 'random', icon: [512, 512, [], "f074", "M504.971 359.029c9.373 9.373 9.373 24.569 0 33.941l-80 79.984c-15.01 15.01-40.971 4.49-40.971-16.971V416h-58.785a12.004 12.004 0 0 1-8.773-3.812l-70.556-75.596 53.333-57.143L352 336h32v-39.981c0-21.438 25.943-31.998 40.971-16.971l80 79.981zM12 176h84l52.781 56.551 53.333-57.143-70.556-75.596A11.999 11.999 0 0 0 122.785 96H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12zm372 0v39.984c0 21.46 25.961 31.98 40.971 16.971l80-79.984c9.373-9.373 9.373-24.569 0-33.941l-80-79.981C409.943 24.021 384 34.582 384 56.019V96h-58.785a12.004 12.004 0 0 0-8.773 3.812L96 336H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h110.785c3.326 0 6.503-1.381 8.773-3.812L352 176h32z"] };
 
 /***/ })
 /******/ ]);

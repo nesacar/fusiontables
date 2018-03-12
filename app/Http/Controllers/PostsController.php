@@ -31,7 +31,7 @@ class PostsController extends Controller
         $post->title = request('title');
         request('slug')? $post->slug = str_slug(request('slug')) : $post->slug = str_slug(request('title'));
         $post->short = request('short');
-        $post->body = request('body');
+        $post->body = Post::h3Toh4(request('body'));
         request('publish')? $post->publish = true : $post->publish = false;
         $post->save();
         if(request('image')){ Post::base64UploadImage($post->id, request('image')); }
@@ -69,7 +69,7 @@ class PostsController extends Controller
         $post->title = request('title');
         request('slug')? $post->slug = str_slug(request('slug')) : $post->slug = str_slug(request('title'));
         $post->short = request('short');
-        $post->body = request('body');
+        $post->body = Post::h3Toh4(request('body'));
         $post->update($request->except('image', 'slug'));
         return response()->json([
             'post' => $post

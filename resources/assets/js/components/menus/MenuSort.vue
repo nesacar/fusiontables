@@ -50,9 +50,9 @@
         },
         methods: {
             getMenuLinks(){
-                axios.get('api/menu-links?id=' + this.$route.params.id)
+                axios.get('api/menu-links/' + this.$route.params.id + '/sort')
                     .then(res => {
-                        this.links = res.data.menuLinks;
+                        this.links = res.data.links;
                     })
                     .catch(e => {
                         console.log(e);

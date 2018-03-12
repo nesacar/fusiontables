@@ -69,7 +69,7 @@ class MenuLinksController extends Controller
 
     public function sort($id){
         $menu = Menu::find($id);
-        $links = $menu->menuLinks()->orderBy('order', 'ASC')->get();
+        $links = $menu->menuLinks()->where('parent', 0)->orderBy('order', 'ASC')->get();
         $last = MenuLink::orderBy('order', 'ASC')->first();
         if(empty($last)){
             $id = 1;

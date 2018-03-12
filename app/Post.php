@@ -42,9 +42,9 @@ class Post extends Model
         }
     }
 
-    public static function h3Toh5($str){
-        $str = str_replace("<h3>","<h3>",$str);
-        $str = str_replace("</h5>","</h5>",$str);
+    public static function h3Toh4($str){
+        $str = str_replace("<h3>","<h4>",$str);
+        $str = str_replace("</h3>","</h4>",$str);
         return $str;
     }
 

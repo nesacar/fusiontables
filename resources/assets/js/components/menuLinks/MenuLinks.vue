@@ -18,6 +18,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <h5>Link</h5>
+                        <font-awesome-icon icon="random" @click="sortRows()" class="new-link-add left-one-place" />
                         <font-awesome-icon icon="plus" @click="addRow()" class="new-link-add" />
                     </div>
                 </div>
@@ -118,6 +119,9 @@
             },
             addRow(){
                 this.$router.push('/menu-links/' + this.$route.params.id + '/create');
+            },
+            sortRows(){
+                this.$router.push('/menus/' + this.$route.params.id + '/sort');
             },
             editRow(id){
                 this.$router.push('/menu-links/' + id + '/edit');

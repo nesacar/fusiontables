@@ -12,12 +12,16 @@
 */
 
 Route::get('/', 'PagesController@index');
+Route::get('o-nama', 'PagesController@about');
+Route::get('dizajn', 'PagesController@design');
+Route::get('iskustva', 'PagesController@testimonials');
+Route::get('kvalitet', 'PagesController@quality');
 
 Route::get('/admin', function () {
     return view('layouts.admin-app');
 });
 
-//Auth::routes();
+Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 

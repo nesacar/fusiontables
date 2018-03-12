@@ -125,7 +125,7 @@
                     });
             },
             links(id){
-                this.$router.push('/menu-links/' + id + '/sort');
+                this.$router.push('/menu-links/' + id);
             },
             sortRow(id){
                 this.$router.push('/menus/' + id + '/sort');

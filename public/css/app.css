@@ -10635,6 +10635,10 @@ a.text-dark:focus {
   cursor: pointer;
 }
 
+#place .new-link-add.left-one-place {
+  right: 40px;
+}
+
 /** AUTH **/
 
 #login {

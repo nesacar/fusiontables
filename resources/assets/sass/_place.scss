@@ -135,6 +135,10 @@
     top: 20px;
     right: 20px;
     cursor: pointer;
+
+    &.left-one-place{
+      right: 40px;
+    }
   }
 }
 

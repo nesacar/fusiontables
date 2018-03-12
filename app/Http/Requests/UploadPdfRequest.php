@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UploadGalleryRequest extends FormRequest
+class UploadPdfRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,6 +21,11 @@ class UploadGalleryRequest extends FormRequest
      *
      * @return array
      */
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
         return [
@@ -31,8 +36,9 @@ class UploadGalleryRequest extends FormRequest
     public function messages()
     {
         return [
-            'file.required' => 'Slika je obavezna',
-            'file.image' => 'Slika nije u ispravnom formatu',
+            'file.required' => 'Pdf je obavezan',
+            'file.mimes' => 'Fajl nije u pdf formatu',
+            'file.max' => 'Fajl je preko 1 MB',
         ];
     }
 }

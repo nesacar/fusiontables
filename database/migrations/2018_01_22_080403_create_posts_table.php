@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->integer('user_id')->nullable()->default(0);
             $table->integer('category_id')->nullable()->default(0);
             $table->string('image')->nullable();
+            $table->string('pdf')->nullable();
+            $table->string('author')->nullable();
             $table->integer('price')->nullable()->default(0);
             $table->timestamp('publish_at')->nullable();
             $table->boolean('publish')->nullable();

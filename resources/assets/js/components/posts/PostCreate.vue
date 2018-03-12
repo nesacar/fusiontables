@@ -45,6 +45,11 @@
                                 <textarea name="short" id="short" cols="3" rows="4" class="form-control" placeholder="Kratak opis" v-model="post.short"></textarea>
                                 <small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>
                             </div>
+                            <div class="form-group" v-if="post.category_id == 3">
+                                <label for="author">Autor</label>
+                                <input type="text" name="author" class="form-control" id="author" placeholder="Autor" v-model="post.author">
+                                <small class="form-text text-muted" v-if="error != null && error.author">{{ error.author[0] }}</small>
+                            </div>
                             <div class="form-group">
                                     <label>Opis</label>
                                 <ckeditor
@@ -72,6 +77,16 @@
                             @uploadImage="upload($event)"
                             @removeRow="remove($event)"
                     ></upload-image-helper>
+
+                    <upload-pdf-helper
+                            :pdf="post.pdf"
+                            :domain="domain"
+                            :defaultPdf="'/themes/ft/img/pdf-icon.jpg'"
+                            :titlePdf="'članka'"
+                            :error="error"
+                            @uploadPdf="uploadPdf($event)"
+                            @removeRow="remove($event)"
+                    ></upload-pdf-helper>
                 </div>
             </div>
         </div>
@@ -79,8 +94,10 @@
 </template>
 
 <script>
+    import { apiHost } from '../../config';
     import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
     import UploadImageHelper from '../helper/UploadImageHelper.vue';
+    import UploadPdfHelper from '../helper/UploadPdfHelper.vue';
     import swal from 'sweetalert2';
     import Switches from 'vue-switches';
     import Ckeditor from 'vue-ckeditor2';
@@ -104,7 +121,8 @@
                   ],
                   height: 300,
                   filebrowserBrowseUrl: 'filemanager/show'
-              }
+              },
+              domain : apiHost
           }
         },
         computed: {
@@ -115,6 +133,7 @@
         components: {
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
+            'upload-pdf-helper': UploadPdfHelper,
             'switches': Switches,
             'ckeditor': Ckeditor
         },
@@ -143,6 +162,10 @@
             upload(image){
                 console.log(image[0]);
                 this.post.image = image[0];
+            },
+            uploadPdf(pdf){
+                console.log(pdf[0]);
+                this.post.pdf = pdf[0];
             },
             getList(){
                 axios.get('api/categories/lists')

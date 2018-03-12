@@ -21,4 +21,8 @@ class MenuLinkTranslation extends Model
      * @var array
      */
     protected $fillable = ['title', 'link', 'desc', 'sufix'];
+
+    public function menuLink(){
+        return $this->belongsTo(MenuLink::class);
+    }
 }

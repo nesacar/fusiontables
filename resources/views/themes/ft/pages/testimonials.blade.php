@@ -23,40 +23,37 @@
 
     <section>
         <div class="container d-flex justify-content-center justify-content-md-end mt-1">
-            <button class="btn btn-primary ft-btn">+ Dodajte svoju izjavu</button>
+            @if(false) <button class="btn btn-primary ft-btn">+ Dodajte svoju izjavu</button> @endif
         </div>
+        @if(count($posts))
         <div class="container">
             <ul class="testimonials-list">
+                @foreach($posts as $post)
                 <li class="testimonials-list__item">
                     <div class="testimonial__thumbnail">
-                        {!! HTML::Image('themes/'.$theme.'/img/1.jpg', '') !!}
+                        {!! HTML::Image($post->image, $post->title) !!}
                     </div>
                     <div class="testimonial">
-                        <h3 class="testimonial__title">lepo dizajnirani sto</h3>
-                        <p class="testimonial__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultricies sapien vitae risus placerat dictum. Aliquam fermentum, urna a scelerisque tincidunt, ante mauris mollis ante, aliquet bibendum orci tellus id turpis. Proin sed lorem sit amet mi varius commodo. Vivamus dictum, nisi eget laoreet vulputate, lacus ex tincidunt mauris, eget faucibus urna augue et nunc. Etiam placerat ante turpis, ac elementum massa vehicula et. Duis sed ante aliquam, volutpat tortor nec, aliquet turpis. Curabitur quis velit at neque tincidunt aliquam. Cras condimentum eleifend neque et viverra.</p>
-                        <div class="testimonial__author">Steven P. (UK)</div>
+                        <h3 class="testimonial__title">{{ $post->title }}</h3>
+                        <p class="testimonial__body">{{ $post->short }}</p>
+                        <div class="testimonial__author">{{ $post->author }}</div>
                         <div class="testimonial__date">5 meseci 2 nedelje</div>
                     </div>
                 </li>
-                <li class="testimonials-list__item">
-                    <div class="testimonial__thumbnail">
-                        {!! HTML::Image('themes/'.$theme.'/img/1.jpg', '') !!}
-                    </div>
-                    <div class="testimonial">
-                        <h3 class="testimonial__title">lepo dizajnirani sto</h3>
-                        <p class="testimonial__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultricies sapien vitae risus placerat dictum. Aliquam fermentum, urna a scelerisque tincidunt, ante mauris mollis ante, aliquet bibendum orci tellus id turpis. Proin sed lorem sit amet mi varius commodo. Vivamus dictum, nisi eget laoreet vulputate, lacus ex tincidunt mauris, eget faucibus urna augue et nunc. Etiam placerat ante turpis, ac elementum massa vehicula et. Duis sed ante aliquam, volutpat tortor nec, aliquet turpis. Curabitur quis velit at neque tincidunt aliquam. Cras condimentum eleifend neque et viverra.</p>
-                        <div class="testimonial__author">Steven P. (UK)</div>
-                        <div class="testimonial__date">5 meseci 2 nedelje</div>
-                    </div>
-                </li>
+                @endforeach
             </ul>
         </div>
+        @endif
         <div class="container d-flex flex-row-reverse">
-            <ul class="pagination ft-pagination">
-                <li class="page-item ft-page-item active"><a class="page-link ft-page-link" href="#">1</a></li>
-                <li class="page-item ft-page-item"><a class="page-link ft-page-link" href="#">2</a></li>
-                <li class="page-item ft-page-item"><a class="page-link ft-page-link" href="#">3</a></li>
-            </ul>
+            @if(false)
+                <ul class="pagination ft-pagination">
+                    <li class="page-item ft-page-item active"><a class="page-link ft-page-link" href="#">1</a></li>
+                    <li class="page-item ft-page-item"><a class="page-link ft-page-link" href="#">2</a></li>
+                    <li class="page-item ft-page-item"><a class="page-link ft-page-link" href="#">3</a></li>
+                </ul>
+            @else
+                {{ $posts->appends(\Illuminate\Support\Facades\Input::all())->links( "pagination::bootstrap-4") }}
+            @endif
         </div>
     </section>
 

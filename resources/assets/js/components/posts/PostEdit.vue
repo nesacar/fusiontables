@@ -51,6 +51,12 @@
                                 <label>Publikovano</label><br>
                                 <switches v-model="post.publish" theme="bootstrap" color="primary"></switches>
                             </div>
+                            <div class="form-group" v-if="post.category_id == 3">
+                                <label for="author">Autor</label>
+                                <input type="text" name="author" class="form-control" id="author" placeholder="Autor" v-model="post.author">
+                                <small class="form-text text-muted" v-if="error != null && error.author">{{ error.author[0] }}</small>
+                            </div>
+
                             <upload-image-helper
                                     :image="post.image"
                                     :defaultImage="null"
@@ -59,6 +65,17 @@
                                     @uploadImage="upload($event)"
                                     @removeRow="remove($event)"
                             ></upload-image-helper>
+
+                            <upload-pdf-helper
+                                    :pdf="post.pdf"
+                                    :domain="domain"
+                                    :defaultPdf="'/themes/ft/img/pdf-icon.jpg'"
+                                    :titlePdf="'članka'"
+                                    :error="error"
+                                    @uploadPdf="uploadPdf($event)"
+                                    @removeRow="remove($event)"
+                            ></upload-pdf-helper>
+
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Izmeni generalno</button>
                             </div>
@@ -153,8 +170,10 @@
 </template>
 
 <script>
+    import { apiHost } from '../../config';
     import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
     import UploadImageHelper from '../helper/UploadImageHelper.vue';
+    import UploadPdfHelper from '../helper/UploadPdfHelper.vue';
     import swal from 'sweetalert2';
     import Switches from 'vue-switches';
     import Ckeditor from 'vue-ckeditor2';
@@ -184,7 +203,8 @@
                   thumbnailWidth: 150,
                   maxFilesize: 0.5,
                   headers: { "Authorization": "Bearer " + this.$auth.getToken() }
-              }
+              },
+              domain : apiHost
           }
         },
         computed: {
@@ -198,6 +218,7 @@
         components: {
             'font-awesome-icon': FontAwesomeIcon,
             'upload-image-helper': UploadImageHelper,
+            'upload-pdf-helper': UploadPdfHelper,
             'switches': Switches,
             'ckeditor': Ckeditor,
             'vue-dropzone': vue2Dropzone
@@ -288,6 +309,24 @@
                     console.log(e);
                     this.error = e.response.data.errors;
                 });
+            },
+            uploadPdf(pdf){
+                axios.post('api/posts/' + this.post.id + '/pdf', { file: pdf[0] })
+                    .then(res => {
+                        console.log(res);
+                        this.post.pdf = res.data.pdf;
+                        this.error = null;
+                        swal({
+                            position: 'center',
+                            type: 'success',
+                            title: 'Uploudovano',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }).catch(e => {
+                        console.log(e);
+                        this.error = e.response.data.errors;
+                    });
             },
             getList(){
                 axios.get('api/categories/lists')

@@ -6,6 +6,8 @@ use App\Category;
 use App\Collection;
 use App\Gallery;
 use App\Helper;
+use App\Menu;
+use App\MenuLink;
 use App\Post;
 use App\Product;
 use App\Setting;
@@ -41,7 +43,8 @@ class PagesController extends Controller
     public function testimonials(){
         $settings = Setting::first();
         $theme = Theme::getTheme();
-        return view('themes.'.$theme.'.pages.testimonials', compact('settings', 'theme'));
+        $posts = Category::find(3)->post()->publish()->orderBy('publish_at', 'desc')->paginate(3);
+        return view('themes.'.$theme.'.pages.testimonials', compact('settings', 'theme', 'posts'));
     }
 
     public function quality(){
@@ -51,24 +54,15 @@ class PagesController extends Controller
         return view('themes.'.$theme.'.pages.quality', compact('settings', 'theme', 'post'));
     }
 
+    public function press(){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        $posts = Category::find(2)->post()->publish()->paginate(3);
+        return view('themes.'.$theme.'.pages.press', compact('settings', 'theme', 'posts'));
+    }
+
     public function proba(){
-        /*$old = Post::first();
-
-        for ($i=1;$i<=20;$i++){
-            $new = new Post();
-            $new->user_id = $old->user_id;
-            $new->category_id = $old->category_id;
-            $new->image = $old->image;
-            $new->title = 'News post ' . $i;
-            $new->slug = str_slug('News post ' . $i);
-            $new->short = $old->short;
-            $new->body = $old->body;
-            $new->publish_at = Carbon::now();
-            $new->publish = 1;
-            $new->save();
-
-            sleep(1);
-        }*/
-        return 'done';
+        $topMenu = MenuLink::getNoParentLinksById(1);
+        return view('welcome');
     }
 }

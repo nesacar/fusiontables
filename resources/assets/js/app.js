@@ -25,6 +25,7 @@ Vue.component('left-bar', require('./components/nav/leftBar.vue'));
 Vue.component('paginate-helper', require('./components/helper/PaginateHelper.vue'));
 Vue.component('search-helper', require('./components/helper/SearchHelper.vue'));
 Vue.component('font-awesome-icon', require('@fortawesome/vue-fontawesome'));
+Vue.component('upload-pdf-helper', require('./components/helper/UploadPdfHelper.vue'));
 
 
 import { store } from './store/store';

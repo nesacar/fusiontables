@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatePostRequest;
 use App\Http\Requests\UpdatePostLangRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Http\Requests\UploadGalleryRequest;
+use App\Http\Requests\UploadPdfRequest;
 use App\Post;
 use Illuminate\Http\Request;
 use File;
@@ -29,12 +31,14 @@ class PostsController extends Controller
         $post->user_id = request('user_id');
         $post->category_id = request('category_id');
         $post->title = request('title');
+        $post->author = request('author');
         request('slug')? $post->slug = str_slug(request('slug')) : $post->slug = str_slug(request('title'));
         $post->short = request('short');
         $post->body = Post::h3Toh4(request('body'));
         request('publish')? $post->publish = true : $post->publish = false;
         $post->save();
         if(request('image')){ Post::base64UploadImage($post->id, request('image')); }
+        if(request('pdf')){ Post::base64UploadPdf($post->id, request('pdf')); }
 
         return response()->json([
             'post' => $post
@@ -54,6 +58,7 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->user_id = request('user_id');
         $post->category_id = request('category_id');
+        $post->author = request('author');
         request('publish')? $post->publish = true : $post->publish = false;
         $post->update();
         return response()->json([
@@ -89,6 +94,13 @@ class PostsController extends Controller
         $image = Post::base64UploadImage($id, request('file'));
         return response()->json([
             'image' => $image
+        ]);
+    }
+
+    public function uploadPdf(UploadPdfRequest $request, $id){
+        $pdf = Post::base64UploadPdf($id, request('file'));
+        return response()->json([
+            'pdf' => $pdf
         ]);
     }
 

@@ -17,6 +17,7 @@ Route::get('dizajn', 'PagesController@design');
 Route::get('iskustva', 'PagesController@testimonials');
 Route::get('kvalitet', 'PagesController@quality');
 Route::get('press', 'PagesController@press');
+Route::get('galerija', 'PagesController@gallery');
 
 Route::get('/admin', function () {
     return view('layouts.admin-app');

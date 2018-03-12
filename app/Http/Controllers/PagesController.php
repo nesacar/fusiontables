@@ -61,6 +61,14 @@ class PagesController extends Controller
         return view('themes.'.$theme.'.pages.press', compact('settings', 'theme', 'posts'));
     }
 
+    public function gallery(){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        $images = Gallery::find(3)->image()->where('publish', 1)->get();
+        if(count($images)==0) return redirect('/');
+        return view('themes.'.$theme.'.pages.gallery', compact('settings', 'theme', 'images'));
+    }
+
     public function proba(){
         $topMenu = MenuLink::getNoParentLinksById(1);
         return view('welcome');

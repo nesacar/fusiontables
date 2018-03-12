@@ -15,17 +15,20 @@ class Image extends Model
         $folderPath = public_path('uploads/images/' . $folderName);
         if(!File::exists($folderPath)) {
             File::makeDirectory($folderPath, 0775, true, true);
-            if(!File::exists($folderPath . '/tmb')) {
-                File::makeDirectory($folderPath . '/tmb', 0775, true, true);
+            if(!File::exists($folderPath . '/big')) {
+                File::makeDirectory($folderPath . '/big', 0775, true, true);
+            }
+            if(!File::exists($folderPath . '/small')) {
+                File::makeDirectory($folderPath . '/small', 0775, true, true);
             }
         }
 
         if(isset($image)){
             $imageName = $folderName . '-' . time() . str_random(15) . '.' . $image->getClientOriginalExtension();
-            $imagePath = 'uploads/images/'.$folderName.'/'.$imageName;
-            $imagePathTmb = 'uploads/images/'.$folderName.'/tmb/'.$imageName;
-            $image->move(public_path('/uploads/images/' . $folderName . '/'), $imageName);
-            File::copy(public_path('/uploads/images/' . $folderName . '/'. $imageName), public_path('/uploads/images/' . $folderName . '/tmb/'. $imageName));
+            $imagePath = 'uploads/images/'.$folderName.'/big/'.$imageName;
+            $imagePathTmb = 'uploads/images/'.$folderName.'/small/'.$imageName;
+            $image->move(public_path('/uploads/images/' . $folderName . '/big/'), $imageName);
+            File::copy(public_path('/uploads/images/' . $folderName . '/big/'. $imageName), public_path('/uploads/images/' . $folderName . '/small/'. $imageName));
 
             self::cropImage($imagePathTmb, 226);
 

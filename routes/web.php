@@ -18,6 +18,8 @@ Route::get('iskustva', 'PagesController@testimonials');
 Route::get('kvalitet', 'PagesController@quality');
 Route::get('press', 'PagesController@press');
 Route::get('galerija', 'PagesController@gallery');
+Route::get('kontakt', 'PagesController@contact');
+Route::post('kontakt', 'PagesController@contactForm');
 
 Route::get('/admin', function () {
     return view('layouts.admin-app');

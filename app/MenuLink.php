@@ -19,7 +19,8 @@ class MenuLink extends Model
         return self::select('menu_links.id as id', 'menu_link_translations.link as link', 'menu_link_translations.title as title')
             ->join('menu_link_translations', 'menu_links.id', '=', 'menu_link_translations.menu_link_id')
             ->join('menus', 'menu_links.menu_id', '=', 'menus.id')
-            ->where('menus.id', $id)->where('menu_link_translations.locale', $locale)->where('menu_links.parent', 0)->where('menu_links.publish', 1)->get();
+            ->where('menus.id', $id)->where('menu_link_translations.locale', $locale)->where('menu_links.parent', 0)->where('menu_links.publish', 1)
+            ->orderBy('menu_links.order', 'ASC')->get();
     }
 
     public function getLinkAttribute()

@@ -6,6 +6,7 @@ use App\Category;
 use App\Collection;
 use App\Gallery;
 use App\Helper;
+use App\Http\Requests\SendContactFormRequest;
 use App\Menu;
 use App\MenuLink;
 use App\Post;
@@ -67,6 +68,16 @@ class PagesController extends Controller
         $images = Gallery::find(3)->image()->where('publish', 1)->get();
         if(count($images)==0) return redirect('/');
         return view('themes.'.$theme.'.pages.gallery', compact('settings', 'theme', 'images'));
+    }
+
+    public function contact(){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        return view('themes.'.$theme.'.pages.contact', compact('settings', 'theme'));
+    }
+
+    public function contactForm(SendContactFormRequest $request){
+        return request()->all();
     }
 
     public function proba(){

@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Menu;
-use App\MenuLink;
+use App\MenuLinkClear;
 use App\Theme;
 use Illuminate\Support\ServiceProvider;
 
@@ -31,7 +31,7 @@ class ViewComposerServiseProvider extends ServiceProvider
 
     private function composerMenu(){
         $theme = Theme::getTheme();
-        $topMenu = MenuLink::getNoParentLinksById(1);
+        $topMenu = MenuLinkClear::getNoParentLinksById(1);
         view()->composer('themes.'.$theme.'.partials.nav', function($view) use ($topMenu){
             $view->with('topMenu', $topMenu);
         });

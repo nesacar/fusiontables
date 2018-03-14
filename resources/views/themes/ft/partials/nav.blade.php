@@ -13,7 +13,7 @@
                             <div class="plusic collapsed" data-toggle=collapse data-target=#collapse3 aria-expanded=false aria-controls=collapse3> <i class="fas fa-sort-down"></i> </div>
                         </h5>
                     </div>
-                    @php $submenu = \App\Menu::find(1)->menuLinks()->where('publish', 1)->where('parent', $menu->id)->orderBy('order', 'ASC')->get(); @endphp
+                    @php $submenu = \App\MenuLinkClear::getParentLinksById($menu->menu_id, $menu->id); @endphp
                     @if(count($submenu))
                         <div id=collapse3 class=collapse aria-labelledby=heading2 data-parent=#accordion>
                             <div class=card-body>

@@ -13,4 +13,8 @@ class Menu extends Model
     public function menuLinks(){
         return $this->hasMany(MenuLink::class);
     }
+
+    public function menuLinksClear(){
+        return $this->hasMany(MenuLinkClear::class);
+    }
 }

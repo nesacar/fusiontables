@@ -81,7 +81,7 @@ class PagesController extends Controller
     }
 
     public function proba(){
-        $topMenu = MenuLink::getNoParentLinksById(1);
+        return $topMenu = MenuLinkClear::getNoParentLinksById(1);
         return view('welcome');
     }
 }

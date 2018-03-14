@@ -63809,6 +63809,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -63821,6 +63879,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             category: {},
             categoryEng: {},
+            //              categoryHrv: {},
+            //              categoryRus: {},
             error: null,
             config: {
                 toolbar: [['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'Image', 'Link', 'Unlink', 'Source'], { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] }, '/', { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] }],
@@ -63839,6 +63899,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         this.getCategory('sr');
         this.getCategory('en');
+        //            this.getCategory('hr');
+        //            this.getCategory('ru');
     },
 
     methods: {
@@ -63849,6 +63911,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (res.data.category != null) {
                     if (locale == 'sr') {
                         _this.category = res.data.category;
+                        //                            }else if(locale == 'hr'){
+                        //                                this.categoryHrv = res.data.category;
+                        //                            }else if(locale == 'ru'){
+                        //                                this.categoryRus = res.data.category;
                     } else {
                         _this.categoryEng = res.data.category;
                     }
@@ -63864,12 +63930,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var data = {};
             if (locale == 'sr') {
                 data = this.category;
+                //                }else if(locale == 'hr'){
+                //                    data = this.categoryHrv;
+                //                }else if(locale == 'ru'){
+                //                    data = this.categoryRus;
             } else {
                 data = this.categoryEng;
             }
             axios.post('api/categories/' + this.category.id + '/lang?locale=' + locale, data).then(function (res) {
                 if (locale == 'sr') {
                     _this2.category = res.data.category;
+                    //                        }else if(locale == 'hr'){
+                    //                            this.categoryHrv = res.data.category;
+                    //                        }else if(locale == 'ru'){
+                    //                            this.categoryRus = res.data.category;
                 } else {
                     _this2.categoryEng = res.data.category;
                 }
@@ -64380,7 +64454,7 @@ var staticRenderFns = [
             {
               staticClass: "nav-link active",
               attrs: {
-                id: "contact-tab",
+                id: "srb-tab",
                 "data-toggle": "tab",
                 href: "#srb",
                 role: "tab",
@@ -64398,7 +64472,7 @@ var staticRenderFns = [
             {
               staticClass: "nav-link",
               attrs: {
-                id: "home-tab",
+                id: "eng-tab",
                 "data-toggle": "tab",
                 href: "#eng",
                 role: "tab",

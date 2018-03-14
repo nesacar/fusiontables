@@ -81,14 +81,20 @@
                         <hr>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#srb" role="tab" aria-controls="home" aria-selected="true">Srpski</a>
+                                <a class="nav-link active" id="srb-tab" data-toggle="tab" href="#srb" role="tab" aria-controls="home" aria-selected="true">Srpski</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="contact" aria-selected="false">Engleski</a>
+                                <a class="nav-link" id="eng-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="contact" aria-selected="false">Engleski</a>
                             </li>
+                            <!--<li class="nav-item">-->
+                                <!--<a class="nav-link" id="hrv-tab" data-toggle="tab" href="#hrv" role="tab" aria-controls="contact" aria-selected="false">Hrvatski</a>-->
+                            <!--</li>-->
+                            <!--<li class="nav-item">-->
+                                <!--<a class="nav-link" id="rus-tab" data-toggle="tab" href="#rus" role="tab" aria-controls="contact" aria-selected="false">Ruski</a>-->
+                            <!--</li>-->
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="srb-tab">
                                 <form @submit.prevent="submit('sr')">
                                     <div class="form-group">
                                         <label for="title">Naslov</label>
@@ -114,7 +120,7 @@
                                 </form>
                             </div><!-- #srb -->
 
-                            <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="eng-tab">
                                 <form @submit.prevent="submit('en')">
                                     <div class="form-group">
                                         <label for="title2">Naslov</label>
@@ -139,6 +145,59 @@
                                     </div>
                                 </form>
                             </div><!-- #eng -->
+
+                            <!--<div class="tab-pane fade" id="hrv" role="tabpanel" aria-labelledby="hrv-tab">-->
+                                <!--<form @submit.prevent="submit('hr')">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label for="title3">Naslov</label>-->
+                                        <!--<input type="text" name="title" class="form-control" id="title3" placeholder="Naslov" v-model="collectionHrv.title">-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label for="slug3">Slug</label>-->
+                                        <!--<input type="text" name="slug" class="form-control" id="slug3" placeholder="Slug" v-model="collectionHrv.slug">-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label>Opis</label>-->
+                                        <!--<ckeditor-->
+                                                <!--v-model="collectionHrv.short"-->
+                                                <!--:config="config">-->
+                                        <!--</ckeditor>-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<button class="btn btn-primary" type="submit">Izmeni hrvatski</button>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                            <!--</div>&lt;!&ndash; #hrv &ndash;&gt;-->
+
+                            <!--<div class="tab-pane fade" id="rus" role="tabpanel" aria-labelledby="rus-tab">-->
+                                <!--<form @submit.prevent="submit('ru')">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label for="title4">Naslov</label>-->
+                                        <!--<input type="text" name="title" class="form-control" id="title4" placeholder="Naslov" v-model="collectionRus.title">-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label for="slug4">Slug</label>-->
+                                        <!--<input type="text" name="slug" class="form-control" id="slug4" placeholder="Slug" v-model="collectionRus.slug">-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label>Opis</label>-->
+                                        <!--<ckeditor-->
+                                                <!--v-model="collectionRus.short"-->
+                                                <!--:config="config">-->
+                                        <!--</ckeditor>-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.short">{{ error.short[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<button class="btn btn-primary" type="submit">Izmeni ruski</button>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                            <!--</div>&lt;!&ndash; #rus &ndash;&gt;-->
+
                         </div>
                     </div>
                 </div>
@@ -160,6 +219,8 @@
               collection: {},
               collections: {},
               collectionEng: {},
+//              collectionHrv: {},
+//              collectionRus: {},
               error: null,
               config: {
                   toolbar: [
@@ -182,6 +243,8 @@
         created(){
             this.getCollection('sr');
             this.getCollection('en');
+//            this.getCollection('hr');
+//            this.getCollection('ru');
             this.getParentCollections();
         },
         methods: {
@@ -198,8 +261,12 @@
                 axios.get('api/collections/' + this.$route.params.id + '?locale=' + locale)
                     .then(res => {
                         if(res.data.collection != null){
-                            if(locale == 'sr'){
+                            if(locale == 'sr') {
                                 this.collection = res.data.collection;
+//                            }else if(locale == 'hr'){
+//                                this.collectionHrv = res.data.collection;
+//                            }else if(locale == 'ru'){
+//                                this.collectionRus = res.data.collection;
                             }else{
                                 this.collectionEng = res.data.collection;
                             }
@@ -212,15 +279,23 @@
             },
             submit(locale){
                 let data = {};
-                if(locale == 'sr'){
+                if(locale == 'sr') {
                     data = this.collection;
+//                }else if(locale == 'hr'){
+//                    data = this.collectionHrv;
+//                }else if(locale == 'ru'){
+//                    data = this.collectionRus;
                 }else{
                     data = this.collectionEng;
                 }
                 axios.post('api/collections/' + this.collection.id + '/lang?locale=' + locale, data)
                     .then(res => {
-                        if(locale == 'sr'){
+                        if(locale == 'sr') {
                             this.collection = res.data.collection;
+//                        }else if(locale == 'hr') {
+//                            this.collectionHrv = res.data.collection;
+//                        }else if(locale == 'ru'){
+//                            this.collectionRus = res.data.collection;
                         }else{
                             this.collectionEng = res.data.collection;
                         }

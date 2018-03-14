@@ -85,14 +85,20 @@
                         <hr>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#srb" role="tab" aria-controls="home" aria-selected="true">Srpski</a>
+                                <a class="nav-link active" id="srb-tab" data-toggle="tab" href="#srb" role="tab" aria-controls="home" aria-selected="true">Srpski</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="contact" aria-selected="false">Engleski</a>
+                                <a class="nav-link" id="eng-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="contact" aria-selected="false">Engleski</a>
                             </li>
+                            <!--<li class="nav-item">-->
+                                <!--<a class="nav-link" id="hrv-tab" data-toggle="tab" href="#hrv" role="tab" aria-controls="contact" aria-selected="false">Hrvatski</a>-->
+                            <!--</li>-->
+                            <!--<li class="nav-item">-->
+                                <!--<a class="nav-link" id="rus-tab" data-toggle="tab" href="#rus" role="tab" aria-controls="contact" aria-selected="false">Ruski</a>-->
+                            <!--</li>-->
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="srb-tab">
                                 <form @submit.prevent="submit('sr')">
                                     <div class="form-group">
                                         <label for="address">Adresa</label>
@@ -131,7 +137,7 @@
                                 </form>
                             </div><!-- #srb -->
 
-                            <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="eng-tab">
                                 <form @submit.prevent="submit('en')">
                                     <div class="form-group">
                                         <label for="address2">Adresa</label>
@@ -169,6 +175,84 @@
                                     </div>
                                 </form>
                             </div><!-- #eng -->
+
+                            <!--<div class="tab-pane fade" id="hrv" role="tabpanel" aria-labelledby="hrv-tab">-->
+                                <!--<form @submit.prevent="submit('hr')">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label for="address3">Adresa</label>-->
+                                        <!--<input type="text" name="address" class="form-control" id="address3" placeholder="Adresa" v-model="settingHrv.address">-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.address">{{ error.address[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label for="title3">Naslov</label>-->
+                                        <!--<input type="text" name="title" class="form-control" id="title3" placeholder="Naslov" v-model="settingHrv.title">-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label for="keywords3">Ključne reči</label>-->
+                                        <!--<input type="text" name="keywords" class="form-control" id="keywords3" placeholder="Ključne reči" v-model="settingHrv.keywords">-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.keywords">{{ error.keywords[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label>Opis</label>-->
+                                        <!--<ckeditor-->
+                                                <!--v-model="settingHrv.desc"-->
+                                                <!--:config="config">-->
+                                        <!--</ckeditor>-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label>Footer tekst</label>-->
+                                        <!--<ckeditor-->
+                                                <!--v-model="settingHrv.footer"-->
+                                                <!--:config="config">-->
+                                        <!--</ckeditor>-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.desc">{{ error.footer[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<button class="btn btn-primary" type="submit">Izmeni hrvatski</button>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                            <!--</div>&lt;!&ndash; #hrv &ndash;&gt;-->
+
+                            <!--<div class="tab-pane fade" id="rus" role="tabpanel" aria-labelledby="rus-tab">-->
+                                <!--<form @submit.prevent="submit('ru')">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label for="address4">Adresa</label>-->
+                                        <!--<input type="text" name="address" class="form-control" id="address4" placeholder="Adresa" v-model="settingRus.address">-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.address">{{ error.address[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label for="title4">Naslov</label>-->
+                                        <!--<input type="text" name="title" class="form-control" id="title4" placeholder="Naslov" v-model="settingRus.title">-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label for="keywords4">Ključne reči</label>-->
+                                        <!--<input type="text" name="keywords" class="form-control" id="keywords4" placeholder="Ključne reči" v-model="settingRus.keywords">-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.keywords">{{ error.keywords[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label>Opis</label>-->
+                                        <!--<ckeditor-->
+                                                <!--v-model="settingRus.desc"-->
+                                                <!--:config="config">-->
+                                        <!--</ckeditor>-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label>Footer tekst</label>-->
+                                        <!--<ckeditor-->
+                                                <!--v-model="settingRus.footer"-->
+                                                <!--:config="config">-->
+                                        <!--</ckeditor>-->
+                                        <!--<small class="form-text text-muted" v-if="error != null && error.desc">{{ error.footer[0] }}</small>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<button class="btn btn-primary" type="submit">Izmeni ruski</button>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                            <!--</div>&lt;!&ndash; #rus &ndash;&gt;-->
                         </div>
                     </div>
                 </div>
@@ -188,6 +272,8 @@
           return {
               setting: {},
               settingEng: {},
+//              settingHrv: {},
+//              settingRus: {},
               error: null,
               config: {
                   toolbar: [
@@ -206,14 +292,20 @@
         created(){
             this.getSetting('sr');
             this.getSetting('en');
+//            this.getSetting('hr');
+//            this.getSetting('ru');
         },
         methods: {
             getSetting(locale){
                 axios.get('api/settings/1/edit?locale=' + locale)
                     .then(res => {
                         if(res.data.setting != null){
-                            if(locale == 'sr'){
+                            if(locale == 'sr') {
                                 this.setting = res.data.setting;
+//                            }else if(locale == 'hr') {
+//                                this.settingHrv = res.data.setting;
+//                            }else if(locale == 'ru'){
+//                                this.settingRus = res.data.setting;
                             }else{
                                 this.settingEng = res.data.setting;
                             }
@@ -226,8 +318,12 @@
             },
             submit(locale){
                 let data = {};
-                if(locale == 'sr'){
+                if(locale == 'sr') {
                     data = this.setting;
+//                }else if(locale == 'hr') {
+//                    data = this.settingHrv;
+//                }else if(locale == 'ru'){
+//                    data = this.settingRus;
                 }else{
                     data = this.settingEng;
                 }

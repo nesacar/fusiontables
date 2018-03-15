@@ -49,14 +49,20 @@
                         <hr>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#srb" role="tab" aria-controls="home" aria-selected="true">Srpski</a>
+                                <a class="nav-link active" id="srb-tab" data-toggle="tab" href="#srb" role="tab" aria-controls="home" aria-selected="true">Srpski</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="contact" aria-selected="false">Engleski</a>
+                                <a class="nav-link" id="eng-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="contact" aria-selected="false">Engleski</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="hrv-tab" data-toggle="tab" href="#hrv" role="tab" aria-controls="contact" aria-selected="false">Hrvatski</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="rus-tab" data-toggle="tab" href="#rus" role="tab" aria-controls="contact" aria-selected="false">Ruski</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="srb-tab">
                                 <form @submit.prevent="submit('sr')">
                                     <div class="form-group">
                                         <label for="title">Naziv</label>
@@ -84,33 +90,89 @@
                                 </form>
                             </div><!-- #srb -->
 
-                            <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="eng-tab">
                                 <form @submit.prevent="submit('en')">
                                     <div class="form-group">
-                                        <label for="titleIta">Naziv</label>
-                                        <input type="text" name="title" class="form-control" id="titleIta" placeholder="Naziv" v-model="linkEng.title">
+                                        <label for="title2">Naziv</label>
+                                        <input type="text" name="title" class="form-control" id="title2" placeholder="Naziv" v-model="linkEng.title">
                                         <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="linkIta">Link</label>
-                                        <input type="text" name="link" class="form-control" id="linkIta" placeholder="Link" v-model="linkEng.link">
+                                        <label for="link2">Link</label>
+                                        <input type="text" name="link" class="form-control" id="link2" placeholder="Link" v-model="linkEng.link">
                                         <small class="form-text text-muted" v-if="error != null && error.link">{{ error.link[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="descIta">Opis</label>
-                                        <input type="text" name="Description" class="form-control" id="descIta" placeholder="Opis" v-model="linkEng.desc">
+                                        <label for="desc2">Opis</label>
+                                        <input type="text" name="Description" class="form-control" id="desc2" placeholder="Opis" v-model="linkEng.desc">
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="sufixIta">Sufix</label>
-                                        <input type="text" name="sufix" class="form-control" id="sufixIta" placeholder="Sufix" v-model="linkEng.sufix">
+                                        <input type="text" name="sufix" class="form-control" id="sufix2" placeholder="Sufix" v-model="linkEng.sufix">
                                         <small class="form-text text-muted" v-if="error != null && error.sufix">{{ error.sufix[0] }}</small>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary" type="submit">Izmeni engleski</button>
                                     </div>
                                 </form>
-                            </div><!-- #ita -->
+                            </div><!-- #eng -->
+
+                            <div class="tab-pane fade" id="hrv" role="tabpanel" aria-labelledby="hrv-tab">
+                                <form @submit.prevent="submit('hr')">
+                                    <div class="form-group">
+                                        <label for="title3">Naziv</label>
+                                        <input type="text" name="title" class="form-control" id="title3" placeholder="Naziv" v-model="linkHrv.title">
+                                        <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link3">Link</label>
+                                        <input type="text" name="link" class="form-control" id="link3" placeholder="Link" v-model="linkHrv.link">
+                                        <small class="form-text text-muted" v-if="error != null && error.link">{{ error.link[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="desc3">Opis</label>
+                                        <input type="text" name="Description" class="form-control" id="desc3" placeholder="Opis" v-model="linkHrv.desc">
+                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sufix3">Sufix</label>
+                                        <input type="text" name="sufix" class="form-control" id="sufix3" placeholder="Sufix" v-model="linkHrv.sufix">
+                                        <small class="form-text text-muted" v-if="error != null && error.sufix">{{ error.sufix[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">Izmeni hrvatski</button>
+                                    </div>
+                                </form>
+                            </div><!-- #hrv -->
+
+                            <div class="tab-pane fade" id="rus" role="tabpanel" aria-labelledby="rus-tab">
+                                <form @submit.prevent="submit('ru')">
+                                    <div class="form-group">
+                                        <label for="title4">Naziv</label>
+                                        <input type="text" name="title" class="form-control" id="title4" placeholder="Naziv" v-model="linkRus.title">
+                                        <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="link4">Link</label>
+                                        <input type="text" name="link" class="form-control" id="link4" placeholder="Link" v-model="linkRus.link">
+                                        <small class="form-text text-muted" v-if="error != null && error.link">{{ error.link[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="desc4">Opis</label>
+                                        <input type="text" name="Description" class="form-control" id="desc4" placeholder="Opis" v-model="linkRus.desc">
+                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sufix4">Sufix</label>
+                                        <input type="text" name="sufix" class="form-control" id="sufix4" placeholder="Sufix" v-model="linkRus.sufix">
+                                        <small class="form-text text-muted" v-if="error != null && error.sufix">{{ error.sufix[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">Izmeni ruski</button>
+                                    </div>
+                                </form>
+                            </div><!-- #rus -->
                         </div>
                     </div>
                 </div>
@@ -130,6 +192,8 @@
           return {
               link: {},
               linkEng: {},
+              linkHrv: {},
+              linkRus: {},
               error: null,
               links: []
           }
@@ -142,6 +206,8 @@
         created(){
             this.getLink('sr');
             this.getLink('en');
+            this.getLink('hr');
+            this.getLink('ru');
             this.getParentLinks();
         },
         methods: {
@@ -149,8 +215,12 @@
                 axios.get('api/menu-links/' + this.$route.params.id + '?locale=' + locale)
                     .then(res => {
                         if(res.data.link != null){
-                            if(locale == 'sr'){
+                            if(locale == 'sr') {
                                 this.link = res.data.link;
+                            }else if(locale == 'hr'){
+                                this.linkHrv = res.data.link;
+                            }else if(locale == 'ru'){
+                                this.linkRus = res.data.link;
                             }else{
                                 this.linkEng = res.data.link;
                             }
@@ -175,15 +245,23 @@
             },
             submit(locale){
                 let data = {};
-                if(locale == 'sr'){
+                if(locale == 'sr') {
                     data = this.link;
+                }else if(locale == 'hr'){
+                    data = this.linkHrv;
+                }else if(locale == 'ru'){
+                    data = this.linkRus;
                 }else{
                     data = this.linkEng;
                 }
                 axios.patch('api/menu-links/' + this.link.id + '?locale=' + locale, data)
                     .then(res => {
-                        if(locale == 'sr'){
+                        if(locale == 'sr') {
                             this.link = res.data.link;
+                        }else if(locale == 'hr'){
+                            this.linkHrv = res.data.link;
+                        }else if(locale == 'ru'){
+                            this.linkRus = res.data.link;
                         }else{
                             this.linkEng = res.data.link;
                         }

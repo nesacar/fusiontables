@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Collection;
+use App\Helper;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductLangRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -55,7 +57,8 @@ class ProductsController extends Controller
         request('locale')? $locale = request('locale') : $locale = 'sr';
         app()->setLocale($locale);
         $product = Product::find($id);
-        $product['link'] = Product::getProductLink($product);
+        $collection = Collection::find($product->collection_id);
+        $product['link'] = Product::getProductLink($collection, $product);
         return response()->json([
             'product' => $product
         ]);
@@ -82,9 +85,9 @@ class ProductsController extends Controller
         $product->title = request('title');
         request('slug')? $product->slug = str_slug(request('slug')) : $product->slug = str_slug(request('title'));
         $product->short = request('short');
-        $product->body = request('body');
+        $product->body = Product::h3Toh5(request('body'));
         $product->body2 = request('body2');
-        $product->update($request->except('image', 'slug'));
+        $product->update();
         return response()->json([
             'product' => $product
         ]);

@@ -27,7 +27,8 @@
 </div>
 
 <!-- Scripts -->
-<script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
+{{--<script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>--}}
+<script src="{{ url('ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

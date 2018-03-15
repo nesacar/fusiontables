@@ -9,14 +9,17 @@ use App\Helper;
 use App\Http\Requests\SendContactFormRequest;
 use App\Menu;
 use App\MenuLink;
+use App\MenuLinkClear;
 use App\Post;
 use App\Product;
+use App\ProductClear;
 use App\Setting;
 use App\Theme;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\LaravelLocalization;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class PagesController extends Controller
 {
@@ -80,8 +83,32 @@ class PagesController extends Controller
         return request()->all();
     }
 
+    public function collections(){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        $collection = Collection::find(3);
+        $products = !empty($collection)? ProductClear::getProductByCollectionId($collection->id) : [];
+        return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products'));
+    }
+
+    public function collections2($slug){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        $collection = Collection::whereTranslation('slug', $slug)->first();
+        $products = !empty($collection)? ProductClear::getProductByCollectionId($collection->id) : [];
+        return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products'));
+    }
+
+    public function product($collection, $slug, $id){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        $collection = Collection::whereTranslation('slug', $collection)->first();
+        $product = Product::find($id);
+        $photos = $product->photo()->get();
+        return view('themes.'.$theme.'.pages.product', compact('settings', 'theme', 'collection', 'product', 'photos'));
+    }
+
     public function proba(){
-        return $topMenu = MenuLinkClear::getNoParentLinksById(1);
-        return view('welcome');
+        return 'done';
     }
 }

@@ -21,6 +21,11 @@ Route::get('galerija', 'PagesController@gallery');
 Route::get('kontakt', 'PagesController@contact');
 Route::post('kontakt', 'PagesController@contactForm');
 
+Route::get('kolekcije', 'PagesController@collections');
+Route::get('kolekcije/{slug}', 'PagesController@collections2');
+
+Route::get('{collection}/{product}/{id}', 'PagesController@product');
+
 Route::get('/admin', function () {
     return view('layouts.admin-app');
 });

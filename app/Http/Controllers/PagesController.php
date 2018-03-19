@@ -7,9 +7,11 @@ use App\Collection;
 use App\Gallery;
 use App\Helper;
 use App\Http\Requests\SendContactFormRequest;
+use App\Mail\ContactFormMessage;
 use App\Menu;
 use App\MenuLink;
 use App\MenuLinkClear;
+use App\Message;
 use App\Post;
 use App\Product;
 use App\ProductClear;
@@ -88,7 +90,10 @@ class PagesController extends Controller
     }
 
     public function contactForm(SendContactFormRequest $request){
-        return request()->all();
+        $theme = Theme::where('active', 1)->first();
+        $message = Message::create(request()->all());
+        \Mail::to('nebojsart1409@yahoo.com')->send(new ContactFormMessage($theme, $message));
+        return redirect('/')->with('done', 'Hvala na interesovanju.');
     }
 
     public function collections(){

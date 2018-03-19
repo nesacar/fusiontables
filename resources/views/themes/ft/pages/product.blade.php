@@ -32,10 +32,13 @@
                                 {!! HTML::Image($photo->file_path, $product->title) !!}
                             </div>
                         @endforeach
+                    @else
+                        {!! HTML::Image($product->image, $product->title, array('class' => 'img-fluid2')) !!}
                     @endif
                 </div>
                 <div class="right-column col-xl-5">
                     <div class="text-holder">
+                        @if(false)
                         <p>
                             <span>Spoljne dimenzije stola</span>: 2.30 m x 1.34 m ; visina : 0.75 m</p>
                         <p>
@@ -44,6 +47,9 @@
                         <p>Minimalne dimenzije prostorije* 4.38 m x 3.42 m (*) sa premijum Aramith kompletom aksesoara</p>
                         <p>
                             <span>Boja metalnog rama</span>: RAL9003 Bela / Sjaj: 30% (saten)</p>
+                        @else
+                            {!! $product->body2 !!}
+                        @endif
                     </div>
                 </div>
             </div>
@@ -62,6 +68,9 @@
                 </div>
 
                 <div class="sadrzaj">
+                    @if(true)
+                        {!! $product->body !!}
+                    @else
                     <h5>Elegantni evropski dizajn</h5>
                     <p>
                         Elegantni diza j Fusiontable stolova koristi ridigni belo obojeni čelični ram, u koji je smeštena sva snaga i stabilnost,
@@ -91,6 +100,7 @@
                         zahteva održavanje i ima osobine automatskog zaključavanja i nivelisanja za koje se čeka patent, a pruža
                         vam maksimalnu.
                     </p>
+                    @endif
 
                 </div><!-- /.sadrzaj -->
 

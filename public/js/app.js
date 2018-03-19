@@ -82667,6 +82667,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -82937,6 +82941,27 @@ var render = function() {
                       ])
                     : _vm._e()
                 ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", [_vm._v("Publikovano")]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("switches", {
+                      attrs: { theme: "bootstrap", color: "primary" },
+                      model: {
+                        value: _vm.link.publish,
+                        callback: function($$v) {
+                          _vm.$set(_vm.link, "publish", $$v)
+                        },
+                        expression: "link.publish"
+                      }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm._m(1)
               ]
@@ -83306,7 +83331,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "sufixIta" } }, [
+                          _c("label", { attrs: { for: "sufix2" } }, [
                             _vm._v("Sufix")
                           ]),
                           _vm._v(" "),

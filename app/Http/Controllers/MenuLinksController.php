@@ -28,6 +28,7 @@ class MenuLinksController extends Controller
         $link->link = request('link');
         $link->desc = request('desc');
         $link->sufix = request('sufix');
+        request('publish')? $link->publish = 1 : $link->publish = 0;
         $link->save();
 
         return response()->json([
@@ -124,6 +125,7 @@ class MenuLinksController extends Controller
         $menuLink->parent = request('parent');
         $menuLink->order = request('order');
         $menuLink->parent == 0? $menuLink->level = 1 : $menuLink->level = 2;
+        request('publish')? $menuLink->publish = 1 : $menuLink->publish = 0;
         $menuLink->update();
 
         return response()->json([

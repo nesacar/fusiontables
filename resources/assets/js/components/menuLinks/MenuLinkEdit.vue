@@ -38,6 +38,10 @@
                                 <small class="form-text text-muted" v-if="error != null && error.order">{{ error.order[0] }}</small>
                             </div>
                             <div class="form-group">
+                                <label>Publikovano</label><br>
+                                <switches v-model="link.publish" theme="bootstrap" color="primary"></switches>
+                            </div>
+                            <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Izmeni generalna</button>
                             </div>
                         </form>
@@ -108,7 +112,7 @@
                                         <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="sufixIta">Sufix</label>
+                                        <label for="sufix2">Sufix</label>
                                         <input type="text" name="sufix" class="form-control" id="sufix2" placeholder="Sufix" v-model="linkEng.sufix">
                                         <small class="form-text text-muted" v-if="error != null && error.sufix">{{ error.sufix[0] }}</small>
                                     </div>

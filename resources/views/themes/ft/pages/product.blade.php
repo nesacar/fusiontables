@@ -25,8 +25,14 @@
     <section id="product-page">
         <div class="container">
             <div class="row no-gutters product">
-                <div class="left-column col-xl-7">
-                    {!! HTML::Image($product->image, $product->title, array('class' => 'img-fluid2')) !!}
+                <div class="left-column col-xl-7 owl-carousel product-slider">
+                    @if(count($photos)>0)
+                        @foreach($photos as $photo)
+                            <div class="slide">
+                                {!! HTML::Image($photo->file_path, $product->title) !!}
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
                 <div class="right-column col-xl-5">
                     <div class="text-holder">
@@ -108,17 +114,17 @@
             </div>
         </div>
 
-        @if(count($photos)>0)
-        <div class="container" style="position: relative">
-            <div class="owl-carousel product-slider">
-                @foreach($photos as $photo)
-                    <div class="slide">
-                        {!! HTML::Image($photo->file_path, $product->title) !!}
-                    </div>
-                @endforeach
-            </div>
-        </div>
-        @endif
+        {{--@if(count($photos)>0)--}}
+        {{--<div class="container" style="position: relative">--}}
+            {{--<div class="owl-carousel product-slider">--}}
+                {{--@foreach($photos as $photo)--}}
+                    {{--<div class="slide">--}}
+                        {{--{!! HTML::Image($photo->file_path, $product->title) !!}--}}
+                    {{--</div>--}}
+                {{--@endforeach--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        {{--@endif--}}
 
     </section>
 

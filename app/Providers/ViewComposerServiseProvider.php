@@ -16,7 +16,7 @@ class ViewComposerServiseProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->composerMenu();
+        //$this->composerMenu();
     }
 
     /**
@@ -31,8 +31,11 @@ class ViewComposerServiseProvider extends ServiceProvider
 
     private function composerMenu(){
         $theme = Theme::getTheme();
-        $topMenu = MenuLinkClear::getNoParentLinksById(1);
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
         view()->composer('themes.'.$theme.'.partials.nav', function($view) use ($topMenu){
+            $view->with('topMenu', $topMenu);
+        });
+        view()->composer('themes.'.$theme.'.index', function($view) use ($topMenu){
             $view->with('topMenu', $topMenu);
         });
     }

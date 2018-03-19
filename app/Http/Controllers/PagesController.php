@@ -27,42 +27,48 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::getTheme();
         $images = Gallery::first()->image;
-        return view('themes.'.$theme.'.pages.home', compact('settings', 'theme', 'images'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.home', compact('settings', 'theme', 'images', 'topMenu'));
     }
 
     public function about(){
         $settings = Setting::first();
         $theme = Theme::getTheme();
         $post = Post::find(1);
-        return view('themes.'.$theme.'.pages.about-us', compact('settings', 'theme', 'post'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.about-us', compact('settings', 'theme', 'post', 'topMenu'));
     }
 
     public function design(){
         $settings = Setting::first();
         $theme = Theme::getTheme();
         $post = Post::find(2);
-        return view('themes.'.$theme.'.pages.design', compact('settings', 'theme', 'post'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.design', compact('settings', 'theme', 'post', 'topMenu'));
     }
 
     public function testimonials(){
         $settings = Setting::first();
         $theme = Theme::getTheme();
         $posts = Category::find(3)->post()->publish()->orderBy('publish_at', 'desc')->paginate(3);
-        return view('themes.'.$theme.'.pages.testimonials', compact('settings', 'theme', 'posts'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.testimonials', compact('settings', 'theme', 'posts', 'topMenu'));
     }
 
     public function quality(){
         $settings = Setting::first();
         $theme = Theme::getTheme();
         $post = Post::find(3);
-        return view('themes.'.$theme.'.pages.quality', compact('settings', 'theme', 'post'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.quality', compact('settings', 'theme', 'post', 'topMenu'));
     }
 
     public function press(){
         $settings = Setting::first();
         $theme = Theme::getTheme();
         $posts = Category::find(2)->post()->publish()->paginate(3);
-        return view('themes.'.$theme.'.pages.press', compact('settings', 'theme', 'posts'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.press', compact('settings', 'theme', 'posts', 'topMenu'));
     }
 
     public function gallery(){
@@ -70,13 +76,15 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $images = Gallery::find(3)->image()->where('publish', 1)->get();
         if(count($images)==0) return redirect('/');
-        return view('themes.'.$theme.'.pages.gallery', compact('settings', 'theme', 'images'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.gallery', compact('settings', 'theme', 'images', 'topMenu'));
     }
 
     public function contact(){
         $settings = Setting::first();
         $theme = Theme::getTheme();
-        return view('themes.'.$theme.'.pages.contact', compact('settings', 'theme'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.contact', compact('settings', 'theme', 'topMenu'));
     }
 
     public function contactForm(SendContactFormRequest $request){
@@ -88,7 +96,8 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $collection = Collection::find(3);
         $products = !empty($collection)? ProductClear::getProductByCollectionId($collection->id) : [];
-        return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products', 'topMenu'));
     }
 
     public function collections2($slug){
@@ -96,7 +105,8 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $collection = Collection::whereTranslation('slug', $slug)->first();
         $products = !empty($collection)? ProductClear::getProductByCollectionId($collection->id) : [];
-        return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products', 'topMenu'));
     }
 
     public function product($collection, $slug, $id){
@@ -105,10 +115,12 @@ class PagesController extends Controller
         $collection = Collection::whereTranslation('slug', $collection)->first();
         $product = Product::find($id);
         $photos = $product->photo()->get();
-        return view('themes.'.$theme.'.pages.product', compact('settings', 'theme', 'collection', 'product', 'photos'));
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        return view('themes.'.$theme.'.pages.product', compact('settings', 'theme', 'collection', 'product', 'photos', 'topMenu'));
     }
 
     public function proba(){
-        return 'done';
+        dd(app()->getLocale());
+        return $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
     }
 }

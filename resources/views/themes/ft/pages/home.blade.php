@@ -1,5 +1,9 @@
 @extends('themes.'.$theme.'.index')
 
+@section('title')
+    Fusion tables
+@endsection
+
 @section('content')
     @if(count($images))
         <div class="container-fluid slajder">

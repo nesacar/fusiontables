@@ -1,5 +1,9 @@
 @extends('themes.'.$theme.'.index')
 
+@section('title')
+    Dizajn - Fusion tables
+@endsection
+
 @section('content')
 
     <section>

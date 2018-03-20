@@ -1,5 +1,9 @@
 @extends('themes.'.$theme.'.index')
 
+@section('title')
+    Galerija - Fusion tables
+@endsection
+
 @section('content')
 
     <div class="container-fluid px-0">

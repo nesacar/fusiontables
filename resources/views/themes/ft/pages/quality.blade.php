@@ -1,5 +1,9 @@
 @extends('themes.'.$theme.'.index')
 
+@section('title')
+    Kvalitet - Fusion tables
+@endsection
+
 @section('content')
 
     <section>

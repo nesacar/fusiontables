@@ -1,5 +1,9 @@
 @extends('themes.'.$theme.'.index')
 
+@section('title')
+    O nama - Fusion tables
+@endsection
+
 @section('content')
 
     <section>

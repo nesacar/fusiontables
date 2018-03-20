@@ -56,12 +56,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="eng-tab" data-toggle="tab" href="#eng" role="tab" aria-controls="home" aria-selected="true">English</a>
                             </li>
-                            <!--<li class="nav-item">-->
-                                <!--<a class="nav-link" id="hrv-tab" data-toggle="tab" href="#hrv" role="tab" aria-controls="home" aria-selected="true">Hrvatski</a>-->
-                            <!--</li>-->
-                            <!--<li class="nav-item">-->
-                                <!--<a class="nav-link" id="rus-tab" data-toggle="tab" href="#rus" role="tab" aria-controls="home" aria-selected="true">Ruski</a>-->
-                            <!--</li>-->
+                            <li class="nav-item">
+                                <a class="nav-link" id="hrv-tab" data-toggle="tab" href="#hrv" role="tab" aria-controls="home" aria-selected="true">Hrvatski</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="rus-tab" data-toggle="tab" href="#rus" role="tab" aria-controls="home" aria-selected="true">Ruski</a>
+                            </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="srb" role="tabpanel" aria-labelledby="home-tab">
@@ -116,57 +116,57 @@
                                 </form>
                             </div><!-- #eng -->
 
-                            <!--<div class="tab-pane fade" id="hrv" role="tabpanel" aria-labelledby="contact-tab">-->
-                                <!--<form @submit.prevent="submit('hr')">-->
-                                    <!--<div class="form-group">-->
-                                        <!--<label for="title3">Naslov</label>-->
-                                        <!--<input type="text" name="title" class="form-control" id="title3" placeholder="Naslov" v-model="categoryHrv.title">-->
-                                        <!--<small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">-->
-                                        <!--<label for="slug3">Slug</label>-->
-                                        <!--<input type="text" name="slug" class="form-control" id="slug3" placeholder="Slug" v-model="categoryHrv.slug">-->
-                                        <!--<small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">-->
-                                        <!--<label>Opis</label>-->
-                                        <!--<ckeditor-->
-                                                <!--v-model="categoryHrv.short"-->
-                                                <!--:config="config">-->
-                                        <!--</ckeditor>-->
-                                        <!--<small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">-->
-                                        <!--<button class="btn btn-primary" type="submit">Izmeni hrvatski</button>-->
-                                    <!--</div>-->
-                                <!--</form>-->
-                            <!--</div>&lt;!&ndash; #hrv &ndash;&gt;-->
+                            <div class="tab-pane fade" id="hrv" role="tabpanel" aria-labelledby="contact-tab">
+                                <form @submit.prevent="submit('hr')">
+                                    <div class="form-group">
+                                        <label for="title3">Naslov</label>
+                                        <input type="text" name="title" class="form-control" id="title3" placeholder="Naslov" v-model="categoryHrv.title">
+                                        <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="slug3">Slug</label>
+                                        <input type="text" name="slug" class="form-control" id="slug3" placeholder="Slug" v-model="categoryHrv.slug">
+                                        <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Opis</label>
+                                        <ckeditor
+                                                v-model="categoryHrv.short"
+                                                :config="config">
+                                        </ckeditor>
+                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">Izmeni hrvatski</button>
+                                    </div>
+                                </form>
+                            </div><!-- #hrv -->
 
-                            <!--<div class="tab-pane fade" id="rus" role="tabpanel" aria-labelledby="contact-tab">-->
-                                <!--<form @submit.prevent="submit('ru')">-->
-                                    <!--<div class="form-group">-->
-                                        <!--<label for="title4">Naslov</label>-->
-                                        <!--<input type="text" name="title" class="form-control" id="title4" placeholder="Naslov" v-model="categoryRus.title">-->
-                                        <!--<small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">-->
-                                        <!--<label for="slug4">Slug</label>-->
-                                        <!--<input type="text" name="slug" class="form-control" id="slug4" placeholder="Slug" v-model="categoryRus.slug">-->
-                                        <!--<small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">-->
-                                        <!--<label>Opis</label>-->
-                                        <!--<ckeditor-->
-                                                <!--v-model="categoryRus.short"-->
-                                                <!--:config="config">-->
-                                        <!--</ckeditor>-->
-                                        <!--<small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">-->
-                                        <!--<button class="btn btn-primary" type="submit">Izmeni ruski</button>-->
-                                    <!--</div>-->
-                                <!--</form>-->
-                            <!--</div>&lt;!&ndash; #rus &ndash;&gt;-->
+                            <div class="tab-pane fade" id="rus" role="tabpanel" aria-labelledby="contact-tab">
+                                <form @submit.prevent="submit('ru')">
+                                    <div class="form-group">
+                                        <label for="title4">Naslov</label>
+                                        <input type="text" name="title" class="form-control" id="title4" placeholder="Naslov" v-model="categoryRus.title">
+                                        <small class="form-text text-muted" v-if="error != null && error.title">{{ error.title[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="slug4">Slug</label>
+                                        <input type="text" name="slug" class="form-control" id="slug4" placeholder="Slug" v-model="categoryRus.slug">
+                                        <small class="form-text text-muted" v-if="error != null && error.slug">{{ error.slug[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Opis</label>
+                                        <ckeditor
+                                                v-model="categoryRus.short"
+                                                :config="config">
+                                        </ckeditor>
+                                        <small class="form-text text-muted" v-if="error != null && error.desc">{{ error.desc[0] }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">Izmeni ruski</button>
+                                    </div>
+                                </form>
+                            </div><!-- #rus -->
                         </div>
                     </div>
                 </div>
@@ -187,8 +187,8 @@
           return {
               category: {},
               categoryEng: {},
-//              categoryHrv: {},
-//              categoryRus: {},
+              categoryHrv: {},
+              categoryRus: {},
               error: null,
               config: {
                   toolbar: [
@@ -211,8 +211,8 @@
         created(){
             this.getCategory('sr');
             this.getCategory('en');
-//            this.getCategory('hr');
-//            this.getCategory('ru');
+            this.getCategory('hr');
+            this.getCategory('ru');
         },
         methods: {
             getCategory(locale){
@@ -221,10 +221,10 @@
                         if(res.data.category != null){
                             if(locale == 'sr') {
                                 this.category = res.data.category;
-//                            }else if(locale == 'hr'){
-//                                this.categoryHrv = res.data.category;
-//                            }else if(locale == 'ru'){
-//                                this.categoryRus = res.data.category;
+                            }else if(locale == 'hr'){
+                                this.categoryHrv = res.data.category;
+                            }else if(locale == 'ru'){
+                                this.categoryRus = res.data.category;
                             }else{
                                 this.categoryEng = res.data.category;
                             }
@@ -250,10 +250,10 @@
                     .then(res => {
                         if(locale == 'sr') {
                             this.category = res.data.category;
-//                        }else if(locale == 'hr'){
-//                            this.categoryHrv = res.data.category;
-//                        }else if(locale == 'ru'){
-//                            this.categoryRus = res.data.category;
+                        }else if(locale == 'hr'){
+                            this.categoryHrv = res.data.category;
+                        }else if(locale == 'ru'){
+                            this.categoryRus = res.data.category;
                         }else{
                             this.categoryEng = res.data.category;
                         }

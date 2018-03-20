@@ -4,6 +4,16 @@
     {{ $product->title }} - Fusion tables
 @endsection
 
+@section('seo_social_stuff')
+    <meta property="og:type" content="article"/>
+    <meta property="og:site_name" content="Fusion Table Srbija">
+    <meta property="og:title" content="{{ $product->title }}">
+    <meta property="og:description" content="{!! $product->short !!}">
+    <meta property="og:image" content="{{ url($product->image) }}">
+    <meta property="og:url" content="{{ url($collection->slug.'/'.$product->slug.'/'.$product->id) }}">
+    <link rel="canonical" href="{{ url($collection->slug.'/'.$product->slug.'/'.$product->id) }}" />
+@endsection
+
 @section('content')
 
     <section>

@@ -13,4 +13,10 @@ class Helper extends Model
             return url('en');
         }
     }
+
+    public static function removePTag($str=""){
+        $str = str_replace('<p>', '', $str);
+        $str = str_replace('</p>', '', $str);
+        return $str;
+    }
 }

@@ -90,9 +90,8 @@ class PagesController extends Controller
     }
 
     public function contactForm(SendContactFormRequest $request){
-        $theme = Theme::where('active', 1)->first();
         $message = Message::create(request()->all());
-        \Mail::to('nebojsart1409@yahoo.com')->send(new ContactFormMessage($theme, $message));
+        \Mail::to(['nebojsart1409@yahoo.com', 'nebojsa.markovic@ministudio.rs'])->send(new ContactFormMessage($message));
         return redirect('/')->with('done', 'Hvala na interesovanju.');
     }
 

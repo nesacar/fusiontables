@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use App\Message;
-use App\Theme;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -13,7 +12,6 @@ class ContactFormMessage extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $theme;
     public $message;
 
     /**
@@ -21,9 +19,8 @@ class ContactFormMessage extends Mailable
      *
      * @return void
      */
-    public function __construct(Theme $theme, Message $message)
+    public function __construct(Message $message)
     {
-        $this->theme = $theme;
         $this->message = $message;
     }
 
@@ -34,7 +31,7 @@ class ContactFormMessage extends Mailable
      */
     public function build()
     {
-        return $this->view('themes.ft.emails.contact-form')
+        return $this->markdown('themes.ft.emails.contact-form')
             ->subject('Poruka sa sajta fusiontables.rs')
             ->from(['address' => 'office@fusiontables.rs', 'name' => 'fusiontables.rs']);
     }

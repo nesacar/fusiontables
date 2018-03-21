@@ -39,7 +39,7 @@
         <div class="container about-us">
             <div class="row o-nama-grid">
                 <div class="o-nama-text col-md-12">
-                    <h5>o nama</h5>
+                    <h5>Kvalitet</h5>
                     {!! $post->body !!}
                 </div>
             </div>

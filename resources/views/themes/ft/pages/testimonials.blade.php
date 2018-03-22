@@ -51,7 +51,9 @@
                         <h3 class="testimonial__title">{{ $post->title }}</h3>
                         <p class="testimonial__body">{{ $post->short }}</p>
                         <div class="testimonial__author">{{ $post->author }}</div>
+                        @if(false)
                         <div class="testimonial__date">5 meseci 2 nedelje</div>
+                        @endif
                     </div>
                 </li>
                 @endforeach

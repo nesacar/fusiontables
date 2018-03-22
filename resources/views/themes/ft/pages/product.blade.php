@@ -14,6 +14,10 @@
     <link rel="canonical" href="{{ url($collection->slug.'/'.$product->slug.'/'.$product->id) }}" />
 @endsection
 
+@section('blue-line')
+    {{ $product->title }}
+@endsection
+
 @section('content')
 
     <section>

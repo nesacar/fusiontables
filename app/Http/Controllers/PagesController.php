@@ -52,7 +52,7 @@ class PagesController extends Controller
     public function testimonials(){
         $settings = Setting::first();
         $theme = Theme::getTheme();
-        $posts = Category::find(3)->post()->publish()->orderBy('publish_at', 'desc')->paginate(3);
+        $posts = Category::find(3)->post()->publish()->orderBy('created_at', 'desc')->paginate(6);
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
         return view('themes.'.$theme.'.pages.testimonials', compact('settings', 'theme', 'posts', 'topMenu'));
     }

@@ -14,6 +14,10 @@
     <link rel="canonical" href="{{ url('/kolekcije') }}" />
 @endsection
 
+@section('blue-line')
+    Nova dimenzija trpezarije
+@endsection
+
 @section('content')
 
     <section>

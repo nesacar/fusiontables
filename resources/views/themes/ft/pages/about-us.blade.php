@@ -14,6 +14,10 @@
     <link rel="canonical" href="{{ url('/o-nama') }}" />
 @endsection
 
+@section('blue-line')
+    O nama
+@endsection
+
 @section('content')
 
     <section>

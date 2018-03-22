@@ -14,6 +14,10 @@
     <link rel="canonical" href="{{ url('/kontakt') }}" />
 @endsection
 
+@section('blue-line')
+    Kontakt
+@endsection
+
 @section('content')
 
     <section>

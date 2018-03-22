@@ -14,6 +14,10 @@
     <link rel="canonical" href="{{ url('/iskustva') }}" />
 @endsection
 
+@section('blue-line')
+    Iskustva
+@endsection
+
 @section('content')
 
     <section>

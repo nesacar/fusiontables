@@ -14,6 +14,10 @@
     <link rel="canonical" href="{{ url('/press') }}" />
 @endsection
 
+@section('blue-line')
+    Press
+@endsection
+
 @section('content')
 
     <section>

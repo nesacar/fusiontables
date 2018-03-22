@@ -14,6 +14,10 @@
     <link rel="canonical" href="{{ url('/kvalitet') }}" />
 @endsection
 
+@section('blue-line')
+    Kvalitet
+@endsection
+
 @section('content')
 
     <section>

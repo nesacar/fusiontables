@@ -7,6 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('themes/'.$theme.'/img/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('themes/'.$theme.'/img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('themes/'.$theme.'/img/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url('themes/'.$theme.'/img/site.webmanifest') }}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
     @yield('seo_social_stuff')
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
@@ -66,7 +73,7 @@
         <div class=two-boxes>
             <div class=left-box>
             </div> <div class=right-box>
-                <h2>Nova dimenzija trpezarije</h2>
+                <h2>@yield('blue-line')</h2>
             </div>
         </div>
 

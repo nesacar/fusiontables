@@ -18,6 +18,10 @@
     <link rel="canonical" href="{{ url('/') }}" />
 @endsection
 
+@section('blue-line')
+    Nova dimenzija trpezarije
+@endsection
+
 @section('content')
     @if(count($images))
         <div class="container-fluid slajder">

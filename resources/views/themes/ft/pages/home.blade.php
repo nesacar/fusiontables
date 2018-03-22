@@ -4,6 +4,10 @@
     Fusion tables
 @endsection
 
+@section('header')
+    {!! HTML::style('themes/'.$theme.'/css/jquery.toastmessage.css') !!}
+@endsection
+
 @section('seo_social_stuff')
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Fusion Tables Srbija">
@@ -28,5 +32,15 @@
                 </div>
             </div>
         </div><!-- .container-fluid -->
+    @endif
+@endsection
+
+@section('scripts')
+    @if(Session::has('message'))
+        {!! HTML::script('themes/'.$theme.'/js/jquery-2.2.4.min.js') !!}
+        {!! HTML::script('themes/'.$theme.'/js/jquery.toastmessage.js') !!}
+        <script>
+            $().toastmessage('showSuccessToast', "Hvala na interesovanju.");
+        </script>
     @endif
 @endsection

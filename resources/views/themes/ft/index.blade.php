@@ -10,6 +10,7 @@
     @yield('seo_social_stuff')
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
+    @yield('header')
     {!! HTML::style('themes/'.$theme.'/css/style.css') !!}
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114661451-1"></script>
@@ -89,6 +90,8 @@
 </div>
 
 {!! HTML::script('themes/'.$theme.'/js/app.bundle.js') !!}
+
+@yield('scripts')
 
 <!-- Google Code for Remarketing Tag -->
 <!--------------------------------------------------

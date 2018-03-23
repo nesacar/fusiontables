@@ -332,10 +332,10 @@
                         if(res.data.product != null){
                             if(locale == 'sr') {
                                 this.product = res.data.product;
-//                            }else if(locale == 'ru') {
-//                                this.productRus = res.data.product;
-//                            }else if(locale == 'hr'){
-//                                this.productHrv = res.data.product;
+                            }else if(locale == 'ru') {
+                                this.productRus = res.data.product;
+                            }else if(locale == 'hr'){
+                                this.productHrv = res.data.product;
                             }else{
                                 this.productEng = res.data.product;
                             }

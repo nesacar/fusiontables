@@ -19,7 +19,7 @@
 @endsection
 
 @section('blue-line')
-    Nova dimenzija trpezarije
+    @lang('language.Nova dimenzija trpezarije')
 @endsection
 
 @section('content')

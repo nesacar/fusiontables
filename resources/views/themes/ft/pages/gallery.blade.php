@@ -1,7 +1,7 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-    Galerija - Fusion tables
+    @lang('language.Galerija') - Fusion tables
 @endsection
 
 @section('seo_social_stuff')
@@ -28,7 +28,7 @@
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">home</a></li>
-                        <li class="breadcrumb-item active"><a href="#">galerija</a></li>
+                        <li class="breadcrumb-item active"><a href="#">@lang('language.Galerija')</a></li>
                     </ol>
                 </div>
             </div>

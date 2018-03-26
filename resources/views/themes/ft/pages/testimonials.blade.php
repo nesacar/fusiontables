@@ -1,7 +1,7 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-    Iskustva - Fusion tables
+    @lang('language.Iskustva') - Fusion tables
 @endsection
 
 @section('seo_social_stuff')
@@ -15,7 +15,7 @@
 @endsection
 
 @section('blue-line')
-    Iskustva
+    @lang('language.Iskustva')
 @endsection
 
 @section('content')
@@ -32,7 +32,7 @@
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">home</a></li>
-                        <li class="breadcrumb-item active"><a href="#">iskustva</a></li>
+                        <li class="breadcrumb-item active"><a href="#">@lang('language.Iskustva')</a></li>
                     </ol>
                 </div>
             </div>

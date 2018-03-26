@@ -239,10 +239,10 @@
                 let data = {};
                 if(locale == 'sr') {
                     data = this.category;
-//                }else if(locale == 'hr'){
-//                    data = this.categoryHrv;
-//                }else if(locale == 'ru'){
-//                    data = this.categoryRus;
+                }else if(locale == 'hr'){
+                    data = this.categoryHrv;
+                }else if(locale == 'ru'){
+                    data = this.categoryRus;
                 }else{
                     data = this.categoryEng;
                 }

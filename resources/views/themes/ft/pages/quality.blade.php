@@ -1,7 +1,7 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-    Kvalitet - Fusion tables
+    @lang('language.Kvalitet') - Fusion tables
 @endsection
 
 @section('seo_social_stuff')
@@ -15,7 +15,7 @@
 @endsection
 
 @section('blue-line')
-    Kvalitet
+    @lang('language.Kvalitet')
 @endsection
 
 @section('content')
@@ -32,7 +32,7 @@
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">home</a></li>
-                        <li class="breadcrumb-item active"><a href="#">kvalitet</a></li>
+                        <li class="breadcrumb-item active"><a href="#">@lang('language.Kvalitet')</a></li>
                     </ol>
                 </div>
             </div>
@@ -43,7 +43,7 @@
         <div class="container about-us">
             <div class="row o-nama-grid">
                 <div class="o-nama-text col-md-12">
-                    <h5>Kvalitet</h5>
+                    <h5>@lang('language.Kvalitet')</h5>
                     {!! $post->body !!}
                 </div>
             </div>

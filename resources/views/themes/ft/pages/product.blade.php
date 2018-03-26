@@ -32,7 +32,7 @@
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url('kolekcije/'.$collection->slug) }}">kolekcije</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('kolekcije/'.$collection->slug) }}">@lang('language.Kolekcije')</a></li>
                         <li class="breadcrumb-item active"><a href="">{{ $product->title }}</a></li>
                     </ol>
                 </div>

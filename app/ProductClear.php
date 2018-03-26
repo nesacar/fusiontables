@@ -12,10 +12,10 @@ class ProductClear extends Model
 
     protected $fillable = ['id', 'user_id', 'collection_id', 'order', 'parent', 'level', 'image', 'price_small', 'price_outlet', 'publish', 'publish_at'];
 
-    public static function getProductByCollectionId($collection_id){
+    public static function getProductByCollectionId($collection_id, $locale='sr'){
         return self::select('products.*', 'product_translations.slug as slug', 'product_translations.title as title')->join('product_translations', 'products.id', '=', 'product_translations.product_id')
             ->join('collections', 'products.collection_id', '=', 'collections.id')
-            ->where('products.collection_id', $collection_id)->where('products.publish', 1)->orderBy('products.order', 'ASC')->get();
+            ->where('products.collection_id', $collection_id)->where('products.publish', 1)->where('product_translations.locale', $locale)->orderBy('products.order', 'ASC')->get();
     }
 
     public function user(){

@@ -1,7 +1,7 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-    Dizajn - Fusion tables
+    @lang('language.Dizajn') - Fusion tables
 @endsection
 
 @section('seo_social_stuff')
@@ -15,7 +15,7 @@
 @endsection
 
 @section('blue-line')
-    Dizajn
+    @lang('language.Dizajn')
 @endsection
 
 @section('content')
@@ -32,7 +32,7 @@
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">home</a></li>
-                        <li class="breadcrumb-item active"><a href="#">priča o dizajnu</a></li>
+                        <li class="breadcrumb-item active"><a href="#">@lang('language.Priča o dizajnu')</a></li>
                     </ol>
                 </div>
             </div>
@@ -43,7 +43,7 @@
         <div class="container about-us">
             <div class="row o-nama-grid">
                 <div class="o-nama-text col-md-12">
-                    <h5>PRIČA O DIZAJNU</h5>
+                    <h5>@lang('language.Priča o dizajnu')</h5>
                     {!! $post->body !!}
                 </div>
             </div>

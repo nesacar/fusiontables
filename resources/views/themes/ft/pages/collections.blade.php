@@ -1,7 +1,7 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-    Kolekcije - Fusion tables
+    @lang('language.Kolekcije') - Fusion tables
 @endsection
 
 @section('seo_social_stuff')
@@ -15,7 +15,7 @@
 @endsection
 
 @section('blue-line')
-    Nova dimenzija trpezarije
+    @lang('language.Nova dimenzija trpezarije')
 @endsection
 
 @section('content')
@@ -32,7 +32,7 @@
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url('kolekcije') }}">kolekcije</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('kolekcije') }}">@lang('language.Kolekcije')</a></li>
                         <li class="breadcrumb-item active"><a href="#">{{ $collection->title }}</a></li>
                     </ol>
                 </div>

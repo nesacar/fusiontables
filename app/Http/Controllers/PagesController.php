@@ -100,7 +100,7 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::getTheme();
         $collection = Collection::find(3);
-        $products = !empty($collection)? ProductClear::getProductByCollectionId($collection->id) : [];
+        $products = !empty($collection)? ProductClear::getProductByCollectionId($collection->id, app()->getLocale()) : [];
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
         return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products', 'topMenu'));
     }
@@ -109,7 +109,7 @@ class PagesController extends Controller
         $settings = Setting::first();
         $theme = Theme::getTheme();
         $collection = Collection::whereTranslation('slug', $slug)->first();
-        $products = !empty($collection)? ProductClear::getProductByCollectionId($collection->id) : [];
+        $products = !empty($collection)? ProductClear::getProductByCollectionId($collection->id, app()->getLocale()) : [];
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
         return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products', 'topMenu'));
     }

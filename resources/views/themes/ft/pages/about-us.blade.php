@@ -1,7 +1,7 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-    O nama - Fusion tables
+    @lang('language.O nama') - Fusion tables
 @endsection
 
 @section('seo_social_stuff')
@@ -15,7 +15,7 @@
 @endsection
 
 @section('blue-line')
-    O nama
+    @lang('language.O nama')
 @endsection
 
 @section('content')
@@ -32,7 +32,7 @@
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">home</a></li>
-                        <li class="breadcrumb-item active"><a href="#">o nama</a></li>
+                        <li class="breadcrumb-item active"><a href="#">@lang('language.O nama')</a></li>
                     </ol>
                 </div>
             </div>
@@ -43,7 +43,7 @@
         <div class="container about-us">
             <div class="row o-nama-grid">
                 <div class="o-nama-text col-md-12">
-                    <h5>o nama</h5>
+                    <h5>@lang('language.O nama')</h5>
                     {!! $post->body !!}
                 </div>
             </div>

@@ -1,7 +1,7 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-    Press - Fusion tables
+    @lang('language.Press') - Fusion tables
 @endsection
 
 @section('seo_social_stuff')
@@ -15,7 +15,7 @@
 @endsection
 
 @section('blue-line')
-    Press
+    @lang('language.Press')
 @endsection
 
 @section('content')
@@ -30,10 +30,10 @@
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="#">kolekcije</a>
+                            <a href="#">@lang('language.Kolekcije')</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            <a href="#">stolovi i sidebars</a>
+                            <a href="#">@lang('language.Press')</a>
                         </li>
                     </ol>
                 </div>

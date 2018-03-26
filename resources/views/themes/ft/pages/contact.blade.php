@@ -1,7 +1,7 @@
 @extends('themes.'.$theme.'.index')
 
 @section('title')
-    Kontakt - Fusion tables
+    @lang('language.Kontakt') - Fusion tables
 @endsection
 
 @section('seo_social_stuff')
@@ -15,7 +15,7 @@
 @endsection
 
 @section('blue-line')
-    Kontakt
+    @lang('language.Kontakt')
 @endsection
 
 @section('content')
@@ -32,7 +32,7 @@
                 <div class="col-lg-12">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">home</a></li>
-                        <li class="breadcrumb-item active"><a href="#">kontakt</a></li>
+                        <li class="breadcrumb-item active"><a href="#">@lang('language.Kontakt')</a></li>
                     </ol>
                 </div>
             </div>
@@ -43,7 +43,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Kontaktirajte nas</h2>
+                    <h2>@lang('language.Kontaktirajte nas')</h2>
                 </div>
             </div>
         </div>

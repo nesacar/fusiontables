@@ -49,28 +49,98 @@
                     </div>
                     @if(\Session::has('architect'))
                         <div class="text-left">
-                            <h6>Preuzmite fajlove2:</h6>
-                            <p style="font-weight: 500;">
-                                [<a class="file-link" href="#">Bench_3D.dwg</a>],
-                                [<a class="file-link" href="#">Chair_3D.dwg</a>],
-                                [<a class="file-link" href="#">Dressoirs.dwg</a>],
-                                [<a class="file-link" href="#">Fusion_Billiard_3D.dwg</a>],
-                                [<a class="file-link" href="#">Fusion_Table_3D.dwg</a>],
-                                [<a class="file-link" href="#">Measures.pdf</a>],
-                                [<a class="file-link" href="#">Requirements_Layout.pdf</a>]
+                            <h6>Preuzmite fajlove:</h6>
+                            <p>
+                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/Bench_3D.dwg') }}">
+                                      <span class="file-link__icon">
+                                          {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                      </span>
+                                    <span class="file-link__text">Bench_3D.dwg</span>
+                                </a>,
+                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/Chair_3D.dwg') }}">
+                                  <span class="file-link__icon">
+                                     {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Chair_3D.dwg</span>
+                                </a>,
+                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/dressoirs.dwg') }}">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Dressoirs.dwg</span>
+                                </a>,
+                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/Fusion_Billiard_3D.dwg') }}">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Fusion_Billiard_3D.dwg</span>
+                                </a>,
+                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/Fusion_Table_3D.dwg') }}">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Fusion_Table_3D.dwg</span>
+                                </a>,
+                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/measures.pdf') }}">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Measures.pdf</span>
+                                </a>,
+                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/requirements_layout.pdf') }}">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Requirements_Layout.pdf</span>
+                                </a>
                             </p>
                         </div>
                     @else
                         <div class="text-left">
                             <h6>Preuzmite fajlove:</h6>
-                            <p style="font-weight: 500;">
-                                [<a class="file-link click" href="#">Bench_3D.dwg</a>],
-                                [<a class="file-link click" href="#">Chair_3D.dwg</a>],
-                                [<a class="file-link click" href="#">Dressoirs.dwg</a>],
-                                [<a class="file-link click" href="#">Fusion_Billiard_3D.dwg</a>],
-                                [<a class="file-link click" href="#">Fusion_Table_3D.dwg</a>],
-                                [<a class="file-link click" href="#">Measures.pdf</a>],
-                                [<a class="file-link click" href="#">Requirements_Layout.pdf</a>]
+                            <p>
+                                <a class="file-link click" href="#">
+                                      <span class="file-link__icon">
+                                          {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                      </span>
+                                    <span class="file-link__text">Bench_3D.dwg</span>
+                                </a>,
+                                <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                     {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Chair_3D.dwg</span>
+                                </a>,
+                                <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Dressoirs.dwg</span>
+                                </a>,
+                                <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Fusion_Billiard_3D.dwg</span>
+                                </a>,
+                                <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Fusion_Table_3D.dwg</span>
+                                </a>,
+                                <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Measures.pdf</span>
+                                </a>,
+                                <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png') !!}
+                                  </span>
+                                    <span class="file-link__text">Requirements_Layout.pdf</span>
+                                </a>
                             </p>
                             <p class="secret" style="color: red; display: none;">Da bi ste preuzeli fajlove, potrebno je prvo popuniti formu.</p>
                         </div>
@@ -129,6 +199,14 @@
                                     <div class="col-md-6 form-group">
                                         <label for="company">Kompanija</label>
                                         <input class="form-control" type="text" id="company" name="company" />
+                                    </div>
+                                    <div class="col-md-6 form-group required">
+                                        {!! NoCaptcha::display() !!}
+                                        @if ($errors->has('g-recaptcha-response'))
+                                            <span class="invalid-feedback">
+                                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Pošalji</button>

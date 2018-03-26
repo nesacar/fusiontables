@@ -12,4 +12,5 @@ return [
     'Kvalitet' => 'Kvalitet',
     'Iskustva' => 'Iskustva',
     'Pratite nas' => 'Pratite nas',
+    'Katalog' => 'Katalog',
 ];

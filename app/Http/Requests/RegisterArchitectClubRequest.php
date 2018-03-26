@@ -29,6 +29,7 @@ class RegisterArchitectClubRequest extends FormRequest
             'country' => 'required',
             'phone' => 'required',
             'email' => 'required|email',
+            'g-recaptcha-response' => 'required|captcha'
         ];
     }
 
@@ -46,6 +47,8 @@ class RegisterArchitectClubRequest extends FormRequest
             'phone.required' => 'Telefon je obavezan',
             'email.required' => 'Email adresa je obavezna',
             'email.email' => 'Email adresa nije u ispravnom formatu',
+            'g-recaptcha-response.required' => 'Vi ste robot',
+            'g-recaptcha-response.captcha' => 'Vi ste robot',
         ];
     }
 }

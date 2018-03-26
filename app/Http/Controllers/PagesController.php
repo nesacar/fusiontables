@@ -103,7 +103,6 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
         $post = Post::find(19);
-        \Session::forget('architect');
         return view('themes.'.$theme.'.pages.architect-club', compact('settings', 'theme', 'topMenu', 'post'));
     }
 
@@ -114,6 +113,14 @@ class PagesController extends Controller
         }
         \Session::put('architect', 'Architect');
         return redirect()->back();
+    }
+
+    public function catalog(){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        $post = Post::find(20);
+        return view('themes.'.$theme.'.pages.catalog', compact('settings', 'theme', 'topMenu', 'post'));
     }
 
     public function collections(){
@@ -145,7 +152,9 @@ class PagesController extends Controller
     }
 
     public function proba(){
-        dd(app()->getLocale());
-        return $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        $imagedata = file_get_contents(public_path()."/img/user-image.png");
+        // alternatively specify an URL, if PHP settings allow
+        $base64 = base64_encode($imagedata);
+        dd($base64);
     }
 }

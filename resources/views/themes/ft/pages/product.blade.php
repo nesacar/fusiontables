@@ -81,7 +81,7 @@
 
                 <div class="pdf">
                     <a href="#" data-toggle="tooltip" title="Skini pdf">
-                        {!! HTML::Image('themes/ft/img/pdf-icon.jpg', 'skini pdf', array('class' => 'download')) !!}
+                        {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png', 'skini pdf') !!}
                     </a>
                 </div>
 
@@ -136,7 +136,7 @@
                 </div>
                 <div class="pdf2">
                     <a href="#" data-toggle="tooltip" title="Skini pdf">
-                        {!! HTML::Image('themes/ft/img/pdf-icon.jpg', 'skini pdf', array('class' => 'download2')) !!}
+                        {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png', 'skini pdf') !!}
                     </a>
                 </div>
             </div>

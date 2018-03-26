@@ -71,6 +71,9 @@ Route::group(
         Route::get('kontakt', 'PagesController@contact');
         Route::get('contact', 'PagesController@contact');
 
+        Route::get('katalog', 'PagesController@catalog');
+        Route::get('catalog', 'PagesController@catalog');
+
         Route::get('architect-club', 'PagesController@architectClub');
 
         Route::get('kolekcije', 'PagesController@collections');

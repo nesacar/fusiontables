@@ -11,4 +11,5 @@ return [
     'Press' => 'Press',
     'Kvalitet' => 'Kvalitet',
     'Iskustva' => 'Iskustva',
+    'Pratite nas' => 'Pratite nas',
 ];

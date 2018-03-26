@@ -27,6 +27,8 @@
         gtag('js', new Date());
         gtag('config', 'UA-114661451-1');
     </script>
+
+    {!! NoCaptcha::renderJs() !!}
 </head>
 
 <body>

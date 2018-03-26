@@ -76,3 +76,5 @@ Route::middleware('auth:api')->get('galleries/{id}/images', 'GalleriesController
 Route::middleware('auth:api')->post('galleries/{id}/images', 'GalleriesController@imageUpdate');
 
 Route::middleware('auth:api')->post('images/{id}/destroy', 'ImagesController@destroy');
+
+Route::middleware('auth:api')->resource('architects', 'ArchitectsController');

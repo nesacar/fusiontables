@@ -55,7 +55,7 @@
                         <div class="press-item__date">{!! $post->body !!}</div>
                         @if(!empty($post->pdf))
                             <a href="{{ url($post->pdf) }}" class="press-item__link" target="_blank">
-                                <img src="{{ url('themes/'.$theme.'/img/pdf-icon.jpg') }}" alt="download" />
+                                <img src="{{ url('themes/'.$theme.'/img/download-pdf.png') }}" alt="download" />
                             </a>
                         @endif
                     </div>

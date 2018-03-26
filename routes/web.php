@@ -26,14 +26,11 @@
 //
 //Route::get('{collection}/{product}/{id}', 'PagesController@product');
 
-Route::get('/admin', function () {
-    return view('layouts.admin-app');
-});
-
 Auth::routes();
 
 Route::post('kontakt', 'PagesController@contactForm');
 Route::get('proba', 'PagesController@proba');
+Route::post('architect-club', 'PagesController@architectClubUpdate');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
@@ -48,6 +45,10 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ],
     function() {
+        Route::get('/admin', function () {
+            return view('layouts.admin-app');
+        });
+
         Route::get('/', 'PagesController@index');
 
         Route::get('o-nama', 'PagesController@about');
@@ -69,6 +70,8 @@ Route::group(
 
         Route::get('kontakt', 'PagesController@contact');
         Route::get('contact', 'PagesController@contact');
+
+        Route::get('architect-club', 'PagesController@architectClub');
 
         Route::get('kolekcije', 'PagesController@collections');
         Route::get('collections', 'PagesController@collections');

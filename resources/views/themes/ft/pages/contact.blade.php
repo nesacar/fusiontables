@@ -93,6 +93,13 @@
                                             <strong style="font-size: 11px; font-weight: 300;">{{ $errors->first('message') }}</strong>
                                         </span>
                                     @endif
+
+                                    {!! NoCaptcha::display() !!}
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="error">
+                                            <strong style="font-size: 11px; font-weight: 300;">{{ $errors->first('g-recaptcha-response') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                         </div>

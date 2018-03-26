@@ -51,6 +51,9 @@ export const router = new VueRouter({
         { path: "/galleries", component: require('./components/galleries/GalleryList.vue'), meta: { forAuth: true } },
         { path: "/galleries/create", component: require('./components/galleries/GalleryCreate.vue'), meta: { forAuth: true } },
         { path: "/galleries/:id/edit", component: require('./components/galleries/GalleryEdit.vue'), meta: { forAuth: true } },
+
+        { path: "/architects", component: require('./components/architects/ArchitectList.vue'), meta: { forAuth: true } },
+        { path: "/architects/:id/edit", component: require('./components/architects/ArchitectEdit.vue'), meta: { forAuth: true } },
     ],
 
     linkActiveClass: 'active'

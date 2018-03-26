@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Architect;
 use App\Category;
 use App\Collection;
 use App\Gallery;
 use App\Helper;
+use App\Http\Requests\RegisterArchitectClubRequest;
 use App\Http\Requests\SendContactFormRequest;
 use App\Mail\ContactFormMessage;
 use App\Menu;
@@ -94,6 +96,24 @@ class PagesController extends Controller
         \Mail::to(['jova.sreco@ministudio.rs', 'nenad@ministudio.rs', 'nebojsa.markovic@ministudio.rs'])->send(new ContactFormMessage($message));
         \Session::flash('message', 'poruka');
         return redirect('/');
+    }
+
+    public function architectClub(){
+        $settings = Setting::first();
+        $theme = Theme::getTheme();
+        $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
+        $post = Post::find(19);
+        \Session::forget('architect');
+        return view('themes.'.$theme.'.pages.architect-club', compact('settings', 'theme', 'topMenu', 'post'));
+    }
+
+    public function architectClubUpdate(RegisterArchitectClubRequest $request){
+        $old = Architect::where('email', request('email'))->first();
+        if(empty($old)){
+            Architect::create(request()->all());
+        }
+        \Session::put('architect', 'Architect');
+        return redirect()->back();
     }
 
     public function collections(){

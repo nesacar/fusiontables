@@ -13,7 +13,7 @@
                             <div class="plusic collapsed" data-toggle=collapse data-target=#collapse3 aria-expanded=false aria-controls=collapse3> <i class="fas fa-sort-down"></i> </div>
                         </h5>
                     </div>
-                    @php $submenu = \App\MenuLinkClear::getParentLinksById($menu->menu_id, $menu->id); @endphp
+                    @php $submenu = \App\MenuLinkClear::getParentLinksById($menu->menu_id, $menu->id, app()->getLocale()); @endphp
                     @if(count($submenu))
                         <div id=collapse3 class=collapse aria-labelledby=heading2 data-parent=#accordion>
                             <div class=card-body>

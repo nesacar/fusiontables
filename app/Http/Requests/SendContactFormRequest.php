@@ -27,6 +27,7 @@ class SendContactFormRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'message' => 'required',
+            'g-recaptcha-response' => 'required|captcha'
         ];
     }
 
@@ -35,6 +36,8 @@ class SendContactFormRequest extends FormRequest
             'name.required' => 'Ime je obavezno',
             'email.required' => 'Email adresa je obavezna',
             'message.required' => 'Poruka je obavezna',
+            'g-recaptcha-response.required' => 'Vi ste robot',
+            'g-recaptcha-response.captcha' => 'Vi ste robot',
         ];
     }
 }

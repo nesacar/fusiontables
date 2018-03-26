@@ -11,4 +11,5 @@ return [
     'Press' => 'Press',
     'Kvalitet' => 'Quality',
     'Iskustva' => 'Testimonials',
+    'Pratite nas' => 'Fallow us',
 ];

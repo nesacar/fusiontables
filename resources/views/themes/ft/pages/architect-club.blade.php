@@ -51,54 +51,100 @@
                         <div class="text-left">
                             <h6>Preuzmite fajlove:</h6>
                             <p>
-                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/Bench_3D.dwg') }}">
+                                @if(app()->getLocale() == 'en')
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/en/Bench_3D.dwg') }}">
                                       <span class="file-link__icon">
                                           {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
                                       </span>
-                                    <span class="file-link__text">Bench_3D.dwg</span>
-                                </a>,
-                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/Chair_3D.dwg') }}">
+                                        <span class="file-link__text">Bench_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/en/Chair_3D.dwg') }}">
                                   <span class="file-link__icon">
                                      {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
                                   </span>
-                                    <span class="file-link__text">Chair_3D.dwg</span>
-                                </a>,
-                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/dressoirs.dwg') }}">
+                                        <span class="file-link__text">Chair_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/en/dressoirs.dwg') }}">
                                   <span class="file-link__icon">
                                     {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
                                   </span>
-                                    <span class="file-link__text">Dressoirs.dwg</span>
-                                </a>,
-                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/Fusion_Billiard_3D.dwg') }}">
+                                        <span class="file-link__text">Dressoirs.dwg</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/en/Fusion_Billiard_3D.dwg') }}">
                                   <span class="file-link__icon">
                                     {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
                                   </span>
-                                    <span class="file-link__text">Fusion_Billiard_3D.dwg</span>
-                                </a>,
-                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/Fusion_Table_3D.dwg') }}">
+                                        <span class="file-link__text">Fusion_Billiard_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/en/Fusion_Table_3D.dwg') }}">
                                   <span class="file-link__icon">
                                     {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
                                   </span>
-                                    <span class="file-link__text">Fusion_Table_3D.dwg</span>
-                                </a>,
-                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/measures.pdf') }}">
+                                        <span class="file-link__text">Fusion_Table_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/en/measures.pdf') }}">
                                   <span class="file-link__icon">
                                     {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png') !!}
                                   </span>
-                                    <span class="file-link__text">Measures.pdf</span>
-                                </a>,
-                                <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/requirements_layout.pdf') }}">
+                                        <span class="file-link__text">Measures.pdf</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/en/requirements_layout.pdf') }}">
                                   <span class="file-link__icon">
                                     {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png') !!}
                                   </span>
-                                    <span class="file-link__text">Requirements_Layout.pdf</span>
-                                </a>
+                                        <span class="file-link__text">Requirements_Layout.pdf</span>
+                                    </a>
+                                @else
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/sr/Klupa_3D.dwg') }}">
+                                      <span class="file-link__icon">
+                                          {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                      </span>
+                                        <span class="file-link__text">Klupa_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/sr/Stolica_3D.dwg') }}">
+                                  <span class="file-link__icon">
+                                     {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                        <span class="file-link__text">Stolica_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/sr/komoda.dwg') }}">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                        <span class="file-link__text">Komoda.dwg</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/sr/Fusion_Bilijar_3D.dwg') }}">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                        <span class="file-link__text">Fusion_Bilijar_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/sr/Fusion_Sto_3D.dwg') }}">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                        <span class="file-link__text">Fusion_Sto_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/sr/mere.pdf') }}">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png') !!}
+                                  </span>
+                                        <span class="file-link__text">Mere.pdf</span>
+                                    </a>,
+                                    <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/sr/dimenzije_fusion_namestaja.pdf') }}">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png') !!}
+                                  </span>
+                                        <span class="file-link__text">dimenzije_fusion_namestaja.pdf</span>
+                                    </a>
+                                @endif
                             </p>
                         </div>
                     @else
                         <div class="text-left">
                             <h6>Preuzmite fajlove:</h6>
                             <p>
+                                @if(app()->getLocale() == 'en')
                                 <a class="file-link click" href="#">
                                       <span class="file-link__icon">
                                           {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
@@ -141,6 +187,50 @@
                                   </span>
                                     <span class="file-link__text">Requirements_Layout.pdf</span>
                                 </a>
+                                @else
+                                    <a class="file-link click" href="#">
+                                      <span class="file-link__icon">
+                                          {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                      </span>
+                                        <span class="file-link__text">Klupa_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                     {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                        <span class="file-link__text">Stolica_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                        <span class="file-link__text">Komoda.dwg</span>
+                                    </a>,
+                                    <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                        <span class="file-link__text">Fusion_Bilijar_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-dwg.png') !!}
+                                  </span>
+                                        <span class="file-link__text">Fusion_Sto_3D.dwg</span>
+                                    </a>,
+                                    <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png') !!}
+                                  </span>
+                                        <span class="file-link__text">Mere.pdf</span>
+                                    </a>,
+                                    <a class="file-link click" href="#">
+                                  <span class="file-link__icon">
+                                    {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png') !!}
+                                  </span>
+                                        <span class="file-link__text">dimenzije_fusion_namestaja.pdf</span>
+                                    </a>
+                                @endif
                             </p>
                             <p class="secret" style="color: red; display: none;">Da bi ste preuzeli fajlove, potrebno je prvo popuniti formu.</p>
                         </div>
@@ -193,7 +283,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label for="web">Web aresa</label>
+                                        <label for="web">Web adresa</label>
                                         <input class="form-control" type="text" id="web" name="web" />
                                     </div>
                                     <div class="col-md-6 form-group">

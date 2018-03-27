@@ -34,6 +34,21 @@
         @endforeach
     </div>
     @endif
+    <div class=languages>
+        @if(app()->getLocale() == 'sr')
+            <a class="languages__item active" href="{{ url($translate['sr']) }}">srb</a>
+            <a class=languages__item href="{{ url($translate['en']) }}">eng</a>
+            <a class=languages__item href="{{ url($translate['hr']) }}">hrv</a>
+        @elseif(app()->getLocale() == 'en')
+            <a class="languages__item" href="{{ url($translate['sr']) }}">srb</a>
+            <a class="languages__item active" href="{{ url($translate['en']) }}">eng</a>
+            <a class=languages__item href="{{ url($translate['hr']) }}">hrv</a>
+        @else
+            <a class="languages__item" href="{{ url($translate['sr']) }}">srb</a>
+            <a class=languages__item href="{{ url($translate['en']) }}">eng</a>
+            <a class="languages__item active" href="{{ url($translate['hr']) }}">hrv</a>
+        @endif
+    </div>
     <div class=social-icons>
         <a href=https://www.facebook.com/fusiontablesserbia/ target=_blank> <i class="fab fa-facebook"></i> </a>
         <a href=https://www.instagram.com/fusiontables/ target=_blank> <i class="fab fa-instagram"></i> </a>

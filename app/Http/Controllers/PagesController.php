@@ -32,7 +32,8 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $images = Gallery::first()->image;
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.home', compact('settings', 'theme', 'images', 'topMenu'));
+        $translate = ['sr' => 'sr', 'en' => 'en', 'hr' => 'hr'];
+        return view('themes.'.$theme.'.pages.home', compact('settings', 'theme', 'images', 'topMenu', 'translate'));
     }
 
     public function about(){
@@ -40,7 +41,8 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $post = Post::find(1);
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.about-us', compact('settings', 'theme', 'post', 'topMenu'));
+        $translate = ['sr' => 'sr/o-nama', 'en' => 'en/about-us', 'hr' => 'hr/o-nama'];
+        return view('themes.'.$theme.'.pages.about-us', compact('settings', 'theme', 'post', 'topMenu', 'translate'));
     }
 
     public function design(){
@@ -48,7 +50,8 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $post = Post::find(2);
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.design', compact('settings', 'theme', 'post', 'topMenu'));
+        $translate = ['sr' => 'sr/dizajn', 'en' => 'en/design', 'hr' => 'hr/dizajn'];
+        return view('themes.'.$theme.'.pages.design', compact('settings', 'theme', 'post', 'topMenu', 'translate'));
     }
 
     public function testimonials(){
@@ -56,7 +59,8 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $posts = Category::find(3)->post()->publish()->orderBy('created_at', 'desc')->paginate(6);
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.testimonials', compact('settings', 'theme', 'posts', 'topMenu'));
+        $translate = ['sr' => 'sr/iskustva', 'en' => 'en/testimonials', 'hr' => 'hr/iskustva'];
+        return view('themes.'.$theme.'.pages.testimonials', compact('settings', 'theme', 'posts', 'topMenu', 'translate'));
     }
 
     public function quality(){
@@ -64,7 +68,8 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $post = Post::find(3);
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.quality', compact('settings', 'theme', 'post', 'topMenu'));
+        $translate = ['sr' => 'sr/kvalitet', 'en' => 'en/quality', 'hr' => 'hr/kvalitet'];
+        return view('themes.'.$theme.'.pages.quality', compact('settings', 'theme', 'post', 'topMenu', 'translate'));
     }
 
     public function press(){
@@ -72,7 +77,8 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $posts = Category::find(2)->post()->publish()->paginate(3);
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.press', compact('settings', 'theme', 'posts', 'topMenu'));
+        $translate = ['sr' => 'sr/press', 'en' => 'en/press', 'hr' => 'hr/press'];
+        return view('themes.'.$theme.'.pages.press', compact('settings', 'theme', 'posts', 'topMenu', 'translate'));
     }
 
     public function gallery(){
@@ -81,14 +87,16 @@ class PagesController extends Controller
         $images = Gallery::find(3)->image()->where('publish', 1)->get();
         if(count($images)==0) return redirect('/');
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.gallery', compact('settings', 'theme', 'images', 'topMenu'));
+        $translate = ['sr' => 'sr/galerija', 'en' => 'en/gallery', 'hr' => 'hr/galerija'];
+        return view('themes.'.$theme.'.pages.gallery', compact('settings', 'theme', 'images', 'topMenu', 'translate'));
     }
 
     public function contact(){
         $settings = Setting::first();
         $theme = Theme::getTheme();
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.contact', compact('settings', 'theme', 'topMenu'));
+        $translate = ['sr' => 'sr/kontakt', 'en' => 'en/contact', 'hr' => 'hr/kontakt'];
+        return view('themes.'.$theme.'.pages.contact', compact('settings', 'theme', 'topMenu', 'translate'));
     }
 
     public function contactForm(SendContactFormRequest $request){
@@ -103,7 +111,8 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
         $post = Post::find(19);
-        return view('themes.'.$theme.'.pages.architect-club', compact('settings', 'theme', 'topMenu', 'post'));
+        $translate = ['sr' => 'sr/architect-club', 'en' => 'en/architect-club', 'hr' => 'hr/architect-club'];
+        return view('themes.'.$theme.'.pages.architect-club', compact('settings', 'theme', 'topMenu', 'post', 'translate'));
     }
 
     public function architectClubUpdate(RegisterArchitectClubRequest $request){
@@ -120,7 +129,8 @@ class PagesController extends Controller
         $theme = Theme::getTheme();
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
         $post = Post::find(20);
-        return view('themes.'.$theme.'.pages.catalog', compact('settings', 'theme', 'topMenu', 'post'));
+        $translate = ['sr' => 'sr/katalog', 'en' => 'en/catalog', 'hr' => 'hr/katalog'];
+        return view('themes.'.$theme.'.pages.catalog', compact('settings', 'theme', 'topMenu', 'post', 'translate'));
     }
 
     public function collections(){
@@ -129,7 +139,8 @@ class PagesController extends Controller
         $collection = Collection::find(3);
         $products = !empty($collection)? ProductClear::getProductByCollectionId($collection->id, app()->getLocale()) : [];
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products', 'topMenu'));
+        $translate = ['sr' => 'sr/kolekcije', 'en' => 'en/collections', 'hr' => 'hr/kolekcije'];
+        return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products', 'topMenu', 'translate'));
     }
 
     public function collections2($slug){
@@ -138,7 +149,8 @@ class PagesController extends Controller
         $collection = Collection::whereTranslation('slug', $slug)->first();
         $products = !empty($collection)? ProductClear::getProductByCollectionId($collection->id, app()->getLocale()) : [];
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products', 'topMenu'));
+        $translate = ['sr' => 'sr/kolekcije/'.$collection->slug, 'en' => 'en/collections/'.$collection->slug, 'hr' => 'hr/kolekcije/'.$collection->slug];
+        return view('themes.'.$theme.'.pages.collections', compact('settings', 'theme', 'collection', 'products', 'topMenu', 'translate'));
     }
 
     public function product($collection, $slug, $id){
@@ -148,7 +160,12 @@ class PagesController extends Controller
         $product = Product::find($id);
         $photos = $product->photo()->get();
         $topMenu = MenuLinkClear::getNoParentLinksById(1, app()->getLocale());
-        return view('themes.'.$theme.'.pages.product', compact('settings', 'theme', 'collection', 'product', 'photos', 'topMenu'));
+        $translate = [
+            'sr' => 'sr/'.$collection->slug.'/'.$product->slug.'/'.$product->id,
+            'en' => 'en/'.$collection->slug.'/'.$product->slug.'/'.$product->id,
+            'hr' => 'hr/'.$collection->slug.'/'.$product->slug.'/'.$product->id
+        ];
+        return view('themes.'.$theme.'.pages.product', compact('settings', 'theme', 'collection', 'product', 'photos', 'topMenu', 'translate'));
     }
 
     public function proba(){

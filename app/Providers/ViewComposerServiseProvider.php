@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helper;
 use App\Menu;
 use App\MenuLinkClear;
 use App\Theme;

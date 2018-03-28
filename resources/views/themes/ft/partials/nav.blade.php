@@ -1,3 +1,5 @@
+@php $route = \App\Helper::getRoute(); @endphp
+
 <div id=desktop-side-menu>
     <div class=logo>
         <a href="{{ url('/') }}">{!! HTML::Image('themes/'.$theme.'/img/logo.png', 'Fusion tables beograd') !!}</a>
@@ -9,7 +11,7 @@
                 <div class="card">
                     <div class=card-header id=heading-desktop-3>
                         <h5 class=mb-0>
-                            <a href="{{ url($menu->link) }}">{{ $menu->title }}</a>
+                            <a href="{{ url($menu->link) }}" @if($route == $menu->link) class="active" @endif>{{ $menu->title }}</a>
                             <div class="plusic collapsed" data-toggle=collapse data-target=#collapse3 aria-expanded=false aria-controls=collapse3> <i class="fas fa-sort-down"></i> </div>
                         </h5>
                     </div>
@@ -18,7 +20,7 @@
                         <div id=collapse3 class=collapse aria-labelledby=heading2 data-parent=#accordion>
                             <div class=card-body>
                                 @foreach($submenu as $sub)
-                                    <p> <a href="{{ url($sub->link) }}">{{ $sub->title }}</a> </p>
+                                    <p> <a href="{{ url($sub->link) }}" @if($route == $menu->link) class="active" @endif>{{ $sub->title }}</a> </p>
                                 @endforeach
                             </div>
                         </div>
@@ -27,7 +29,7 @@
             @else
                 <div class=card>
                     <div class=card-header id=heading-desktop-1>
-                        <h5 class=mb-0> <a href="{{ url($menu->link) }}">{{ $menu->title }}</a> </h5>
+                        <h5 class=mb-0> <a href="{{ url($menu->link) }}" @if($route == $menu->link) class="active" @endif>{{ $menu->title }}</a> </h5>
                     </div>
                 </div>
             @endif

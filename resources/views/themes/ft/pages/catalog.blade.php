@@ -49,7 +49,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <a class="katalog" href="#">
+                            <a class="katalog" href="{{ url('themes/'.$theme.'/img/katalog/Brosura_Fusion_Sto.pdf') }}">
                                 <div class="katalog-img">
                                     {!! HTML::Image('themes/'.$theme.'/img/Brosura-FT-Srb.jpg', 'katalog') !!}
                                     <div class="katalog-img__icon">
@@ -60,7 +60,7 @@
                             </a>
                         </div>
                         <div class="col-md-6">
-                            <a class="katalog" href="#">
+                            <a class="katalog" href="{{ url('themes/'.$theme.'/img/katalog/Brochure_Fusion_Table.pdf') }}">
                                 <div class="katalog-img">
                                     {!! HTML::Image('themes/'.$theme.'/img/Brochure-FT-Eng.jpg', 'katalog') !!}
                                     <div class="katalog-img__icon">

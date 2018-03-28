@@ -169,9 +169,6 @@ class PagesController extends Controller
     }
 
     public function proba(){
-        $imagedata = file_get_contents(public_path()."/img/user-image.png");
-        // alternatively specify an URL, if PHP settings allow
-        $base64 = base64_encode($imagedata);
-        dd($base64);
+        //
     }
 }

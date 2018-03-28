@@ -19,4 +19,9 @@ class Helper extends Model
         $str = str_replace('</p>', '', $str);
         return $str;
     }
+
+    public static function getRoute(){
+        $router = app()->make('router');
+        return $router->getCurrentRoute()->uri;
+    }
 }

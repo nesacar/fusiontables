@@ -53,7 +53,7 @@
                     </div>
                     <div class="testimonial">
                         <h3 class="testimonial__title">{{ $post->title }}</h3>
-                        <p class="testimonial__body">{{ $post->short }}</p>
+                        <p class="testimonial__body">{!! $post->body !!}</p>
                         <div class="testimonial__author">{{ $post->author }}</div>
                         @if(false)
                         <div class="testimonial__date">5 meseci 2 nedelje</div>

@@ -107,11 +107,11 @@
 Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
 --------------------------------------------------->
 <script type="text/javascript">
-    / <![CDATA[ /
+//    / <![CDATA[ /
     var google_conversion_id = 811813840;
     var google_custom_params = window.google_tag_params;
     var google_remarketing_only = true;
-    / ]]> /
+//    / ]]> /
 </script>
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 </script>

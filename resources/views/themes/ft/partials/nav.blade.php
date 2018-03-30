@@ -1,9 +1,5 @@
 @php $route = \App\Helper::getRoute(); @endphp
 
-<script>
-    console.log({{ $route }});
-</script>
-
 <div id=desktop-side-menu>
     <div class=logo>
         <a href="{{ url('/') }}">{!! HTML::Image('themes/'.$theme.'/img/logo.png', 'Fusion tables beograd') !!}</a>

@@ -169,6 +169,11 @@ class PagesController extends Controller
     }
 
     public function proba(){
-        //
+        $route = Helper::getRoute();
+        if($route == 'proba'){
+            return 'da';
+        }else{
+            return 'ne';
+        }
     }
 }

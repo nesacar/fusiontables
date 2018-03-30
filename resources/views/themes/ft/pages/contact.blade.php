@@ -64,7 +64,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="name">Ime <span>*</span></label>
+                                    <label for="name">@lang('language.Ime') <span>*</span></label>
                                     <input type="text" id="name" name="name">
                                     @if ($errors->has('name'))
                                         <span class="error">
@@ -72,7 +72,7 @@
                                         </span>
                                     @endif
 
-                                    <label for="email">E-mail adresa <span>*</span></label>
+                                    <label for="email">@lang('language.E-mail adresa') <span>*</span></label>
                                     <input type="email" id="email" name="email">
                                     @if ($errors->has('email'))
                                         <span class="error">
@@ -80,13 +80,13 @@
                                         </span>
                                     @endif
 
-                                    <label for="phone">Telefon</label>
+                                    <label for="phone">@lang('language.Telefon')</label>
                                     <input type="text" id="phone" name="phone">
 
                                     <button class="btn btn-primary" type="submit">Pošalji</button>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="message">Poruka <span>*</span></label>
+                                    <label for="message">@lang('language.Poruka') <span>*</span></label>
                                     <textarea name="message" id="message" cols="5" rows="5"></textarea>
                                     @if ($errors->has('message'))
                                         <span class="error">

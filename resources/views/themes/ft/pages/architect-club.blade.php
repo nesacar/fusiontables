@@ -49,7 +49,7 @@
                     </div>
                     @if(\Session::has('architect'))
                         <div class="text-left">
-                            <h6>Preuzmite fajlove:</h6>
+                            <h6>@lang('language.Preuzmite fajlove'):</h6>
                             <p>
                                 @if(app()->getLocale() == 'en')
                                     <a class="file-link" href="{{ url('themes/'.$theme.'/img/arhi/en/Bench_3D.dwg') }}">
@@ -142,7 +142,7 @@
                         </div>
                     @else
                         <div class="text-left">
-                            <h6>Preuzmite fajlove:</h6>
+                            <h6>@lang('language.Preuzmite fajlove'):</h6>
                             <p>
                                 @if(app()->getLocale() == 'en')
                                 <a class="file-link click" href="#">
@@ -238,7 +238,7 @@
                             {!! Form::open(['action' => ['PagesController@architectClubUpdate'], 'method' => 'POST']) !!}
                                 <div class="row mb-2">
                                     <div class="col-md-6 form-group required">
-                                        <label for="name">Ime i prezime</label>
+                                        <label for="name">@lang('language.Ime i prezime')</label>
                                         <input class="form-control" type="text" id="name" name="name" />
                                         @if ($errors->has('name'))
                                             <span class="invalid-feedback">
@@ -247,7 +247,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 form-group required">
-                                        <label for="city">Grad</label>
+                                        <label for="city">@lang('language.Grad')</label>
                                         <input class="form-control" type="text" id="city" name="city" />
                                         @if ($errors->has('city'))
                                             <span class="invalid-feedback">
@@ -256,7 +256,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 form-group required">
-                                        <label for="country">Država</label>
+                                        <label for="country">@lang('language.Država')</label>
                                         <input class="form-control" type="text" id="country" name="country" />
                                         @if ($errors->has('country'))
                                             <span class="invalid-feedback">
@@ -265,7 +265,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 form-group required">
-                                        <label for="telephone">Telefon</label>
+                                        <label for="telephone">@lang('language.Telefon')</label>
                                         <input class="form-control" type="text" id="telephone" name="phone" />
                                         @if ($errors->has('phone'))
                                             <span class="invalid-feedback">
@@ -274,7 +274,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 form-group required">
-                                        <label for="email">Email</label>
+                                        <label for="email">@lang('language.Email')</label>
                                         <input class="form-control" type="text" id="email" name="email" />
                                         @if ($errors->has('email'))
                                             <span class="invalid-feedback">
@@ -283,11 +283,11 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label for="web">Web adresa</label>
+                                        <label for="web">@lang('language.Web adresa')</label>
                                         <input class="form-control" type="text" id="web" name="web" />
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label for="company">Kompanija</label>
+                                        <label for="company">@lang('language.Kompanija')</label>
                                         <input class="form-control" type="text" id="company" name="company" />
                                     </div>
                                     <div class="col-md-6 form-group required">
@@ -299,7 +299,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Pošalji</button>
+                                <button type="submit" class="btn btn-primary">@lang('language.Pošalji')</button>
                             {!! Form::close() !!}
                         </div>
                     @endif

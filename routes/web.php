@@ -11,21 +11,6 @@
 |
 */
 
-//Route::get('/', 'PagesController@index');
-//Route::get('o-nama', 'PagesController@about');
-//Route::get('dizajn', 'PagesController@design');
-//Route::get('iskustva', 'PagesController@testimonials');
-//Route::get('kvalitet', 'PagesController@quality');
-//Route::get('press', 'PagesController@press');
-//Route::get('galerija', 'PagesController@gallery');
-//Route::get('kontakt', 'PagesController@contact');
-//Route::post('kontakt', 'PagesController@contactForm');
-//
-//Route::get('kolekcije', 'PagesController@collections');
-//Route::get('kolekcije/{slug}', 'PagesController@collections2');
-//
-//Route::get('{collection}/{product}/{id}', 'PagesController@product');
-
 Auth::routes();
 
 Route::post('kontakt', 'PagesController@contactForm');

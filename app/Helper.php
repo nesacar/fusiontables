@@ -21,7 +21,6 @@ class Helper extends Model
     }
 
     public static function getRoute(){
-        $router = app()->make('router');
-        return $router->getCurrentRoute()->uri;
+        return \Request::path();
     }
 }

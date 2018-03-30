@@ -274,7 +274,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 form-group required">
-                                        <label for="email">@lang('language.Email')</label>
+                                        <label for="email">@lang('language.E-mail adresa')</label>
                                         <input class="form-control" type="text" id="email" name="email" />
                                         @if ($errors->has('email'))
                                             <span class="invalid-feedback">

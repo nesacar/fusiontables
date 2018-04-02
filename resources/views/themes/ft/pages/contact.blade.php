@@ -21,9 +21,7 @@
 @section('content')
 
     <section>
-        <div class="container-fluid hero-contact-image">
-            <!-- <img src=img/collections-hero.jpg alt="hero" /> -->
-        </div>
+        <div class="container-fluid hero-image"></div>
     </section>
 
     <section>
@@ -39,74 +37,125 @@
         </div>
     </section>
 
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>@lang('language.Kontaktirajte nas')</h2>
-                </div>
-            </div>
-        </div>
-        <div class="container form-padding">
-            <div class="row">
-                <div class="col-md-4 vertical-center">
-                    <div>
-                        {!! HTML::Image('themes/'.$theme.'/img/ministudio.png', 'mini Studio Publishing Group', array('class' => 'ministudio')) !!}
-                        <ul>
-                            <li><i class="fas fa-map-marker-alt"></i>Zmaja od Noćaja 12, Beograd, Srbija</li>
-                            <li><a href="mailto:support@fusiontables.rs"><i class="far fa-envelope"></i>support@fusiontables.rs</a></li>
-                            <li><i class="fas fa-phone"></i><a href="tel:+381113282710">(+381) 11 32 82 710</a> <br> <a href="tel:+391637780088">(+381) 63 778 00 88</a></li>
-                        </ul>
+
+    <section>
+        <div class="container about-us mb-4">
+            <div class="o-nama-grid">
+                <div class="o-nama-text">
+                    <div class="text-left">
+                        <h5>@lang('language.Kontaktirajte nas')</h5>
+                        <p>@lang('language.Ukoliko')</p>
                     </div>
-                </div>
-                <div class="col-md-8">
-                    {!! Form::open(['action' => ['PagesController@contactForm'], 'method' => 'POST', 'class' => 'forma']) !!}
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="name">@lang('language.Ime') <span>*</span></label>
-                                    <input type="text" id="name" name="name">
-                                    @if ($errors->has('name'))
-                                        <span class="error">
-                                            <strong style="font-size: 11px; font-weight: 300;">{{ $errors->first('name') }}</strong>
-                                        </span>
-                                    @endif
+                    <div class="text-left">
+                        {!! Form::open(['action' => ['PagesController@contactForm'], 'method' => 'POST', 'class' => 'forma']) !!}
+                            <div class="row form-fields mb-2">
+                                <div class="col-xl-6 col-lg-12">
+                                    <div class="form-group required">
+                                        <label for="name">@lang('language.Ime')</label>
+                                        <input class="form-control" type="text" id="name" name="name" />
+                                        @if ($errors->has('name'))
+                                            <span class="error">
+                                                <strong style="font-size: 11px; font-weight: 300; color: red;">{{ $errors->first('name') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="company">@lang('language.Kompanija')</label>
+                                        <input class="form-control" type="text" id="company" name="company" />
+                                        @if ($errors->has('company'))
+                                            <span class="error">
+                                                <strong style="font-size: 11px; font-weight: 300; color: red;">{{ $errors->first('company') }}</strong>
+                                            </span>
+                                        @endif
 
-                                    <label for="email">@lang('language.E-mail adresa') <span>*</span></label>
-                                    <input type="email" id="email" name="email">
-                                    @if ($errors->has('email'))
-                                        <span class="error">
-                                            <strong style="font-size: 11px; font-weight: 300;">{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
-
-                                    <label for="phone">@lang('language.Telefon')</label>
-                                    <input type="text" id="phone" name="phone">
-
-                                    <button class="btn btn-primary" type="submit">Pošalji</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city">@lang('language.Grad')</label>
+                                        <input class="form-control" type="text" id="city" name="city" />
+                                        @if ($errors->has('city'))
+                                            <span class="error">
+                                                <strong style="font-size: 11px; font-weight: 300; color: red;">{{ $errors->first('city') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country">@lang('language.Država')</label>
+                                        <input class="form-control" type="text" id="country" name="country" />
+                                        @if ($errors->has('country'))
+                                            <span class="error">
+                                                <strong style="font-size: 11px; font-weight: 300; color: red;">{{ $errors->first('country') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="message">@lang('language.Poruka') <span>*</span></label>
-                                    <textarea name="message" id="message" cols="5" rows="5"></textarea>
-                                    @if ($errors->has('message'))
-                                        <span class="error">
-                                            <strong style="font-size: 11px; font-weight: 300;">{{ $errors->first('message') }}</strong>
-                                        </span>
-                                    @endif
+                                <div class="col-xl-6 col-lg-12">
+                                    <div class="form-group required">
+                                        <label for="profile">@lang('language.Profil')</label>
+                                        <div class="select">
+                                            <div class="select_field">
+                                                <select id="profile" name="profile">
+                                                    <option value="" disabled selected>@lang('language.Izaberite profil')</option>
+                                                    <option value="kupac">Zainteresovan sam za kupovinu</option>
+                                                    <option value="prodavac">Zainteresovan sam za prodaju</option>
+                                                    <option value="arhitekta">Arhitekta</option>
+                                                    <option value="dizajner">Dizajner enterijera</option>
+                                                    <option value="agent">Agent/Press</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        @if ($errors->has('profile'))
+                                            <span class="error">
+                                                <strong style="font-size: 11px; font-weight: 300; color: red;">{{ $errors->first('profile') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="email">@lang('language.E-mail adresa')</label>
+                                        <input class="form-control" type="email" id="email" name="email" />
+                                        @if ($errors->has('email'))
+                                            <span class="error">
+                                                <strong style="font-size: 11px; font-weight: 300; color: red;">{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
 
-                                    {!! NoCaptcha::display() !!}
-                                    @if ($errors->has('g-recaptcha-response'))
-                                        <span class="error">
-                                            <strong style="font-size: 11px; font-weight: 300;">{{ $errors->first('g-recaptcha-response') }}</strong>
-                                        </span>
-                                    @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="telephone">@lang('language.Telefon')</label>
+                                        <input class="form-control" type="text" id="telephone" name="telephone" />
+                                        @if ($errors->has('phone'))
+                                            <span class="error">
+                                                <strong style="font-size: 11px; font-weight: 300; color: red;">{{ $errors->first('phone') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="message">@lang('language.Poruka')</label>
+                                        <textarea class="form-control" id="message" name="message" rows="6"></textarea>
+                                        @if ($errors->has('message'))
+                                            <span class="error">
+                                                <strong style="font-size: 11px; font-weight: 300; color: red;">{{ $errors->first('message') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    {!! Form::close() !!}
+                            <div class="position-relative">
+                                {!! NoCaptcha::display() !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="error">
+                                        <strong style="font-size: 11px; font-weight: 300; color: red;">{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
+                                <div>
+                                    <button type="submit" class="btn btn-primary">@lang('language.Pošalji')</button>
+                                </div>
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
 
 @endsection

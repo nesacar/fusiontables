@@ -4,8 +4,9 @@
 Ime: {{ $message->name }} <br>
 Email: {{ $message->email }} <br>
 @if(!empty($message->phone))
-Phone: {{ $message->phone }} <br>
+Telefon: {{ $message->phone }} <br>
 @endif
+Profil: {{ $message->profile }} <br>
 Poruka: {{ $message->message }} <br><br>
 
 Hvala,<br>

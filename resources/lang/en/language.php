@@ -24,4 +24,7 @@ return [
     'Kompanija' => 'Company',
     'Preuzmite fajlove' => 'Download files',
     'Pošalji' => 'Send',
+    'Ukoliko' => 'Ukoliko ste zainteresovani za više informacija vezano za FusionTables , molimo Vas popunite kontakt formu.<br/>Biće nam zadovoljstvo da Vam odgovorimo u najkraćem mogućem roku.',
+    'Profil' => 'Profile',
+    'Izaberite profil' => 'Select a profile'
 ];

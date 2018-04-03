@@ -135,7 +135,7 @@ class ProductsController extends Controller
             })
             ->where(function ($query) use ($text){
                 if($text != ''){
-                    $query->where('product_translations.title', 'like', '%'.$text.'%')->orWhere('product_translations.title', 'like', '%'.$text.'%');
+                    $query->where('product_translations.title', 'like', '%'.$text.'%')->orWhere('product_translations.slug', 'like', '%'.$text.'%');
                 }
             })
             ->orderBy('products.created_at', 'DESC')->groupBy('products.id')->paginate(50);

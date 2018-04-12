@@ -48,7 +48,7 @@
                         {!! $post->body !!}
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <a class="katalog" href="{{ url('themes/'.$theme.'/img/katalog/Brosura_Fusion_Sto.pdf') }}">
                                 <div class="katalog-img">
                                     {!! HTML::Image('themes/'.$theme.'/img/Brosura-FT-Srb.jpg', 'katalog') !!}
@@ -56,10 +56,10 @@
                                         {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png', 'pdf ikonica', array('class' => 'icon')) !!}
                                     </div>
                                 </div>
-                                <p>Katalog na srpskom</p>
+                                <p>@lang('language.Katalog na srpskom')</p>
                             </a>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <a class="katalog" href="{{ url('themes/'.$theme.'/img/katalog/Brochure_Fusion_Table.pdf') }}">
                                 <div class="katalog-img">
                                     {!! HTML::Image('themes/'.$theme.'/img/Brochure-FT-Eng.jpg', 'katalog') !!}
@@ -67,7 +67,18 @@
                                         {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png', 'pdf ikonica', array('class' => 'icon')) !!}
                                     </div>
                                 </div>
-                                <p>Katalog na engleskom</p>
+                                <p>@lang('language.Katalog na engleskom')</p>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="katalog" href="{{ url('themes/'.$theme.'/img/katalog/Brosura_FT_Feb18_CRO.pdf') }}">
+                                <div class="katalog-img">
+                                    {!! HTML::Image('themes/'.$theme.'/img/FT-katalog-hr.jpg', 'katalog') !!}
+                                    <div class="katalog-img__icon">
+                                        {!! HTML::Image('themes/'.$theme.'/img/download-pdf.png', 'pdf ikonica', array('class' => 'icon')) !!}
+                                    </div>
+                                </div>
+                                <p>@lang('language.Katalog na hrvatskom')</p>
                             </a>
                         </div>
                     </div>

@@ -27,4 +27,12 @@ return [
     'Ukoliko' => 'Ukoliko ste zainteresovani za više informacija vezano za FusionTables , molimo Vas popunite kontakt formu.<br/>Biće nam zadovoljstvo da Vam odgovorimo u najkraćem mogućem roku.',
     'Profil' => 'Profil',
     'Izaberite profil' => 'Odaberite profil',
+    'Katalog na srpskom' => 'Katalog na srpskom',
+    'Katalog na hrvatskom' => 'Katalog na hrvatskom',
+    'Katalog na engleskom' => 'Katalog na engleskom',
+    'Zainteresovan sam za kupovinu' => 'Zainteresovan sam za kupovinu',
+    'Zainteresovan sam za prodaju' => 'Zainteresovan sam za prodaju',
+    'Arhitekta' => 'Arhitekta',
+    'Agent/Press' => 'Agent/Press',
+    'Dizajner enterijera' => 'Dizajner enterijera',
 ];

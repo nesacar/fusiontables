@@ -95,11 +95,11 @@
                                             <div class="select_field">
                                                 <select id="profile" name="profile">
                                                     <option value="" disabled selected>@lang('language.Izaberite profil')</option>
-                                                    <option value="kupac">Zainteresovan sam za kupovinu</option>
-                                                    <option value="prodavac">Zainteresovan sam za prodaju</option>
-                                                    <option value="arhitekta">Arhitekta</option>
-                                                    <option value="dizajner">Dizajner enterijera</option>
-                                                    <option value="agent">Agent/Press</option>
+                                                    <option value="kupac">@lang('language.Zainteresovan sam za kupovinu')</option>
+                                                    <option value="prodavac">@lang('language.Zainteresovan sam za prodaju')</option>
+                                                    <option value="arhitekta">@lang('language.Arhitekta')</option>
+                                                    <option value="dizajner">@lang('language.Dizajner enterijera')</option>
+                                                    <option value="agent">@lang('language.Agent/Press')</option>
                                                 </select>
                                             </div>
                                         </div>

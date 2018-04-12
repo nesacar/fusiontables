@@ -24,7 +24,15 @@ return [
     'Kompanija' => 'Company',
     'Preuzmite fajlove' => 'Download files',
     'Pošalji' => 'Send',
-    'Ukoliko' => 'Ukoliko ste zainteresovani za više informacija vezano za FusionTables , molimo Vas popunite kontakt formu.<br/>Biće nam zadovoljstvo da Vam odgovorimo u najkraćem mogućem roku.',
+    'Ukoliko' => 'If you are interested in more information regarding FusionTables, please fill in the form. <br> It will be our pleasure to reply to you as soon as possible.',
     'Profil' => 'Profile',
-    'Izaberite profil' => 'Select a profile'
+    'Izaberite profil' => 'Select a profile',
+    'Katalog na srpskom' => 'Catalog on serbian',
+    'Katalog na hrvatskom' => 'Catalog on croatian',
+    'Katalog na engleskom' => 'Catalog on english',
+    'Zainteresovan sam za kupovinu' => 'I am interested in purchasing',
+    'Zainteresovan sam za prodaju' => 'I am interested in retailing / selling',
+    'Arhitekta' => 'Architect',
+    'Agent/Press' => 'Agent',
+    'Dizajner enterijera' => 'Interior Designer',
 ];
